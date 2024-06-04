@@ -1,0 +1,32 @@
+{
+  "login": {
+    "screen": "ログイン",
+    "loginBtn": "ログイン",
+    "email" : "メールアドレス",
+    "emailHint": "メールアドレスを入力してください",
+    "password": "パスワード",
+    "passwordHint": "パスワードを入力してください",
+    "resetPassword" : "パスワードを忘れた方はこちらから" ,
+    "gotoSignUp": "アカウントをお持ちでない方",
+    "signUp": "会員登録"
+  },
+  "myPage": {
+    "screen": "マイページ",
+    "menu": {
+      "profile": "登録情報",
+      "notificationSettings": "通知情報",
+      "term": "利用規約",
+      "privacy": "プライバシーポリシー",
+      "about": "アプリについて"
+    },
+    "logout": "ログアウト"
+  },
+  "oauth": {
+    "apple": "Appleでサインイン",
+    "google": "Googleでサインイン",
+    "line": "LINEでサインイン"
+  },
+  "error": {
+    "emailAndPassword": "メールアドレス及びパスワードを正しく入力してください"
+  }
+}
