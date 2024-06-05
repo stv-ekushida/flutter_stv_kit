@@ -1,21 +1,20 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/ui/authentication/pasword_reset/password_reset_screen_view_model.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 
 // Package imports:
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
+import 'package:flutter_stv_kit/ui/authentication/pasword_reset/password_reset_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_button.dart';
+import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
-
-import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 
 class PasswordResetScreen extends ConsumerStatefulWidget {
   const PasswordResetScreen({super.key});

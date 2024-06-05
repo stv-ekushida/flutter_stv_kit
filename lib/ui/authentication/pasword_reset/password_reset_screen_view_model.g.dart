@@ -7,7 +7,7 @@ part of 'password_reset_screen_view_model.dart';
 // **************************************************************************
 
 String _$passwordResetScreenViewModelHash() =>
-    r'0d37fc1c316e389b2a64995d10e0352231aaac7a';
+    r'3322267be0ac2ddefc91e419c8aa98fdd8270bc5';
 
 /// Copied from Dart SDK
 class _SystemHash {

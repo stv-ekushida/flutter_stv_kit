@@ -8,7 +8,6 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/data/model/user/user.dart';
-import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
 import 'package:flutter_stv_kit/foundation/app_router.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';

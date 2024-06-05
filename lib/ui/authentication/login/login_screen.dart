@@ -10,7 +10,6 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
 import 'package:flutter_stv_kit/foundation/app_color.dart';
 import 'package:flutter_stv_kit/foundation/app_router.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';

@@ -27,8 +27,8 @@ dependencies:
   slang: ^3.31.0
   slang_flutter: ^3.31.0
   freezed: ^2.5.2
+  riverpod_annotation: ^2.3.5
   freezed_annotation: ^2.4.1
-  riverpod_generator: ^2.4.0
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +39,7 @@ dev_dependencies:
   flutter_gen_runner:
   slang_build_runner: ^3.31.0
   json_serializable: ^6.8.0
+  riverpod_generator: ^2.4.0
 
 flutter:
 
