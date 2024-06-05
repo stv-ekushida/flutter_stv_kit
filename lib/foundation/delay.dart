@@ -1,5 +1,5 @@
-Future<void> delay(int seconds) async {
-  Future.delayed(
-    Duration(seconds: seconds),
+Future<void> delay(int milliseconds) async {
+  await Future.delayed(
+    Duration(milliseconds: milliseconds),
   );
 }

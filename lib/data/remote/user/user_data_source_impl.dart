@@ -16,7 +16,7 @@ UserDataSource userDataSource(UserDataSourceRef ref) {
 class UserDataSourceImpl implements UserDataSource {
   @override
   Future<User> fetch() async {
-    await delay(2);
+    await delay(500);
 
     return Future.value(
       const User(

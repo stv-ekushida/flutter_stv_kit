@@ -1,5 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
+import 'package:flutter_stv_kit/ui/authentication/login/login_screen_view_model.dart';
+import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 
 // Package imports:
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,24 +22,31 @@ import 'package:flutter_stv_kit/ui/component/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
 import '../../../gen/assets.gen.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final emailTextControl = TextEditingController();
   final passwordTextControl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(loginScreenViewModelProvider());
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ログイン'),
+        title: Text(i18n.strings.login.screen),
       ),
-      body: _buildBody(),
+      body: Stack(
+        children: [
+          _buildBody(),
+          if (state.isLoading) const CustomIndicator(),
+        ],
+      ),
     );
   }
 
@@ -154,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       return;
     }
-    context.goNamed(ScreenType.home.name);
+    _onPressedLoginWithEmailAndPassword();
   }
 
   List<Widget> _buildPartition() {
@@ -197,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.black,
           fontWeight: FontWeight.w600,
         ),
-        onPressed: () => context.goNamed(ScreenType.home.name),
+        onPressed: () => _onPressedLoginWithEmailAndPassword(),
       ),
       const Gap(16),
       CustomSnsButton(
@@ -208,7 +219,7 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.black,
           fontWeight: FontWeight.w600,
         ),
-        onPressed: () => context.goNamed(ScreenType.home.name),
+        onPressed: () => _onPressedLoginWithEmailAndPassword(),
       ),
       const Gap(16),
       CustomSnsButton(
@@ -219,9 +230,22 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.black,
           fontWeight: FontWeight.w600,
         ),
-        onPressed: () => context.goNamed(ScreenType.home.name),
+        onPressed: () => _onPressedLoginWithEmailAndPassword(),
       ),
     ];
+  }
+
+  Future<void> _onPressedLoginWithEmailAndPassword() async {
+    await ref.read(loginScreenViewModelProvider().notifier).login(
+          email: emailTextControl.text,
+          password: passwordTextControl.text,
+        );
+
+    if (!mounted) {
+      return;
+    }
+
+    context.goNamed(ScreenType.home.name);
   }
 
   List<Widget> _buildSignUp() {

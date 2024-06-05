@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/data/model/user/user.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
-import 'package:flutter_stv_kit/ui/my_page/my_page_screen_view_model.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/data/model/user/user.dart';
+import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
 import 'package:flutter_stv_kit/foundation/app_router.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
+import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_button.dart';
+import 'package:flutter_stv_kit/ui/my_page/my_page_screen_view_model.dart';
 
 enum MyPageMenuType1 {
   profile,
@@ -87,6 +88,7 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
 
     return SingleChildScrollView(
       child: Stack(
+        alignment: Alignment.center,
         children: [
           Column(
             children: [
@@ -189,9 +191,17 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
     context.showConfirmDialog(
       '確認',
       'ログアウトしますか？',
-      () {
-        context.goNamed(ScreenType.login.name);
-      },
+      () => _invokeLogout(),
     );
+  }
+
+  Future<void> _invokeLogout() async {
+    await ref.read(myPageScreenViewModelProvider().notifier).signOut();
+
+    if (!mounted) {
+      return;
+    }
+
+    context.goNamed(ScreenType.login.name);
   }
 }

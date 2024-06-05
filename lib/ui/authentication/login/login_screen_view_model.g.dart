@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'my_page_screen_view_model.dart';
+part of 'login_screen_view_model.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myPageScreenViewModelHash() =>
-    r'1b1ab60186c77189d6dc3f46ff25cc21d4b05d65';
+String _$loginScreenViewModelHash() =>
+    r'060684edf50dccf8b7ac1fbae83c9ae9815be214';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -30,38 +30,38 @@ class _SystemHash {
   }
 }
 
-abstract class _$MyPageScreenViewModel
-    extends BuildlessAutoDisposeNotifier<MyPageScreenState> {
-  late final MyPageScreenState initialState;
+abstract class _$LoginScreenViewModel
+    extends BuildlessAutoDisposeNotifier<LoginScreenState> {
+  late final LoginScreenState initialState;
 
-  MyPageScreenState build({
-    MyPageScreenState initialState =
-        const MyPageScreenState(user: null, isLoading: false),
+  LoginScreenState build({
+    LoginScreenState initialState =
+        const LoginScreenState(auth: null, isLoading: false),
   });
 }
 
-/// See also [MyPageScreenViewModel].
-@ProviderFor(MyPageScreenViewModel)
-const myPageScreenViewModelProvider = MyPageScreenViewModelFamily();
+/// See also [LoginScreenViewModel].
+@ProviderFor(LoginScreenViewModel)
+const loginScreenViewModelProvider = LoginScreenViewModelFamily();
 
-/// See also [MyPageScreenViewModel].
-class MyPageScreenViewModelFamily extends Family<MyPageScreenState> {
-  /// See also [MyPageScreenViewModel].
-  const MyPageScreenViewModelFamily();
+/// See also [LoginScreenViewModel].
+class LoginScreenViewModelFamily extends Family<LoginScreenState> {
+  /// See also [LoginScreenViewModel].
+  const LoginScreenViewModelFamily();
 
-  /// See also [MyPageScreenViewModel].
-  MyPageScreenViewModelProvider call({
-    MyPageScreenState initialState =
-        const MyPageScreenState(user: null, isLoading: false),
+  /// See also [LoginScreenViewModel].
+  LoginScreenViewModelProvider call({
+    LoginScreenState initialState =
+        const LoginScreenState(auth: null, isLoading: false),
   }) {
-    return MyPageScreenViewModelProvider(
+    return LoginScreenViewModelProvider(
       initialState: initialState,
     );
   }
 
   @override
-  MyPageScreenViewModelProvider getProviderOverride(
-    covariant MyPageScreenViewModelProvider provider,
+  LoginScreenViewModelProvider getProviderOverride(
+    covariant LoginScreenViewModelProvider provider,
   ) {
     return call(
       initialState: provider.initialState,
@@ -69,7 +69,6 @@ class MyPageScreenViewModelFamily extends Family<MyPageScreenState> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    userRepositoryProvider,
     authRepositoryProvider
   ];
 
@@ -78,8 +77,6 @@ class MyPageScreenViewModelFamily extends Family<MyPageScreenState> {
 
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
-    userRepositoryProvider,
-    ...?userRepositoryProvider.allTransitiveDependencies,
     authRepositoryProvider,
     ...?authRepositoryProvider.allTransitiveDependencies
   };
@@ -89,31 +86,31 @@ class MyPageScreenViewModelFamily extends Family<MyPageScreenState> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'myPageScreenViewModelProvider';
+  String? get name => r'loginScreenViewModelProvider';
 }
 
-/// See also [MyPageScreenViewModel].
-class MyPageScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
-    MyPageScreenViewModel, MyPageScreenState> {
-  /// See also [MyPageScreenViewModel].
-  MyPageScreenViewModelProvider({
-    MyPageScreenState initialState =
-        const MyPageScreenState(user: null, isLoading: false),
+/// See also [LoginScreenViewModel].
+class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
+    LoginScreenViewModel, LoginScreenState> {
+  /// See also [LoginScreenViewModel].
+  LoginScreenViewModelProvider({
+    LoginScreenState initialState =
+        const LoginScreenState(auth: null, isLoading: false),
   }) : this._internal(
-          () => MyPageScreenViewModel()..initialState = initialState,
-          from: myPageScreenViewModelProvider,
-          name: r'myPageScreenViewModelProvider',
+          () => LoginScreenViewModel()..initialState = initialState,
+          from: loginScreenViewModelProvider,
+          name: r'loginScreenViewModelProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$myPageScreenViewModelHash,
-          dependencies: MyPageScreenViewModelFamily._dependencies,
+                  : _$loginScreenViewModelHash,
+          dependencies: LoginScreenViewModelFamily._dependencies,
           allTransitiveDependencies:
-              MyPageScreenViewModelFamily._allTransitiveDependencies,
+              LoginScreenViewModelFamily._allTransitiveDependencies,
           initialState: initialState,
         );
 
-  MyPageScreenViewModelProvider._internal(
+  LoginScreenViewModelProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -123,11 +120,11 @@ class MyPageScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
     required this.initialState,
   }) : super.internal();
 
-  final MyPageScreenState initialState;
+  final LoginScreenState initialState;
 
   @override
-  MyPageScreenState runNotifierBuild(
-    covariant MyPageScreenViewModel notifier,
+  LoginScreenState runNotifierBuild(
+    covariant LoginScreenViewModel notifier,
   ) {
     return notifier.build(
       initialState: initialState,
@@ -135,10 +132,10 @@ class MyPageScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(MyPageScreenViewModel Function() create) {
+  Override overrideWith(LoginScreenViewModel Function() create) {
     return ProviderOverride(
       origin: this,
-      override: MyPageScreenViewModelProvider._internal(
+      override: LoginScreenViewModelProvider._internal(
         () => create()..initialState = initialState,
         from: from,
         name: null,
@@ -151,14 +148,14 @@ class MyPageScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeNotifierProviderElement<MyPageScreenViewModel, MyPageScreenState>
+  AutoDisposeNotifierProviderElement<LoginScreenViewModel, LoginScreenState>
       createElement() {
-    return _MyPageScreenViewModelProviderElement(this);
+    return _LoginScreenViewModelProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is MyPageScreenViewModelProvider &&
+    return other is LoginScreenViewModelProvider &&
         other.initialState == initialState;
   }
 
@@ -171,20 +168,20 @@ class MyPageScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 }
 
-mixin MyPageScreenViewModelRef
-    on AutoDisposeNotifierProviderRef<MyPageScreenState> {
+mixin LoginScreenViewModelRef
+    on AutoDisposeNotifierProviderRef<LoginScreenState> {
   /// The parameter `initialState` of this provider.
-  MyPageScreenState get initialState;
+  LoginScreenState get initialState;
 }
 
-class _MyPageScreenViewModelProviderElement
-    extends AutoDisposeNotifierProviderElement<MyPageScreenViewModel,
-        MyPageScreenState> with MyPageScreenViewModelRef {
-  _MyPageScreenViewModelProviderElement(super.provider);
+class _LoginScreenViewModelProviderElement
+    extends AutoDisposeNotifierProviderElement<LoginScreenViewModel,
+        LoginScreenState> with LoginScreenViewModelRef {
+  _LoginScreenViewModelProviderElement(super.provider);
 
   @override
-  MyPageScreenState get initialState =>
-      (origin as MyPageScreenViewModelProvider).initialState;
+  LoginScreenState get initialState =>
+      (origin as LoginScreenViewModelProvider).initialState;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
