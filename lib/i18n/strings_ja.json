@@ -29,6 +29,11 @@
     },
     "logout": "ログアウト"
   },
+  "newsList": {
+    "screen": "お知らせ",
+    "empty": "'現在、配信されているニュースはありません"
+  },
+
   "oauth": {
     "apple": "Appleでサインイン",
     "google": "Googleでサインイン",

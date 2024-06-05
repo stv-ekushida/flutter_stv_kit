@@ -10,6 +10,16 @@
 // Flutter imports:
 import 'package:flutter/widgets.dart';
 
+class $StubGen {
+  const $StubGen();
+
+  /// File path: stub/news.json
+  String get news => 'stub/news.json';
+
+  /// List of all assets
+  List<String> get values => [news];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -24,6 +34,7 @@ class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $StubGen stub = $StubGen();
 }
 
 class AssetGenImage {

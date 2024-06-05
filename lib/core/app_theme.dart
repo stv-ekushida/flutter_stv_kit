@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:flutter_stv_kit/core/app_color.dart';
 
 class AppTheme {

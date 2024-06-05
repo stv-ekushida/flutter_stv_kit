@@ -7,8 +7,8 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/data/model/user/user.dart';
 import 'package:flutter_stv_kit/core/app_router.dart';
+import 'package:flutter_stv_kit/data/model/user/user.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
@@ -77,6 +77,12 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(i18n.strings.myPage.screen),
+        actions: [
+          IconButton(
+            onPressed: () => context.goNamed(ScreenType.news.name),
+            icon: const Icon(Icons.notifications_none_outlined),
+          )
+        ],
       ),
       body: _buildBody(context),
     );

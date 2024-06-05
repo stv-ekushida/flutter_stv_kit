@@ -9,14 +9,14 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen.dart';
 import 'package:flutter_stv_kit/ui/authentication/pasword_reset/password_reset_screen.dart';
 import 'package:flutter_stv_kit/ui/home/home_screen.dart';
+import 'package:flutter_stv_kit/ui/news/news_list_screen.dart';
 import 'package:flutter_stv_kit/ui/portfolio_list_screen.dart';
 
 enum ScreenType {
-  menu,
   login,
   passwordReset,
   home,
-  devHome,
+  news,
 }
 
 final appRouterProvider = Provider<GoRouter>(
@@ -49,6 +49,14 @@ final appRouterProvider = Provider<GoRouter>(
           name: ScreenType.home.name,
           builder: (BuildContext context, GoRouterState state) =>
               const HomeScreen(),
+          routes: [
+            GoRoute(
+              path: ScreenType.news.name,
+              name: ScreenType.news.name,
+              builder: (BuildContext context, GoRouterState state) =>
+                  const NewsListScreen(),
+            ),
+          ],
         ),
       ],
     );

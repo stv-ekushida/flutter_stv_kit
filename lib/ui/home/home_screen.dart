@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:bart/bart.dart';
+import 'package:go_router/go_router.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/ui/my_page/my_page_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,6 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
         pageBuilder: (_, __, ___) => Scaffold(
           appBar: AppBar(
             title: const Text('ホーム'),
+            actions: [
+              IconButton(
+                onPressed: () => context.goNamed(ScreenType.news.name),
+                icon: const Icon(Icons.notifications_none_outlined),
+              )
+            ],
           ),
           body: Container(),
         ),
