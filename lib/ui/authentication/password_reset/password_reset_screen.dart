@@ -10,7 +10,7 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:flutter_stv_kit/ui/authentication/pasword_reset/password_reset_screen_view_model.dart';
+import 'package:flutter_stv_kit/ui/authentication/password_reset/password_reset_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
