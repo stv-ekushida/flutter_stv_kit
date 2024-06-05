@@ -16,6 +16,7 @@ enum ScreenType {
   login,
   passwordReset,
   home,
+  devHome,
 }
 
 final appRouterProvider = Provider<GoRouter>(
@@ -28,18 +29,19 @@ final appRouterProvider = Provider<GoRouter>(
               const PortfolioListScreen(),
           routes: [
             GoRoute(
-                path: ScreenType.login.name,
-                name: ScreenType.login.name,
-                builder: (BuildContext context, GoRouterState state) =>
-                    const LoginScreen(),
-                routes: [
-                  GoRoute(
-                    path: ScreenType.passwordReset.name,
-                    name: ScreenType.passwordReset.name,
-                    builder: (BuildContext context, GoRouterState state) =>
-                        const PasswordResetScreen(),
-                  ),
-                ]),
+              path: ScreenType.login.name,
+              name: ScreenType.login.name,
+              builder: (BuildContext context, GoRouterState state) =>
+                  const LoginScreen(),
+              routes: [
+                GoRoute(
+                  path: ScreenType.passwordReset.name,
+                  name: ScreenType.passwordReset.name,
+                  builder: (BuildContext context, GoRouterState state) =>
+                      const PasswordResetScreen(),
+                ),
+              ],
+            ),
           ],
         ),
         GoRoute(

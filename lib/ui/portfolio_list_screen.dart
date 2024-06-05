@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/foundation/app_router.dart';
+import 'package:flutter_stv_kit/core/app_router.dart';
 
 class PortfolioListScreen extends StatelessWidget {
   const PortfolioListScreen({super.key});
@@ -21,9 +21,6 @@ class PortfolioListScreen extends StatelessWidget {
           ListTile(
             title: const Text('認証'),
             onTap: () => context.goNamed(ScreenType.login.name),
-          ),
-          const ListTile(
-            title: Text('開発'),
           ),
         ],
       ),

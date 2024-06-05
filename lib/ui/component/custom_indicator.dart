@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/foundation/app_color.dart';
+import 'package:flutter_stv_kit/core/app_color.dart';
 
 class CustomIndicator extends StatelessWidget {
   const CustomIndicator({super.key});

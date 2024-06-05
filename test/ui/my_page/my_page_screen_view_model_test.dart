@@ -1,16 +1,16 @@
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/data/model/user/user.dart';
-import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
-import 'package:flutter_stv_kit/data/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/data/model/user/user.dart';
+import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
 import 'package:flutter_stv_kit/data/repository/user/user_repository_impl.dart';
+import 'package:flutter_stv_kit/data/result.dart';
 import 'package:flutter_stv_kit/ui/my_page/my_page_screen_state.dart';
 import 'package:flutter_stv_kit/ui/my_page/my_page_screen_view_model.dart';
-import 'package:mockito/mockito.dart';
 import 'my_page_screen_view_model_test.mocks.dart';
 
 @GenerateMocks([

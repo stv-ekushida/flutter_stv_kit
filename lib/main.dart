@@ -6,8 +6,9 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/foundation/app_color.dart';
-import 'package:flutter_stv_kit/foundation/app_router.dart';
+import 'package:flutter_stv_kit/core/app_color.dart';
+import 'package:flutter_stv_kit/core/app_router.dart';
+import 'package:flutter_stv_kit/core/app_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 
 void main() {
@@ -40,23 +41,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'STV Flutter Components',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColor.primaryColor,
-          elevation: 0,
-          centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.white),
-          titleTextStyle: TextStyle(
-            fontFamily: 'NotoSansJp',
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            color: Colors.white,
-          ),
-        ),
-        fontFamily: 'NotoSansJp',
-      ),
+      theme: AppTheme.theme,
       routerConfig: goRouter,
     );
   }
