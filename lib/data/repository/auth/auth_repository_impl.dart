@@ -50,4 +50,13 @@ class AuthRepositoryImpl implements AuthRepository {
       () async => await dataSource.signOut(),
     );
   }
+
+  @override
+  Future<Result<bool>> resetPassword({
+    required String email,
+  }) async {
+    return Result.guardFuture(
+      () async => await dataSource.resetPassword(email: email),
+    );
+  }
 }

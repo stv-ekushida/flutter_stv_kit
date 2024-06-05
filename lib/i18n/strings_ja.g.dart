@@ -4,20 +4,16 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 20
+/// Strings: 27
 ///
-/// Built on 2024-06-04 at 13:28 UTC
+/// Built on 2024-06-05 at 02:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
 
-// Flutter imports:
 import 'package:flutter/widgets.dart';
-
-// Package imports:
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
-
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.ja;
@@ -162,6 +158,7 @@ class _StringsJaStringsJa {
 
 	// Translations
 	late final _StringsJaStringsLoginJa login = _StringsJaStringsLoginJa._(_root);
+	late final _StringsJaStringsPasswordResetJa passwordReset = _StringsJaStringsPasswordResetJa._(_root);
 	late final _StringsJaStringsMyPageJa myPage = _StringsJaStringsMyPageJa._(_root);
 	late final _StringsJaStringsOauthJa oauth = _StringsJaStringsOauthJa._(_root);
 	late final _StringsJaStringsErrorJa error = _StringsJaStringsErrorJa._(_root);
@@ -183,6 +180,21 @@ class _StringsJaStringsLoginJa {
 	String get resetPassword => 'パスワードを忘れた方はこちらから';
 	String get gotoSignUp => 'アカウントをお持ちでない方';
 	String get signUp => '会員登録';
+}
+
+// Path: strings.passwordReset
+class _StringsJaStringsPasswordResetJa {
+	_StringsJaStringsPasswordResetJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => 'パスワード再設定';
+	String get subTitle => 'パスワードを忘れた方';
+	String get description => 'ご登録されたメールアドレスにパスワード再設定のご案内メールが送信されます。';
+	String get email => 'メールアドレス';
+	String get emailHint => 'メールアドレスを入力してください';
+	String get resetBtn => 'パスワードをリセットする';
 }
 
 // Path: strings.myPage
@@ -217,6 +229,7 @@ class _StringsJaStringsErrorJa {
 
 	// Translations
 	String get emailAndPassword => 'メールアドレス及びパスワードを正しく入力してください';
+	String get email => 'メールアドレスを正しく入力してください';
 }
 
 // Path: strings.myPage.menu
@@ -248,6 +261,12 @@ extension on Translations {
 			case 'strings.login.resetPassword': return 'パスワードを忘れた方はこちらから';
 			case 'strings.login.gotoSignUp': return 'アカウントをお持ちでない方';
 			case 'strings.login.signUp': return '会員登録';
+			case 'strings.passwordReset.screen': return 'パスワード再設定';
+			case 'strings.passwordReset.subTitle': return 'パスワードを忘れた方';
+			case 'strings.passwordReset.description': return 'ご登録されたメールアドレスにパスワード再設定のご案内メールが送信されます。';
+			case 'strings.passwordReset.email': return 'メールアドレス';
+			case 'strings.passwordReset.emailHint': return 'メールアドレスを入力してください';
+			case 'strings.passwordReset.resetBtn': return 'パスワードをリセットする';
 			case 'strings.myPage.screen': return 'マイページ';
 			case 'strings.myPage.menu.profile': return '登録情報';
 			case 'strings.myPage.menu.notificationSettings': return '通知情報';
@@ -259,6 +278,7 @@ extension on Translations {
 			case 'strings.oauth.google': return 'Googleでサインイン';
 			case 'strings.oauth.line': return 'LINEでサインイン';
 			case 'strings.error.emailAndPassword': return 'メールアドレス及びパスワードを正しく入力してください';
+			case 'strings.error.email': return 'メールアドレスを正しく入力してください';
 			default: return null;
 		}
 	}

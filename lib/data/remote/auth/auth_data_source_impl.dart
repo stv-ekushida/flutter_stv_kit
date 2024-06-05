@@ -42,4 +42,11 @@ class AuthDataSourceImpl implements AuthDataSource {
   Future<void> signOut() async {
     await delay(500);
   }
+
+  @override
+  Future<bool> resetPassword({required String email}) async {
+    await delay(500);
+
+    return Future.value(true);
+  }
 }

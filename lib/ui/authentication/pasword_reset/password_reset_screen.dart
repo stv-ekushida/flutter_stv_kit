@@ -1,5 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/ui/authentication/pasword_reset/password_reset_screen_view_model.dart';
+import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 
 // Package imports:
 import 'package:gap/gap.dart';
@@ -12,23 +15,33 @@ import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
 
-class PasswordResetScreen extends StatefulWidget {
+import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
+
+class PasswordResetScreen extends ConsumerStatefulWidget {
   const PasswordResetScreen({super.key});
 
   @override
-  State<PasswordResetScreen> createState() => _PasswordResetScreenState();
+  ConsumerState<PasswordResetScreen> createState() =>
+      _PasswordResetScreenState();
 }
 
-class _PasswordResetScreenState extends State<PasswordResetScreen> {
+class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
   final emailTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(passwordResetScreenViewModelProvider());
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('パスワード再設定'),
+        title: Text(i18n.strings.passwordReset.screen),
       ),
-      body: _buildBody(),
+      body: Stack(
+        children: [
+          _buildBody(),
+          if (state.isLoading) const CustomIndicator(),
+        ],
+      ),
     );
   }
 
@@ -54,15 +67,15 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
 
   List<Widget> _buildHeader() {
     return [
-      const Text(
-        'パスワードを忘れた方',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+      Text(
+        i18n.strings.passwordReset.subTitle,
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
       ),
       const Gap(16),
-      const Flexible(
+      Flexible(
         child: Text(
-          'ご登録されたメールアドレスにパスワード再設定のご案内メールが送信されます。',
-          style: TextStyle(fontSize: 14),
+          i18n.strings.passwordReset.description,
+          style: const TextStyle(fontSize: 14),
         ),
       ),
     ];
@@ -71,13 +84,13 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
   /// メールアドレス
   List<Widget> _buildEmailSection() {
     return [
-      const Align(
+      Align(
         alignment: Alignment.centerLeft,
-        child: Text('メールアドレス'),
+        child: Text(i18n.strings.passwordReset.email),
       ),
       const Gap(8),
       CustomTextField(
-        hintText: 'メールアドレスを入力してください',
+        hintText: i18n.strings.passwordReset.emailHint,
         textFieldType: TextFiledType.email,
         textController: emailTextController,
       ),
@@ -90,7 +103,7 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomButton(
-            title: 'パスワードをリセットする',
+            title: i18n.strings.passwordReset.resetBtn,
             onPressed: () => _onPressedPasswordReset(),
           ),
         ],
@@ -98,14 +111,28 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
     ];
   }
 
-  void _onPressedPasswordReset() {
+  Future<void> _onPressedPasswordReset() async {
     if (emailTextController.text.isEmpty) {
       showTopSnackBar(
         Overlay.of(context),
-        const CustomSnackBar.error(
-          message: "メールアドレスを正しく入力してください",
+        CustomSnackBar.error(
+          message: i18n.strings.error.email,
         ),
       );
+      return;
+    }
+
+    final result = await ref
+        .read(passwordResetScreenViewModelProvider().notifier)
+        .resetPassword(
+          email: emailTextController.text,
+        );
+
+    if (!result) {
+      return;
+    }
+
+    if (!mounted) {
       return;
     }
 

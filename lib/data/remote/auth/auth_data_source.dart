@@ -11,4 +11,8 @@ abstract class AuthDataSource {
     required String password,
   });
   Future<void> signOut();
+
+  Future<bool> resetPassword({
+    required String email,
+  });
 }

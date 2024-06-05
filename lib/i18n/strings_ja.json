@@ -10,6 +10,14 @@
     "gotoSignUp": "アカウントをお持ちでない方",
     "signUp": "会員登録"
   },
+  "passwordReset": {
+    "screen": "パスワード再設定",
+    "subTitle": "パスワードを忘れた方",
+    "description": "ご登録されたメールアドレスにパスワード再設定のご案内メールが送信されます。",
+    "email" : "メールアドレス",
+    "emailHint": "メールアドレスを入力してください",
+    "resetBtn": "パスワードをリセットする"
+  },
   "myPage": {
     "screen": "マイページ",
     "menu": {
@@ -27,6 +35,7 @@
     "line": "LINEでサインイン"
   },
   "error": {
-    "emailAndPassword": "メールアドレス及びパスワードを正しく入力してください"
+    "emailAndPassword": "メールアドレス及びパスワードを正しく入力してください",
+    "email": "メールアドレスを正しく入力してください"
   }
 }
