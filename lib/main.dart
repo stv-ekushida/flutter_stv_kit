@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/core/app_color.dart';
 import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/core/app_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
@@ -37,9 +37,17 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final goRouter = ref.watch(appRouterProvider);
+    const jpLocale = Locale('ja', 'JP');
 
     return MaterialApp.router(
       title: 'STV Flutter Components',
+      locale: jpLocale,
+      supportedLocales: const [jpLocale],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       routerConfig: goRouter,
