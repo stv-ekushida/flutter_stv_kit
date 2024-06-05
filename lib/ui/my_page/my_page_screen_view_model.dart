@@ -38,6 +38,6 @@ class MyPageScreenViewModel extends _$MyPageScreenViewModel {
   Future<void> signOut() async {
     state = state.copyWith(isLoading: true);
     final _ = await ref.read(authRepositoryProvider).signOut();
-    state = state.copyWith(isLoading: false);
+    state = state.copyWith(user: null, isLoading: false);
   }
 }
