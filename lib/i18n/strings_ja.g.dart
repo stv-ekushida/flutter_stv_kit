@@ -11,9 +11,13 @@
 // coverage:ignore-file
 // ignore_for_file: type=lint
 
+// Flutter imports:
 import 'package:flutter/widgets.dart';
+
+// Package imports:
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
+
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.ja;

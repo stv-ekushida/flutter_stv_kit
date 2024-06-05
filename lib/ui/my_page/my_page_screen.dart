@@ -1,16 +1,20 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_stv_kit/gen/assets.gen.dart';
-import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
 
 // Package imports:
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/data/model/user/user.dart';
+import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
+import 'package:flutter_stv_kit/ui/my_page/my_page_screen_view_model.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/foundation/app_router.dart';
+import 'package:flutter_stv_kit/gen/assets.gen.dart';
+import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
+import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_button.dart';
 
 enum MyPageMenuType1 {
@@ -48,40 +52,63 @@ extension MyPageMenuType2Ex on MyPageMenuType2 {
   }
 }
 
-class MyPageScreen extends StatefulWidget {
+class MyPageScreen extends ConsumerStatefulWidget {
   const MyPageScreen({super.key});
 
   @override
-  State<MyPageScreen> createState() => _MyPageScreenState();
+  ConsumerState<MyPageScreen> createState() => _MyPageScreenState();
 }
 
-class _MyPageScreenState extends State<MyPageScreen> {
+class _MyPageScreenState extends ConsumerState<MyPageScreen> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        final notifier = ref.read(myPageScreenViewModelProvider().notifier);
+        notifier.fetch();
+      },
+    );
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(i18n.strings.myPage.screen),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ..._buildHeader(),
-            const CustomDivider(),
-            _buildMyPageList1(),
-            const CustomDivider(),
-            const Gap(32),
-            const CustomDivider(),
-            _buildMyPageList2(),
-            const CustomDivider(),
-            const Gap(32),
-            ..._buildLogOut(),
-          ],
-        ),
+      body: _buildBody(context),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    final state = ref.watch(myPageScreenViewModelProvider());
+
+    return SingleChildScrollView(
+      child: Stack(
+        children: [
+          Column(
+            children: [
+              ..._buildHeader(state.user),
+              const CustomDivider(),
+              _buildMyPageList1(),
+              const CustomDivider(),
+              const Gap(32),
+              const CustomDivider(),
+              _buildMyPageList2(),
+              const CustomDivider(),
+              const Gap(32),
+              ..._buildLogOut(context),
+            ],
+          ),
+          if (state.isLoading) const CustomIndicator()
+        ],
       ),
     );
   }
 
-  List<Widget> _buildHeader() {
+  List<Widget> _buildHeader(User? user) {
     return [
       Container(
         color: Colors.grey[100],
@@ -93,19 +120,19 @@ class _MyPageScreenState extends State<MyPageScreen> {
               child: Image.asset(Assets.images.logo.path),
             ),
             const Gap(16),
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'STV　太郎 様',
-                  style: TextStyle(
+                  user == null ? '--' : '${user.userName} 様',
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'example@stv-tech.co.jp',
-                  style: TextStyle(
+                  user == null ? '--' : user.email,
+                  style: const TextStyle(
                     fontSize: 14,
                   ),
                 ),
@@ -147,18 +174,18 @@ class _MyPageScreenState extends State<MyPageScreen> {
     );
   }
 
-  List<Widget> _buildLogOut() {
+  List<Widget> _buildLogOut(BuildContext context) {
     return [
       const Gap(32),
       CustomTextButton(
         title: i18n.strings.myPage.logout,
-        onPressed: () => _onPressedLogout(),
+        onPressed: () => _onPressedLogout(context),
       ),
       const Gap(32),
     ];
   }
 
-  void _onPressedLogout() {
+  void _onPressedLogout(BuildContext context) {
     context.showConfirmDialog(
       '確認',
       'ログアウトしますか？',

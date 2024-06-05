@@ -1,6 +1,5 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 
 // Package imports:
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,11 +11,12 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 // Project imports:
 import 'package:flutter_stv_kit/foundation/app_color.dart';
 import 'package:flutter_stv_kit/foundation/app_router.dart';
+import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_sns_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
-import '../../gen/assets.gen.dart';
+import '../../../gen/assets.gen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
