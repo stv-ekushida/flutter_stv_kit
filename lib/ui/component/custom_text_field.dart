@@ -32,11 +32,13 @@ class CustomTextField extends StatefulWidget {
     required this.hintText,
     required this.textFieldType,
     required this.textController,
+    this.obscureText = false,
   });
 
   final String hintText;
   final TextFiledType textFieldType;
   final TextEditingController textController;
+  final bool obscureText;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -44,6 +46,7 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late final TextEditingController _textController = widget.textController;
+  bool showSecureText = false;
 
   @override
   void initState() {
@@ -65,6 +68,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               color: Colors.white,
               child: TextFormField(
                 controller: _textController,
+                obscureText: widget.obscureText && showSecureText,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: widget.textFieldType.validator.call,
                 decoration: InputDecoration(
@@ -85,6 +89,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   ),
                   border: const OutlineInputBorder(),
                   hintText: hintText,
+                  suffixIcon: !widget.obscureText
+                      ? null
+                      : IconButton(
+                          icon: Icon(showSecureText
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          onPressed: () => _onPressedObscureText(),
+                        ),
                 ),
               ),
             ),
@@ -92,5 +104,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
       ],
     );
+  }
+
+  void _onPressedObscureText() {
+    setState(() {
+      showSecureText = !showSecureText;
+    });
   }
 }

@@ -5,10 +5,10 @@ import 'package:flutter/widgets.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:gap/gap.dart';
 
 enum NotificationSettingsCategoryType {
   pushNotification,

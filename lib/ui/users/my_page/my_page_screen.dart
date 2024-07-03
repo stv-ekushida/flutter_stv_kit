@@ -15,7 +15,7 @@ import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_button.dart';
-import 'package:flutter_stv_kit/ui/my_page/my_page_screen_view_model.dart';
+import 'package:flutter_stv_kit/ui/users/my_page/my_page_screen_view_model.dart';
 
 enum MyPageMenuType1 {
   profile,

@@ -7,7 +7,8 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
-import 'package:flutter_stv_kit/ui/my_page/my_page_screen.dart';
+import 'package:flutter_stv_kit/ui/message/message_screen.dart';
+import 'package:flutter_stv_kit/ui/users/my_page/my_page_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -45,6 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           body: Container(),
         ),
+      ),
+      BartMenuRoute.bottomBar(
+        label: "メッセージ",
+        icon: Icons.chat_bubble,
+        path: '/message',
+        pageBuilder: (_, __, ___) => const MessageScreen(),
       ),
       BartMenuRoute.bottomBar(
         label: "マイページ",

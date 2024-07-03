@@ -13,7 +13,7 @@ import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
-import 'package:flutter_stv_kit/ui/news/news_list_screen_view_model.dart';
+import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen_view_model.dart';
 
 class NewsListScreen extends ConsumerStatefulWidget {
   const NewsListScreen({super.key});
@@ -40,15 +40,15 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
           ref
               .read(newsListScreenViewModelProvider().notifier)
               .selected(_tabController.index);
-
-          ref.read(newsListScreenViewModelProvider().notifier).fetch();
         }
       },
     );
 
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
-        ref.read(newsListScreenViewModelProvider().notifier).fetch();
+        ref
+            .read(newsListScreenViewModelProvider().notifier)
+            .fetch(NewsType.personal);
       },
     );
 
@@ -67,13 +67,11 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
       appBar: AppBar(
         title: Text(i18n.strings.newsList.screen),
       ),
-      body: _buildBody(),
+      body: _buildBody,
     );
   }
 
-  Widget _buildBody() {
-    final state = ref.watch(newsListScreenViewModelProvider());
-
+  Widget get _buildBody {
     return Column(
       children: [
         TabBar(
@@ -87,8 +85,8 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
           child: TabBarView(
             controller: _tabController,
             children: [
-              _buildContainer(state.personalNews, state.isLoading),
-              _buildContainer(state.allNews, state.isLoading),
+              _buildTabContainer,
+              _buildTabContainer,
             ],
           ),
         ),
@@ -96,25 +94,50 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
     );
   }
 
-  Widget _buildContainer(List<News> news, bool isLoading) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        news.isEmpty
-            ? Center(child: _NewListEmpty())
-            : ListView.separated(
-                itemBuilder: (_, index) {
-                  final newsItem = news[index];
+  Widget get _buildTabContainer {
+    final state = ref.watch(newsListScreenViewModelProvider());
 
-                  return _NewsListTile(
-                    news: newsItem,
-                  );
-                },
-                separatorBuilder: (_, __) => const CustomDivider(),
-                itemCount: news.length,
-              ),
-        if (isLoading) const CustomIndicator()
-      ],
+    return state.when(
+      none: () => const SizedBox.shrink(),
+      loading: (_, news) {
+        return Stack(
+          children: [
+            if (news.isNotEmpty) _NewsList(news: news),
+            const CustomIndicator(),
+          ],
+        );
+      },
+      data: (_, news) => _NewsList(news: news),
+      error: (_, __, news) => _NewsList(news: news),
+    );
+  }
+}
+
+class _NewsList extends StatelessWidget {
+  const _NewsList({
+    super.key,
+    required this.news,
+  });
+
+  final List<News> news;
+
+  @override
+  Widget build(BuildContext context) {
+    if (news.isEmpty) {
+      return Center(
+        child: _NewListEmpty(),
+      );
+    }
+    return ListView.separated(
+      itemBuilder: (_, index) {
+        final newsItem = news[index];
+
+        return _NewsListTile(
+          news: newsItem,
+        );
+      },
+      separatorBuilder: (_, __) => const CustomDivider(),
+      itemCount: news.length,
     );
   }
 }

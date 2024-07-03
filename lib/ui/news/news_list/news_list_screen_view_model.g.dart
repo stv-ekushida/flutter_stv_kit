@@ -7,7 +7,7 @@ part of 'news_list_screen_view_model.dart';
 // **************************************************************************
 
 String _$newsListScreenViewModelHash() =>
-    r'ce7267682a87f1691e32b0a188ce66f7971925b6';
+    r'5f3028d7e5e98d027845c18c5e298c2e56516c60';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -35,7 +35,7 @@ abstract class _$NewsListScreenViewModel
   late final NewsListScreenState initialState;
 
   NewsListScreenState build({
-    NewsListScreenState initialState = const NewsListScreenState(),
+    NewsListScreenState initialState = const NewsListScreenState.none(),
   });
 }
 
@@ -50,7 +50,7 @@ class NewsListScreenViewModelFamily extends Family<NewsListScreenState> {
 
   /// See also [NewsListScreenViewModel].
   NewsListScreenViewModelProvider call({
-    NewsListScreenState initialState = const NewsListScreenState(),
+    NewsListScreenState initialState = const NewsListScreenState.none(),
   }) {
     return NewsListScreenViewModelProvider(
       initialState: initialState,
@@ -92,7 +92,7 @@ class NewsListScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
     NewsListScreenViewModel, NewsListScreenState> {
   /// See also [NewsListScreenViewModel].
   NewsListScreenViewModelProvider({
-    NewsListScreenState initialState = const NewsListScreenState(),
+    NewsListScreenState initialState = const NewsListScreenState.none(),
   }) : this._internal(
           () => NewsListScreenViewModel()..initialState = initialState,
           from: newsListScreenViewModelProvider,

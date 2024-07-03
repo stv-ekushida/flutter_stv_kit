@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/ui/notification/notificatin_settings_screen.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
@@ -11,7 +10,8 @@ import 'package:flutter_stv_kit/ui/authentication/login/login_screen.dart';
 import 'package:flutter_stv_kit/ui/authentication/password_reset/password_reset_screen.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sing_up_screen.dart';
 import 'package:flutter_stv_kit/ui/home/home_screen.dart';
-import 'package:flutter_stv_kit/ui/news/news_list_screen.dart';
+import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen.dart';
+import 'package:flutter_stv_kit/ui/notification/notificatin_settings_screen.dart';
 
 enum ScreenType {
   login,

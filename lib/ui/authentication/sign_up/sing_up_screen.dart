@@ -85,7 +85,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   }
 
   List<Widget> _buildSignUpSection() {
-    final notifier = ref.read(signUpScreenViewModelProvider().notifier);
     const idToken = '111111';
 
     return [

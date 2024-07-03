@@ -134,6 +134,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         hintText: i18n.strings.login.passwordHint,
         textFieldType: TextFiledType.password,
         textController: passwordTextControl,
+        obscureText: true,
       ),
     ];
   }

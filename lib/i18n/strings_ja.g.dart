@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 41
+/// Strings: 42
 ///
-/// Built on 2024-07-03 at 01:10 UTC
+/// Built on 2024-07-03 at 08:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -166,6 +166,7 @@ class _StringsJaStringsJa {
 	late final _StringsJaStringsPasswordResetJa passwordReset = _StringsJaStringsPasswordResetJa._(_root);
 	late final _StringsJaStringsMyPageJa myPage = _StringsJaStringsMyPageJa._(_root);
 	late final _StringsJaStringsNewsListJa newsList = _StringsJaStringsNewsListJa._(_root);
+	late final _StringsJaStringsMessageJa message = _StringsJaStringsMessageJa._(_root);
 	late final _StringsJaStringsNotificationSettingsJa notificationSettings = _StringsJaStringsNotificationSettingsJa._(_root);
 	late final _StringsJaStringsOauthJa oauth = _StringsJaStringsOauthJa._(_root);
 	late final _StringsJaStringsErrorJa error = _StringsJaStringsErrorJa._(_root);
@@ -241,7 +242,17 @@ class _StringsJaStringsNewsListJa {
 
 	// Translations
 	String get screen => 'お知らせ';
-	String get empty => '\'現在、配信されているニュースはありません';
+	String get empty => '現在、配信されているニュースはありません';
+}
+
+// Path: strings.message
+class _StringsJaStringsMessageJa {
+	_StringsJaStringsMessageJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => 'メッセージ';
 }
 
 // Path: strings.notificationSettings
@@ -351,7 +362,8 @@ extension on Translations {
 			case 'strings.myPage.menu.about': return 'アプリについて';
 			case 'strings.myPage.logout': return 'ログアウト';
 			case 'strings.newsList.screen': return 'お知らせ';
-			case 'strings.newsList.empty': return '\'現在、配信されているニュースはありません';
+			case 'strings.newsList.empty': return '現在、配信されているニュースはありません';
+			case 'strings.message.screen': return 'メッセージ';
 			case 'strings.notificationSettings.screen': return '通知設定';
 			case 'strings.oauth.signUp.apple': return 'Appleでサインアップ';
 			case 'strings.oauth.signUp.google': return 'Googleでサインアップ';
