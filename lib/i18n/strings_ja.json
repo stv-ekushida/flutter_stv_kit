@@ -1,4 +1,14 @@
 {
+  "signUp": {
+    "screen": "会員登録",
+    "email" : "メールアドレスで登録",
+    "gotoSignIn": "アカウントをお持ちの方",
+    "signIn": "ログイン",
+    "term":  "利用規約",
+    "privacy": "プライバシーポリシー",
+    "and": "及び",
+    "goto": "に同意の上、登録またはログインへお進みください。"
+  },
   "login": {
     "screen": "ログイン",
     "loginBtn": "ログイン",
@@ -35,9 +45,16 @@
   },
 
   "oauth": {
-    "apple": "Appleでサインイン",
-    "google": "Googleでサインイン",
-    "line": "LINEでサインイン"
+    "signUp": {
+      "apple": "Appleでサインアップ",
+      "google": "Googleでサインアップ",
+      "line": "LINEでサインアップ"  
+    },
+    "signIn": {
+      "apple": "Appleでサインイン",
+      "google": "Googleでサインイン",
+      "line": "LINEでサインイン"  
+    }
   },
   "error": {
     "emailAndPassword": "メールアドレス及びパスワードを正しく入力してください",

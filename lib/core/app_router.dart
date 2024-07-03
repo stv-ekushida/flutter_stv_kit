@@ -8,12 +8,13 @@ import 'package:go_router/go_router.dart';
 // Project imports:
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen.dart';
 import 'package:flutter_stv_kit/ui/authentication/password_reset/password_reset_screen.dart';
+import 'package:flutter_stv_kit/ui/authentication/sign_up/sing_up_screen.dart';
 import 'package:flutter_stv_kit/ui/home/home_screen.dart';
 import 'package:flutter_stv_kit/ui/news/news_list_screen.dart';
-import 'package:flutter_stv_kit/ui/portfolio_list_screen.dart';
 
 enum ScreenType {
   login,
+  signUp,
   passwordReset,
   home,
   news,
@@ -25,22 +26,21 @@ final appRouterProvider = Provider<GoRouter>(
       routes: <RouteBase>[
         GoRoute(
           path: '/',
+          name: ScreenType.login.name,
           builder: (BuildContext context, GoRouterState state) =>
-              const PortfolioListScreen(),
+              const LoginScreen(),
           routes: [
             GoRoute(
-              path: ScreenType.login.name,
-              name: ScreenType.login.name,
+              path: ScreenType.signUp.name,
+              name: ScreenType.signUp.name,
               builder: (BuildContext context, GoRouterState state) =>
-                  const LoginScreen(),
-              routes: [
-                GoRoute(
-                  path: ScreenType.passwordReset.name,
-                  name: ScreenType.passwordReset.name,
-                  builder: (BuildContext context, GoRouterState state) =>
-                      const PasswordResetScreen(),
-                ),
-              ],
+                  const SignUpScreen(),
+            ),
+            GoRoute(
+              path: ScreenType.passwordReset.name,
+              name: ScreenType.passwordReset.name,
+              builder: (BuildContext context, GoRouterState state) =>
+                  const PasswordResetScreen(),
             ),
           ],
         ),

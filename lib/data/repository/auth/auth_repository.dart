@@ -7,6 +7,11 @@ abstract class AuthRepository {
     required String email,
     required String password,
   });
+
+  Future<Result<Auth>> signUpWithSns({
+    required String idToken,
+  });
+
   Future<Result<Auth>> signInWithEmailAndPassword({
     required String email,
     required String password,

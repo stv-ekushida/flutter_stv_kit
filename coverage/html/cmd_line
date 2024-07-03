@@ -1,0 +1,1 @@
+genhtml coverage/lov.info -o coverage/html

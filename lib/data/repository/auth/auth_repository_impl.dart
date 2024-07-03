@@ -2,6 +2,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/data/api_error.dart';
 import 'package:flutter_stv_kit/data/model/auth/auth.dart';
 import 'package:flutter_stv_kit/data/remote/auth/auth_data_source.dart';
 import 'package:flutter_stv_kit/data/remote/auth/auth_data_source_impl.dart';
@@ -30,6 +31,15 @@ class AuthRepositoryImpl implements AuthRepository {
     return Result.guardFuture(
       () async => dataSource.signUpWithEmailAndPassword(
           email: email, password: password),
+    );
+  }
+
+  @override
+  Future<Result<Auth>> signUpWithSns({
+    required String idToken,
+  }) async {
+    return Result.guardFuture(
+      () async => dataSource.signUpWithSns(idToken: idToken),
     );
   }
 

@@ -17,16 +17,16 @@ abstract class Result<T> with _$Result<T> {
   static Result<T> guard<T>(T Function() body) {
     try {
       return Result.success(data: body());
-    } on Exception catch (_) {
-      return Result.failure(error: AppError());
+    } on Exception catch (e) {
+      return Result.failure(error: AppError.fromException(e));
     }
   }
 
   static Future<Result<T>> guardFuture<T>(Future<T> Function() future) async {
     try {
       return Result.success(data: await future());
-    } on Exception catch (_) {
-      return Result.failure(error: AppError());
+    } on Exception catch (e) {
+      return Result.failure(error: AppError.fromException(e));
     }
   }
 

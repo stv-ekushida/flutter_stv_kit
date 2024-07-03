@@ -6,6 +6,11 @@ abstract class AuthDataSource {
     required String email,
     required String password,
   });
+
+  Future<Auth> signUpWithSns({
+    required String idToken,
+  });
+
   Future<Auth> signInWithEmailAndPassword({
     required String email,
     required String password,

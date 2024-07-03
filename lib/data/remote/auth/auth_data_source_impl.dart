@@ -22,7 +22,20 @@ class AuthDataSourceImpl implements AuthDataSource {
     await delay(500);
 
     return Future.value(
-      const Auth(accessToken: '', refreshToken: '', expired: '123456789'),
+      const Auth(
+          accessToken: 'abcde', refreshToken: 'fghij', expired: '123456789'),
+    );
+  }
+
+  @override
+  Future<Auth> signUpWithSns({
+    required String idToken,
+  }) async {
+    await delay(500);
+
+    return Future.value(
+      const Auth(
+          accessToken: 'abcde', refreshToken: 'fghij', expired: '123456789'),
     );
   }
 

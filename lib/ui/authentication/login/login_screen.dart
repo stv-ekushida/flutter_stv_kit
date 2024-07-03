@@ -12,14 +12,17 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 // Project imports:
 import 'package:flutter_stv_kit/core/app_color.dart';
 import 'package:flutter_stv_kit/core/app_router.dart';
+import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
+import 'package:flutter_stv_kit/ui/authentication/login/login_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_sns_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
-import '../../../gen/assets.gen.dart';
+
+//import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -36,20 +39,28 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   Widget build(BuildContext context) {
     final state = ref.watch(loginScreenViewModelProvider());
 
+    ref.listen(
+      loginScreenViewModelProvider(),
+      (_, next) {
+        errorStateListener(context, next);
+      },
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(i18n.strings.login.screen),
       ),
       body: Stack(
         children: [
-          _buildBody(),
-          if (state.isLoading) const CustomIndicator(),
+          _buildBody,
+          if (state == const LoginScreenState.loading())
+            const CustomIndicator(),
         ],
       ),
     );
   }
 
-  Widget _buildBody() {
+  Widget get _buildBody {
     return SingleChildScrollView(
       child: Container(
         color: Colors.white,
@@ -200,7 +211,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   List<Widget> _buildSNSSignIn() {
     return [
       CustomSnsButton(
-        title: i18n.strings.oauth.apple,
+        title: i18n.strings.oauth.signIn.apple,
         iconData: FontAwesomeIcons.apple,
         backgroundColor: Colors.white,
         textStyle: const TextStyle(
@@ -211,7 +222,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ),
       const Gap(16),
       CustomSnsButton(
-        title: i18n.strings.oauth.google,
+        title: i18n.strings.oauth.signIn.google,
         iconData: FontAwesomeIcons.google,
         backgroundColor: Colors.white,
         textStyle: const TextStyle(
@@ -222,7 +233,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ),
       const Gap(16),
       CustomSnsButton(
-        title: i18n.strings.oauth.line,
+        title: i18n.strings.oauth.signIn.line,
         iconData: FontAwesomeIcons.line,
         backgroundColor: Colors.white,
         textStyle: const TextStyle(
@@ -244,7 +255,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       return;
     }
 
-    context.goNamed(ScreenType.home.name);
+    final state = ref.watch(loginScreenViewModelProvider());
+
+    state.whenOrNull(
+      data: (_) => context.goNamed(ScreenType.home.name),
+    );
   }
 
   List<Widget> _buildSignUp() {
@@ -253,7 +268,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       const Gap(32),
       CustomButton(
         title: i18n.strings.login.signUp,
-        onPressed: () {},
+        onPressed: () {
+          context.goNamed(ScreenType.signUp.name);
+        },
       ),
     ];
   }

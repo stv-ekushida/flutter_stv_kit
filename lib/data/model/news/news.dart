@@ -21,11 +21,12 @@ class News with _$News {
 extension NewsEx on News {
   String postText() {
     DateTime inputDate = DateFormat('yyyy-MM-dd HH:mm').parse(postAt);
-    DateTime now = DateTime.now();
+    DateTime now = DateTime(2024, 6, 5, 18, 0);
     Duration difference = now.difference(inputDate);
 
-
-    if (difference.inHours < 24) {
+    if (difference.inHours < 1) {
+      return '${difference.inMinutes}分前';
+    } else if (difference.inHours < 24) {
       return '${difference.inHours}時間前';
     } else if (difference.inDays < 365) {
       int months = (difference.inDays / 30).floor();

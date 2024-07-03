@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_screen_view_model.dart';
+part of 'sign_up_screen_view_model.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$loginScreenViewModelHash() =>
-    r'263e06285f60620db2e6b9c8928951f39a4c64d1';
+String _$signUpScreenViewModelHash() =>
+    r'8ca1a08b1916deb87d6485ec81f245e73a573f8c';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -30,36 +30,36 @@ class _SystemHash {
   }
 }
 
-abstract class _$LoginScreenViewModel
-    extends BuildlessAutoDisposeNotifier<LoginScreenState> {
-  late final LoginScreenState initialState;
+abstract class _$SignUpScreenViewModel
+    extends BuildlessAutoDisposeNotifier<SignUpScreenState> {
+  late final SignUpScreenState initialState;
 
-  LoginScreenState build({
-    LoginScreenState initialState = const LoginScreenState.none(),
+  SignUpScreenState build({
+    SignUpScreenState initialState = const SignUpScreenState.none(),
   });
 }
 
-/// See also [LoginScreenViewModel].
-@ProviderFor(LoginScreenViewModel)
-const loginScreenViewModelProvider = LoginScreenViewModelFamily();
+/// See also [SignUpScreenViewModel].
+@ProviderFor(SignUpScreenViewModel)
+const signUpScreenViewModelProvider = SignUpScreenViewModelFamily();
 
-/// See also [LoginScreenViewModel].
-class LoginScreenViewModelFamily extends Family<LoginScreenState> {
-  /// See also [LoginScreenViewModel].
-  const LoginScreenViewModelFamily();
+/// See also [SignUpScreenViewModel].
+class SignUpScreenViewModelFamily extends Family<SignUpScreenState> {
+  /// See also [SignUpScreenViewModel].
+  const SignUpScreenViewModelFamily();
 
-  /// See also [LoginScreenViewModel].
-  LoginScreenViewModelProvider call({
-    LoginScreenState initialState = const LoginScreenState.none(),
+  /// See also [SignUpScreenViewModel].
+  SignUpScreenViewModelProvider call({
+    SignUpScreenState initialState = const SignUpScreenState.none(),
   }) {
-    return LoginScreenViewModelProvider(
+    return SignUpScreenViewModelProvider(
       initialState: initialState,
     );
   }
 
   @override
-  LoginScreenViewModelProvider getProviderOverride(
-    covariant LoginScreenViewModelProvider provider,
+  SignUpScreenViewModelProvider getProviderOverride(
+    covariant SignUpScreenViewModelProvider provider,
   ) {
     return call(
       initialState: provider.initialState,
@@ -84,30 +84,30 @@ class LoginScreenViewModelFamily extends Family<LoginScreenState> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'loginScreenViewModelProvider';
+  String? get name => r'signUpScreenViewModelProvider';
 }
 
-/// See also [LoginScreenViewModel].
-class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
-    LoginScreenViewModel, LoginScreenState> {
-  /// See also [LoginScreenViewModel].
-  LoginScreenViewModelProvider({
-    LoginScreenState initialState = const LoginScreenState.none(),
+/// See also [SignUpScreenViewModel].
+class SignUpScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
+    SignUpScreenViewModel, SignUpScreenState> {
+  /// See also [SignUpScreenViewModel].
+  SignUpScreenViewModelProvider({
+    SignUpScreenState initialState = const SignUpScreenState.none(),
   }) : this._internal(
-          () => LoginScreenViewModel()..initialState = initialState,
-          from: loginScreenViewModelProvider,
-          name: r'loginScreenViewModelProvider',
+          () => SignUpScreenViewModel()..initialState = initialState,
+          from: signUpScreenViewModelProvider,
+          name: r'signUpScreenViewModelProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$loginScreenViewModelHash,
-          dependencies: LoginScreenViewModelFamily._dependencies,
+                  : _$signUpScreenViewModelHash,
+          dependencies: SignUpScreenViewModelFamily._dependencies,
           allTransitiveDependencies:
-              LoginScreenViewModelFamily._allTransitiveDependencies,
+              SignUpScreenViewModelFamily._allTransitiveDependencies,
           initialState: initialState,
         );
 
-  LoginScreenViewModelProvider._internal(
+  SignUpScreenViewModelProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -117,11 +117,11 @@ class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
     required this.initialState,
   }) : super.internal();
 
-  final LoginScreenState initialState;
+  final SignUpScreenState initialState;
 
   @override
-  LoginScreenState runNotifierBuild(
-    covariant LoginScreenViewModel notifier,
+  SignUpScreenState runNotifierBuild(
+    covariant SignUpScreenViewModel notifier,
   ) {
     return notifier.build(
       initialState: initialState,
@@ -129,10 +129,10 @@ class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(LoginScreenViewModel Function() create) {
+  Override overrideWith(SignUpScreenViewModel Function() create) {
     return ProviderOverride(
       origin: this,
-      override: LoginScreenViewModelProvider._internal(
+      override: SignUpScreenViewModelProvider._internal(
         () => create()..initialState = initialState,
         from: from,
         name: null,
@@ -145,14 +145,14 @@ class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeNotifierProviderElement<LoginScreenViewModel, LoginScreenState>
+  AutoDisposeNotifierProviderElement<SignUpScreenViewModel, SignUpScreenState>
       createElement() {
-    return _LoginScreenViewModelProviderElement(this);
+    return _SignUpScreenViewModelProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is LoginScreenViewModelProvider &&
+    return other is SignUpScreenViewModelProvider &&
         other.initialState == initialState;
   }
 
@@ -165,20 +165,20 @@ class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 }
 
-mixin LoginScreenViewModelRef
-    on AutoDisposeNotifierProviderRef<LoginScreenState> {
+mixin SignUpScreenViewModelRef
+    on AutoDisposeNotifierProviderRef<SignUpScreenState> {
   /// The parameter `initialState` of this provider.
-  LoginScreenState get initialState;
+  SignUpScreenState get initialState;
 }
 
-class _LoginScreenViewModelProviderElement
-    extends AutoDisposeNotifierProviderElement<LoginScreenViewModel,
-        LoginScreenState> with LoginScreenViewModelRef {
-  _LoginScreenViewModelProviderElement(super.provider);
+class _SignUpScreenViewModelProviderElement
+    extends AutoDisposeNotifierProviderElement<SignUpScreenViewModel,
+        SignUpScreenState> with SignUpScreenViewModelRef {
+  _SignUpScreenViewModelProviderElement(super.provider);
 
   @override
-  LoginScreenState get initialState =>
-      (origin as LoginScreenViewModelProvider).initialState;
+  SignUpScreenState get initialState =>
+      (origin as SignUpScreenViewModelProvider).initialState;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

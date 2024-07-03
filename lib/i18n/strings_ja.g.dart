@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 29
+/// Strings: 40
 ///
-/// Built on 2024-06-05 at 11:33 UTC
+/// Built on 2024-07-02 at 12:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -161,12 +161,30 @@ class _StringsJaStringsJa {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	late final _StringsJaStringsSignUpJa signUp = _StringsJaStringsSignUpJa._(_root);
 	late final _StringsJaStringsLoginJa login = _StringsJaStringsLoginJa._(_root);
 	late final _StringsJaStringsPasswordResetJa passwordReset = _StringsJaStringsPasswordResetJa._(_root);
 	late final _StringsJaStringsMyPageJa myPage = _StringsJaStringsMyPageJa._(_root);
 	late final _StringsJaStringsNewsListJa newsList = _StringsJaStringsNewsListJa._(_root);
 	late final _StringsJaStringsOauthJa oauth = _StringsJaStringsOauthJa._(_root);
 	late final _StringsJaStringsErrorJa error = _StringsJaStringsErrorJa._(_root);
+}
+
+// Path: strings.signUp
+class _StringsJaStringsSignUpJa {
+	_StringsJaStringsSignUpJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => '会員登録';
+	String get email => 'メールアドレスで登録';
+	String get gotoSignIn => 'アカウントをお持ちの方';
+	String get signIn => 'ログイン';
+	String get term => '利用規約';
+	String get privacy => 'プライバシーポリシー';
+	String get and => '及び';
+	String get goto => 'に同意の上、登録またはログインへお進みください。';
 }
 
 // Path: strings.login
@@ -232,9 +250,8 @@ class _StringsJaStringsOauthJa {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get apple => 'Appleでサインイン';
-	String get google => 'Googleでサインイン';
-	String get line => 'LINEでサインイン';
+	late final _StringsJaStringsOauthSignUpJa signUp = _StringsJaStringsOauthSignUpJa._(_root);
+	late final _StringsJaStringsOauthSignInJa signIn = _StringsJaStringsOauthSignInJa._(_root);
 }
 
 // Path: strings.error
@@ -262,12 +279,44 @@ class _StringsJaStringsMyPageMenuJa {
 	String get about => 'アプリについて';
 }
 
+// Path: strings.oauth.signUp
+class _StringsJaStringsOauthSignUpJa {
+	_StringsJaStringsOauthSignUpJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get apple => 'Appleでサインアップ';
+	String get google => 'Googleでサインアップ';
+	String get line => 'LINEでサインアップ';
+}
+
+// Path: strings.oauth.signIn
+class _StringsJaStringsOauthSignInJa {
+	_StringsJaStringsOauthSignInJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get apple => 'Appleでサインイン';
+	String get google => 'Googleでサインイン';
+	String get line => 'LINEでサインイン';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'strings.signUp.screen': return '会員登録';
+			case 'strings.signUp.email': return 'メールアドレスで登録';
+			case 'strings.signUp.gotoSignIn': return 'アカウントをお持ちの方';
+			case 'strings.signUp.signIn': return 'ログイン';
+			case 'strings.signUp.term': return '利用規約';
+			case 'strings.signUp.privacy': return 'プライバシーポリシー';
+			case 'strings.signUp.and': return '及び';
+			case 'strings.signUp.goto': return 'に同意の上、登録またはログインへお進みください。';
 			case 'strings.login.screen': return 'ログイン';
 			case 'strings.login.loginBtn': return 'ログイン';
 			case 'strings.login.email': return 'メールアドレス';
@@ -292,9 +341,12 @@ extension on Translations {
 			case 'strings.myPage.logout': return 'ログアウト';
 			case 'strings.newsList.screen': return 'お知らせ';
 			case 'strings.newsList.empty': return '\'現在、配信されているニュースはありません';
-			case 'strings.oauth.apple': return 'Appleでサインイン';
-			case 'strings.oauth.google': return 'Googleでサインイン';
-			case 'strings.oauth.line': return 'LINEでサインイン';
+			case 'strings.oauth.signUp.apple': return 'Appleでサインアップ';
+			case 'strings.oauth.signUp.google': return 'Googleでサインアップ';
+			case 'strings.oauth.signUp.line': return 'LINEでサインアップ';
+			case 'strings.oauth.signIn.apple': return 'Appleでサインイン';
+			case 'strings.oauth.signIn.google': return 'Googleでサインイン';
+			case 'strings.oauth.signIn.line': return 'LINEでサインイン';
 			case 'strings.error.emailAndPassword': return 'メールアドレス及びパスワードを正しく入力してください';
 			case 'strings.error.email': return 'メールアドレスを正しく入力してください';
 			default: return null;

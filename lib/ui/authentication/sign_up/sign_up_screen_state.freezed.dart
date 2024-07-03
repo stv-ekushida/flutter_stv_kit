@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_screen_state.dart';
+part of 'sign_up_screen_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LoginScreenState {
+mixin _$SignUpScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
@@ -69,16 +69,16 @@ mixin _$LoginScreenState {
 }
 
 /// @nodoc
-abstract class $LoginScreenStateCopyWith<$Res> {
-  factory $LoginScreenStateCopyWith(
-          LoginScreenState value, $Res Function(LoginScreenState) then) =
-      _$LoginScreenStateCopyWithImpl<$Res, LoginScreenState>;
+abstract class $SignUpScreenStateCopyWith<$Res> {
+  factory $SignUpScreenStateCopyWith(
+          SignUpScreenState value, $Res Function(SignUpScreenState) then) =
+      _$SignUpScreenStateCopyWithImpl<$Res, SignUpScreenState>;
 }
 
 /// @nodoc
-class _$LoginScreenStateCopyWithImpl<$Res, $Val extends LoginScreenState>
-    implements $LoginScreenStateCopyWith<$Res> {
-  _$LoginScreenStateCopyWithImpl(this._value, this._then);
+class _$SignUpScreenStateCopyWithImpl<$Res, $Val extends SignUpScreenState>
+    implements $SignUpScreenStateCopyWith<$Res> {
+  _$SignUpScreenStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +95,7 @@ abstract class _$$NoneImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$NoneImplCopyWithImpl<$Res>
-    extends _$LoginScreenStateCopyWithImpl<$Res, _$NoneImpl>
+    extends _$SignUpScreenStateCopyWithImpl<$Res, _$NoneImpl>
     implements _$$NoneImplCopyWith<$Res> {
   __$$NoneImplCopyWithImpl(_$NoneImpl _value, $Res Function(_$NoneImpl) _then)
       : super(_value, _then);
@@ -108,7 +108,7 @@ class _$NoneImpl implements _None {
 
   @override
   String toString() {
-    return 'LoginScreenState.none()';
+    return 'SignUpScreenState.none()';
   }
 
   @override
@@ -195,7 +195,7 @@ class _$NoneImpl implements _None {
   }
 }
 
-abstract class _None implements LoginScreenState {
+abstract class _None implements SignUpScreenState {
   const factory _None() = _$NoneImpl;
 }
 
@@ -208,7 +208,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$LoginScreenStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$SignUpScreenStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -222,7 +222,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'LoginScreenState.loading()';
+    return 'SignUpScreenState.loading()';
   }
 
   @override
@@ -309,7 +309,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements LoginScreenState {
+abstract class _Loading implements SignUpScreenState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -324,7 +324,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$LoginScreenStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$SignUpScreenStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -354,7 +354,7 @@ class _$ErrorImpl implements _Error {
 
   @override
   String toString() {
-    return 'LoginScreenState.error(error: $error)';
+    return 'SignUpScreenState.error(error: $error)';
   }
 
   @override
@@ -449,7 +449,7 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements LoginScreenState {
+abstract class _Error implements SignUpScreenState {
   const factory _Error(final AppError error) = _$ErrorImpl;
 
   AppError get error;
@@ -471,7 +471,7 @@ abstract class _$$DataImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$DataImplCopyWithImpl<$Res>
-    extends _$LoginScreenStateCopyWithImpl<$Res, _$DataImpl>
+    extends _$SignUpScreenStateCopyWithImpl<$Res, _$DataImpl>
     implements _$$DataImplCopyWith<$Res> {
   __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
@@ -508,7 +508,7 @@ class _$DataImpl implements _Data {
 
   @override
   String toString() {
-    return 'LoginScreenState.data(auth: $auth)';
+    return 'SignUpScreenState.data(auth: $auth)';
   }
 
   @override
@@ -603,7 +603,7 @@ class _$DataImpl implements _Data {
   }
 }
 
-abstract class _Data implements LoginScreenState {
+abstract class _Data implements SignUpScreenState {
   const factory _Data(final Auth auth) = _$DataImpl;
 
   Auth get auth;

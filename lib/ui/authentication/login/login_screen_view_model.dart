@@ -11,28 +11,22 @@ part 'login_screen_view_model.g.dart';
 class LoginScreenViewModel extends _$LoginScreenViewModel {
   @override
   LoginScreenState build({
-    LoginScreenState initialState = const LoginScreenState(
-      auth: null,
-      isLoading: false,
-    ),
+    LoginScreenState initialState = const LoginScreenState.none(),
   }) {
     return initialState;
   }
 
   Future<void> login({required String email, required String password}) async {
-    state = state.copyWith(isLoading: true);
+    state = const LoginScreenState.loading();
 
     final result = await ref
         .read(authRepositoryProvider)
         .signInWithEmailAndPassword(email: email, password: password);
 
-    result.when(
-      success: (data) {
-        state = state.copyWith(auth: data, isLoading: false);
-      },
-      failure: (e) {
-        state = state.copyWith(isLoading: false);
-      },
-    );
+    result.when(success: (auth) {
+      state = LoginScreenState.data(auth);
+    }, failure: (error) {
+      state = LoginScreenState.error(error);
+    });
   }
 }
