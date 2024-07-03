@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/ui/component/logo.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -16,10 +17,10 @@ import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_view_model.dart';
-import 'package:flutter_stv_kit/ui/component/custom_button.dart';
+import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
+import 'package:flutter_stv_kit/ui/component/button/custom_sns_button.dart';
+import 'package:flutter_stv_kit/ui/component/button/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
-import 'package:flutter_stv_kit/ui/component/custom_sns_button.dart';
-import 'package:flutter_stv_kit/ui/component/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
 
 //import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -69,7 +70,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ..._buildLogo(),
+              _buildLogo(),
               const Gap(16),
               ..._buildEmailSection(),
               const Gap(16),
@@ -94,18 +95,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  List<Widget> _buildLogo() {
-    return [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 128,
-            child: Image.asset(Assets.images.logo.path),
-          ),
-        ],
-      ),
-    ];
+  Widget _buildLogo() {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Logo(),
+      ],
+    );
   }
 
   List<Widget> _buildEmailSection() {

@@ -35,21 +35,11 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
   void initState() {
     _tabController = TabController(length: _tabs.length, vsync: this);
     _tabController.addListener(
-      () {
-        if (!_tabController.indexIsChanging) {
-          ref
-              .read(newsListScreenViewModelProvider().notifier)
-              .selected(_tabController.index);
-        }
-      },
+      () => _onChangeTab(),
     );
 
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) {
-        ref
-            .read(newsListScreenViewModelProvider().notifier)
-            .fetch(NewsType.personal);
-      },
+      (_) => _init(),
     );
 
     super.initState();
@@ -111,6 +101,22 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
       error: (_, __, news) => _NewsList(news: news),
     );
   }
+
+  void _init() {
+    ref
+        .read(newsListScreenViewModelProvider().notifier)
+        .fetch(NewsType.personal);
+  }
+
+  void _onChangeTab() {
+    {
+      if (!_tabController.indexIsChanging) {
+        ref
+            .read(newsListScreenViewModelProvider().notifier)
+            .selected(_tabController.index);
+      }
+    }
+  }
 }
 
 class _NewsList extends StatelessWidget {
@@ -129,13 +135,9 @@ class _NewsList extends StatelessWidget {
       );
     }
     return ListView.separated(
-      itemBuilder: (_, index) {
-        final newsItem = news[index];
-
-        return _NewsListTile(
-          news: newsItem,
-        );
-      },
+      itemBuilder: (_, index) => _NewsListTile(
+        news: news[index],
+      ),
       separatorBuilder: (_, __) => const CustomDivider(),
       itemCount: news.length,
     );

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/ui/component/logo.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,9 +14,9 @@ import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_view_model.dart';
-import 'package:flutter_stv_kit/ui/component/custom_button.dart';
+import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
+import 'package:flutter_stv_kit/ui/component/button/custom_outlined_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
-import 'package:flutter_stv_kit/ui/component/custom_outlined_button.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
@@ -52,7 +53,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ..._buildLogo(),
+              _buildLogo(),
               const Gap(16),
               ..._buildSignUpSection(),
               const Gap(32),
@@ -70,23 +71,16 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     );
   }
 
-  List<Widget> _buildLogo() {
-    return [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 128,
-            child: Image.asset(Assets.images.logo.path),
-          ),
-        ],
-      ),
-    ];
+  Widget _buildLogo() {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Logo(),
+      ],
+    );
   }
 
   List<Widget> _buildSignUpSection() {
-    const idToken = '111111';
-
     return [
       const Gap(16),
       Row(
