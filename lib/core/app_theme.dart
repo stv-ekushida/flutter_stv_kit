@@ -7,7 +7,7 @@ import 'package:flutter_stv_kit/core/app_color.dart';
 class AppTheme {
   static ThemeData get theme {
     return ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColor.primaryColor,
@@ -20,6 +20,10 @@ class AppTheme {
           fontSize: 18,
           color: Colors.white,
         ),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.all(AppColor.primaryColor),
+        trackColor: WidgetStateProperty.all(Colors.grey[200]),
       ),
       fontFamily: 'NotoSansJp',
     );

@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
-import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_view_model.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +11,10 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
+import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
+import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/custom_button.dart';
+import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_outlined_button.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {

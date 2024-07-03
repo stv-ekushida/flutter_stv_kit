@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/ui/notification/notificatin_settings_screen.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
@@ -18,6 +19,7 @@ enum ScreenType {
   passwordReset,
   home,
   news,
+  notificationSettings,
 }
 
 final appRouterProvider = Provider<GoRouter>(
@@ -55,6 +57,12 @@ final appRouterProvider = Provider<GoRouter>(
               name: ScreenType.news.name,
               builder: (BuildContext context, GoRouterState state) =>
                   const NewsListScreen(),
+            ),
+            GoRoute(
+              path: ScreenType.notificationSettings.name,
+              name: ScreenType.notificationSettings.name,
+              builder: (BuildContext context, GoRouterState state) =>
+                  const NotificationSettingsScreen(),
             ),
           ],
         ),

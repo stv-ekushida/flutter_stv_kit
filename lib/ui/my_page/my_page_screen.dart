@@ -31,6 +31,15 @@ extension MyPageMenuType1Ex on MyPageMenuType1 {
         return i18n.strings.myPage.menu.notificationSettings;
     }
   }
+
+  void onTapped(BuildContext context) {
+    switch (this) {
+      case MyPageMenuType1.profile:
+        context.goNamed(ScreenType.notificationSettings.name);
+      case MyPageMenuType1.notificationSettings:
+        context.goNamed(ScreenType.notificationSettings.name);
+    }
+  }
 }
 
 enum MyPageMenuType2 {
@@ -156,9 +165,12 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (_, index) {
+        final menuType = MyPageMenuType1.values[index];
+
         return ListTile(
-          title: Text(MyPageMenuType1.values[index].title),
+          title: Text(menuType.title),
           trailing: const Icon(Icons.arrow_forward_ios_sharp),
+          onTap: () => menuType.onTapped(context),
         );
       },
       separatorBuilder: (_, index) => const CustomDivider(),

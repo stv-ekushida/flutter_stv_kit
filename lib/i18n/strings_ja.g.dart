@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 40
+/// Strings: 41
 ///
-/// Built on 2024-07-02 at 12:52 UTC
+/// Built on 2024-07-03 at 01:10 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -166,6 +166,7 @@ class _StringsJaStringsJa {
 	late final _StringsJaStringsPasswordResetJa passwordReset = _StringsJaStringsPasswordResetJa._(_root);
 	late final _StringsJaStringsMyPageJa myPage = _StringsJaStringsMyPageJa._(_root);
 	late final _StringsJaStringsNewsListJa newsList = _StringsJaStringsNewsListJa._(_root);
+	late final _StringsJaStringsNotificationSettingsJa notificationSettings = _StringsJaStringsNotificationSettingsJa._(_root);
 	late final _StringsJaStringsOauthJa oauth = _StringsJaStringsOauthJa._(_root);
 	late final _StringsJaStringsErrorJa error = _StringsJaStringsErrorJa._(_root);
 }
@@ -241,6 +242,16 @@ class _StringsJaStringsNewsListJa {
 	// Translations
 	String get screen => 'お知らせ';
 	String get empty => '\'現在、配信されているニュースはありません';
+}
+
+// Path: strings.notificationSettings
+class _StringsJaStringsNotificationSettingsJa {
+	_StringsJaStringsNotificationSettingsJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => '通知設定';
 }
 
 // Path: strings.oauth
@@ -341,6 +352,7 @@ extension on Translations {
 			case 'strings.myPage.logout': return 'ログアウト';
 			case 'strings.newsList.screen': return 'お知らせ';
 			case 'strings.newsList.empty': return '\'現在、配信されているニュースはありません';
+			case 'strings.notificationSettings.screen': return '通知設定';
 			case 'strings.oauth.signUp.apple': return 'Appleでサインアップ';
 			case 'strings.oauth.signUp.google': return 'Googleでサインアップ';
 			case 'strings.oauth.signUp.line': return 'LINEでサインアップ';

@@ -3,12 +3,18 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Dart imports:
 import 'dart:async' as _i4;
 
+// Package imports:
+import 'package:mockito/mockito.dart' as _i1;
+
+// Project imports:
 import 'package:flutter_stv_kit/data/model/user/user.dart' as _i2;
+
 import 'package:flutter_stv_kit/data/remote/user/user_data_source_impl.dart'
     as _i3;
-import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

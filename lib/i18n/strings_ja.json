@@ -43,7 +43,9 @@
     "screen": "お知らせ",
     "empty": "'現在、配信されているニュースはありません"
   },
-
+  "notificationSettings": {
+    "screen": "通知設定"
+  },
   "oauth": {
     "signUp": {
       "apple": "Appleでサインアップ",

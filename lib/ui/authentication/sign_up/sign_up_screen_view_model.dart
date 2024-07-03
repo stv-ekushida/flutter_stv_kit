@@ -1,9 +1,9 @@
 // Package imports:
-import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
+import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
 
 part 'sign_up_screen_view_model.g.dart';
 

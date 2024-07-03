@@ -7,7 +7,7 @@ part of 'sign_up_screen_view_model.dart';
 // **************************************************************************
 
 String _$signUpScreenViewModelHash() =>
-    r'8ca1a08b1916deb87d6485ec81f245e73a573f8c';
+    r'6946035e25cf47f838c9f1cbfdf0879586db8904';
 
 /// Copied from Dart SDK
 class _SystemHash {
