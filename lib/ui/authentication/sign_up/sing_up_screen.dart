@@ -45,23 +45,23 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
   Widget get _buildBody {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _buildLogo(),
+              _buildLogo,
               const Gap(16),
-              ..._buildSignUpSection(),
+              ..._buildSignUpSection,
               const Gap(32),
-              _buildTermLink(),
+              _buildTermLink,
               const Gap(32),
               const Divider(
                 height: 0.5,
               ),
               const Gap(32),
-              ..._buildLogin(),
+              ..._buildLogin,
             ],
           ),
         ),
@@ -69,7 +69,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     );
   }
 
-  Widget _buildLogo() {
+  Widget get _buildLogo {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -78,7 +78,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     );
   }
 
-  List<Widget> _buildSignUpSection() {
+  List<Widget> get _buildSignUpSection {
     return [
       const Gap(16),
       Row(
@@ -127,13 +127,15 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     ];
   }
 
-  Widget _buildTermLink() {
+  Widget get _buildTermLink {
     return RichText(
         text: TextSpan(
       children: [
         TextSpan(
           text: i18n.strings.signUp.term,
-          style: const TextStyle(color: Colors.blue),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: Colors.blue,
+              ),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               // タップ時
@@ -141,11 +143,13 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         ),
         TextSpan(
           text: i18n.strings.signUp.and,
-          style: const TextStyle(color: Colors.black),
+          style: Theme.of(context).textTheme.bodySmall,
         ),
         TextSpan(
           text: i18n.strings.signUp.privacy,
-          style: const TextStyle(color: Colors.blue),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: Colors.blue,
+              ),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               // タップ時
@@ -153,13 +157,13 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         ),
         TextSpan(
           text: i18n.strings.signUp.goto,
-          style: const TextStyle(color: Colors.black),
+          style: Theme.of(context).textTheme.bodySmall,
         ),
       ],
     ));
   }
 
-  List<Widget> _buildLogin() {
+  List<Widget> get _buildLogin {
     return [
       Text(i18n.strings.signUp.gotoSignIn),
       const Gap(32),

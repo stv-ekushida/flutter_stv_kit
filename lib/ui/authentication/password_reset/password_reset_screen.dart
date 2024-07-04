@@ -68,14 +68,15 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
     return [
       Text(
         i18n.strings.passwordReset.subTitle,
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        style: Theme.of(context)
+            .textTheme
+            .bodyLarge!
+            .copyWith(fontWeight: FontWeight.w600),
       ),
       const Gap(16),
       Flexible(
-        child: Text(
-          i18n.strings.passwordReset.description,
-          style: const TextStyle(fontSize: 14),
-        ),
+        child: Text(i18n.strings.passwordReset.description,
+            style: Theme.of(context).textTheme.bodySmall),
       ),
     ];
   }
@@ -85,7 +86,13 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(i18n.strings.passwordReset.email),
+        Text(
+          i18n.strings.passwordReset.email,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(fontWeight: FontWeight.w600),
+        ),
         const Gap(8),
         CustomTextField(
           hintText: i18n.strings.passwordReset.emailHint,

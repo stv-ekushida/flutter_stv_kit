@@ -61,7 +61,10 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
               children: [
                 _buildLogo,
                 const Gap(16),
-                Text(i18n.strings.signUpWithEmail.description),
+                Text(
+                  i18n.strings.signUpWithEmail.description,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
                 const Gap(32),
                 _buildEmailSection,
                 const Gap(16),
@@ -98,9 +101,10 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
       children: [
         Text(
           i18n.strings.signUpWithEmail.email,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(fontWeight: FontWeight.w600),
         ),
         const Gap(8),
         CustomTextField(
@@ -116,9 +120,7 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
         const Gap(8),
         Text(
           i18n.strings.signUpWithEmail.attention,
-          style: const TextStyle(
-            fontSize: 12,
-          ),
+          style: Theme.of(context).textTheme.bodySmall,
         ),
       ],
     );
@@ -130,9 +132,10 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
       children: [
         Text(
           i18n.strings.signUpWithEmail.password,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(fontWeight: FontWeight.w600),
         ),
         const Gap(8),
         CustomTextField(

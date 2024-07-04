@@ -108,9 +108,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       children: [
         Text(
           i18n.strings.login.email,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(fontWeight: FontWeight.w600),
         ),
         const Gap(8),
         CustomTextField(
@@ -128,9 +129,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       children: [
         Text(
           i18n.strings.login.password,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(fontWeight: FontWeight.w600),
         ),
         const Gap(8),
         CustomTextField(
@@ -198,7 +200,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             ),
           ),
           const Gap(32),
-          const Text('または'),
+          Text(
+            'または',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
           const Gap(32),
           Expanded(
             child: Container(
@@ -269,7 +274,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   List<Widget> get _buildSignUp {
     return [
-      Text(i18n.strings.login.gotoSignUp),
+      Text(
+        i18n.strings.login.gotoSignUp,
+        style: Theme.of(context).textTheme.bodyMedium,
+      ),
       const Gap(32),
       CustomButton(
         title: i18n.strings.login.signUp,
