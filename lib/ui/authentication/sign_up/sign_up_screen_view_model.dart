@@ -16,21 +16,6 @@ class SignUpScreenViewModel extends _$SignUpScreenViewModel {
     return initialState;
   }
 
-  Future<void> signUpWithEmail(
-      {required String email, required String password}) async {
-    state = const SignUpScreenState.loading();
-
-    final result = await ref
-        .read(authRepositoryProvider)
-        .signInWithEmailAndPassword(email: email, password: password);
-
-    result.when(success: (auth) {
-      state = SignUpScreenState.data(auth);
-    }, failure: (error) {
-      state = SignUpScreenState.error(error);
-    });
-  }
-
   Future<void> signUpWithSns({required String idToken}) async {
     state = const SignUpScreenState.loading();
 

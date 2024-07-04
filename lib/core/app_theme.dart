@@ -7,7 +7,8 @@ import 'package:flutter_stv_kit/core/app_color.dart';
 class AppTheme {
   static ThemeData get theme {
     return ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColor.primaryColor, surface: Colors.white),
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColor.primaryColor,

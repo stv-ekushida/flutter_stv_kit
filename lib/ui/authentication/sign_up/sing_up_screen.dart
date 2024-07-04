@@ -4,19 +4,18 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/ui/component/logo.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
-import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_outlined_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
+import 'package:flutter_stv_kit/ui/component/logo.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
@@ -45,10 +44,9 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   }
 
   Widget get _buildBody {
-    return SingleChildScrollView(
-      child: Container(
-        color: Colors.white,
-        padding: const EdgeInsets.all(16.0),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SingleChildScrollView(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,7 +90,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
-            onPressed: () {},
+            onPressed: () => context.goNamed(ScreenType.signUpWithEmail.name),
           ),
         ],
       ),

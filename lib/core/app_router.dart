@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
@@ -16,6 +17,7 @@ import 'package:flutter_stv_kit/ui/notification/notificatin_settings_screen.dart
 enum ScreenType {
   login,
   signUp,
+  signUpWithEmail,
   passwordReset,
   home,
   news,
@@ -33,11 +35,18 @@ final appRouterProvider = Provider<GoRouter>(
               const LoginScreen(),
           routes: [
             GoRoute(
-              path: ScreenType.signUp.name,
-              name: ScreenType.signUp.name,
-              builder: (BuildContext context, GoRouterState state) =>
-                  const SignUpScreen(),
-            ),
+                path: ScreenType.signUp.name,
+                name: ScreenType.signUp.name,
+                builder: (BuildContext context, GoRouterState state) =>
+                    const SignUpScreen(),
+                routes: [
+                  GoRoute(
+                    path: ScreenType.signUpWithEmail.name,
+                    name: ScreenType.signUpWithEmail.name,
+                    builder: (BuildContext context, GoRouterState state) =>
+                        const SignUpWithEmail(),
+                  ),
+                ]),
             GoRoute(
               path: ScreenType.passwordReset.name,
               name: ScreenType.passwordReset.name,

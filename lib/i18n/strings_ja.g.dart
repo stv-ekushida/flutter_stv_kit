@@ -4,20 +4,16 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 42
+/// Strings: 48
 ///
-/// Built on 2024-07-03 at 08:19 UTC
+/// Built on 2024-07-04 at 02:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
 
-// Flutter imports:
 import 'package:flutter/widgets.dart';
-
-// Package imports:
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
-
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.ja;
@@ -162,6 +158,7 @@ class _StringsJaStringsJa {
 
 	// Translations
 	late final _StringsJaStringsSignUpJa signUp = _StringsJaStringsSignUpJa._(_root);
+	late final _StringsJaStringsSignUpWithEmailJa signUpWithEmail = _StringsJaStringsSignUpWithEmailJa._(_root);
 	late final _StringsJaStringsLoginJa login = _StringsJaStringsLoginJa._(_root);
 	late final _StringsJaStringsPasswordResetJa passwordReset = _StringsJaStringsPasswordResetJa._(_root);
 	late final _StringsJaStringsMyPageJa myPage = _StringsJaStringsMyPageJa._(_root);
@@ -187,6 +184,21 @@ class _StringsJaStringsSignUpJa {
 	String get privacy => 'プライバシーポリシー';
 	String get and => '及び';
 	String get goto => 'に同意の上、登録またはログインへお進みください。';
+}
+
+// Path: strings.signUpWithEmail
+class _StringsJaStringsSignUpWithEmailJa {
+	_StringsJaStringsSignUpWithEmailJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => 'メールアドレスで登録';
+	String get email => 'メールアドレス';
+	String get emailHint => 'メールアドレスを入力してください';
+	String get password => 'パスワード';
+	String get passwordHint => 'パスワードを入力してください';
+	String get nextBtn => '次へ';
 }
 
 // Path: strings.login
@@ -339,6 +351,12 @@ extension on Translations {
 			case 'strings.signUp.privacy': return 'プライバシーポリシー';
 			case 'strings.signUp.and': return '及び';
 			case 'strings.signUp.goto': return 'に同意の上、登録またはログインへお進みください。';
+			case 'strings.signUpWithEmail.screen': return 'メールアドレスで登録';
+			case 'strings.signUpWithEmail.email': return 'メールアドレス';
+			case 'strings.signUpWithEmail.emailHint': return 'メールアドレスを入力してください';
+			case 'strings.signUpWithEmail.password': return 'パスワード';
+			case 'strings.signUpWithEmail.passwordHint': return 'パスワードを入力してください';
+			case 'strings.signUpWithEmail.nextBtn': return '次へ';
 			case 'strings.login.screen': return 'ログイン';
 			case 'strings.login.loginBtn': return 'ログイン';
 			case 'strings.login.email': return 'メールアドレス';

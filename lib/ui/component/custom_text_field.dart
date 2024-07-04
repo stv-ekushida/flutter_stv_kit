@@ -33,12 +33,14 @@ class CustomTextField extends StatefulWidget {
     required this.textFieldType,
     required this.textController,
     this.obscureText = false,
+    this.onChanged,
   });
 
   final String hintText;
   final TextFiledType textFieldType;
   final TextEditingController textController;
   final bool obscureText;
+  final ValueChanged<String>? onChanged;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -98,6 +100,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                           onPressed: () => _onPressedObscureText(),
                         ),
                 ),
+                onChanged: widget.onChanged,
               ),
             ),
           ],

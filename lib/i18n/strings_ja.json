@@ -9,6 +9,15 @@
     "and": "及び",
     "goto": "に同意の上、登録またはログインへお進みください。"
   },
+  "signUpWithEmail": {
+    "screen": "メールアドレスで登録",
+    "email" : "メールアドレス",
+    "emailHint": "メールアドレスを入力してください",
+    "password": "パスワード",
+    "passwordHint": "パスワードを入力してください",
+    "nextBtn": "次へ"
+  },
+
   "login": {
     "screen": "ログイン",
     "loginBtn": "ログイン",

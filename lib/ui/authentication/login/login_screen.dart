@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/ui/component/logo.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +12,6 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 // Project imports:
 import 'package:flutter_stv_kit/core/app_color.dart';
 import 'package:flutter_stv_kit/core/app_router.dart';
-import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_view_model.dart';
@@ -22,6 +20,7 @@ import 'package:flutter_stv_kit/ui/component/button/custom_sns_button.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
+import 'package:flutter_stv_kit/ui/component/logo.dart';
 
 //import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -108,7 +107,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     return [
       Align(
         alignment: Alignment.centerLeft,
-        child: Text(i18n.strings.login.email),
+        child: Text(
+          i18n.strings.login.email,
+          style: const TextStyle(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       const Gap(8),
       CustomTextField(
@@ -123,7 +127,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     return [
       Align(
         alignment: Alignment.centerLeft,
-        child: Text(i18n.strings.login.password),
+        child: Text(
+          i18n.strings.login.password,
+          style: const TextStyle(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       const Gap(8),
       CustomTextField(
