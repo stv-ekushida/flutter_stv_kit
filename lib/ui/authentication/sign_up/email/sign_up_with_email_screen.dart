@@ -13,6 +13,7 @@ import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
 import 'package:flutter_stv_kit/ui/component/logo.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 
 class SignUpWithEmail extends ConsumerStatefulWidget {
   const SignUpWithEmail({super.key});
@@ -49,34 +50,40 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
   }
 
   Widget get _buildBody {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: SingleChildScrollView(
-        child: Form(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _buildLogo(),
-              const Gap(16),
-              const Text('あなたのメールアドレスとパスワードを入力してください。'),
-              const Gap(32),
-              ..._buildEmailSection(),
-              const Gap(16),
-              ..._buildPasswordSection(),
-              const Gap(32),
-              CustomButton(
-                title: i18n.strings.signUpWithEmail.nextBtn,
-                onPressed: isEmpty ? null : () => _onPressedSignUp(),
-              ),
-              const Gap(32),
-            ],
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _buildLogo,
+                const Gap(16),
+                Text(i18n.strings.signUpWithEmail.description),
+                const Gap(32),
+                _buildEmailSection,
+                const Gap(16),
+                _buildPasswordSection,
+                const Gap(32),
+                Align(
+                  alignment: Alignment.center,
+                  child: CustomButton(
+                    title: i18n.strings.signUpWithEmail.nextBtn,
+                    onPressed: isEmpty ? null : () => _onPressedSignUp(),
+                  ),
+                ),
+                const Gap(32),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildLogo() {
+  Widget get _buildLogo {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -85,55 +92,62 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
     );
   }
 
-  List<Widget> _buildEmailSection() {
-    return [
-      Align(
-        alignment: Alignment.centerLeft,
-        child: Text(
+  Widget get _buildEmailSection {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
           i18n.strings.signUpWithEmail.email,
           style: const TextStyle(
             fontWeight: FontWeight.w600,
           ),
         ),
-      ),
-      const Gap(8),
-      CustomTextField(
-        hintText: i18n.strings.signUpWithEmail.emailHint,
-        textFieldType: TextFiledType.email,
-        textController: emailTextControl,
-        onChanged: (value) {
-          setState(() {
-            isEmailValid = value.isNotEmpty;
-          });
-        },
-      ),
-    ];
+        const Gap(8),
+        CustomTextField(
+          hintText: i18n.strings.signUpWithEmail.emailHint,
+          textFieldType: TextFiledType.email,
+          textController: emailTextControl,
+          onChanged: (value) {
+            setState(() {
+              isEmailValid = value.isNotEmpty;
+            });
+          },
+        ),
+        const Gap(8),
+        Text(
+          i18n.strings.signUpWithEmail.attention,
+          style: const TextStyle(
+            fontSize: 12,
+          ),
+        ),
+      ],
+    );
   }
 
-  List<Widget> _buildPasswordSection() {
-    return [
-      Align(
-        alignment: Alignment.centerLeft,
-        child: Text(
+  Widget get _buildPasswordSection {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
           i18n.strings.signUpWithEmail.password,
           style: const TextStyle(
             fontWeight: FontWeight.w600,
           ),
         ),
-      ),
-      const Gap(8),
-      CustomTextField(
-        hintText: i18n.strings.signUpWithEmail.passwordHint,
-        textFieldType: TextFiledType.password,
-        textController: passwordTextControl,
-        obscureText: true,
-        onChanged: (value) {
-          setState(() {
-            isPasswordValid = value.isNotEmpty;
-          });
-        },
-      ),
-    ];
+        const Gap(8),
+        CustomTextField(
+          hintText: i18n.strings.signUpWithEmail.passwordHint,
+          textFieldType: TextFiledType.password,
+          textController: passwordTextControl,
+          obscureText: true,
+          onChanged: (value) {
+            setState(() {
+              isPasswordValid = value.isNotEmpty;
+            });
+          },
+        ),
+      ],
+    );
   }
 
   Future<void> _onPressedSignUp() async {
@@ -150,8 +164,15 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
 
     final state = ref.watch(SignUpWithEmailScreenViewModelProvider());
 
-    state.whenOrNull(
-      data: (_) => context.goNamed(ScreenType.home.name),
-    );
+    state.whenOrNull(data: (_) {
+      context.showInfoDialog(
+        i18n.strings.info.authCode.title,
+        i18n.strings.info.authCode.message,
+        () {
+          context.pop();
+          context.goNamed(ScreenType.home.name);
+        },
+      );
+    });
   }
 }

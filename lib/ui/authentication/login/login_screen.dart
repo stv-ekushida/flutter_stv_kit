@@ -61,31 +61,30 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Widget get _buildBody {
-    return SingleChildScrollView(
-      child: Container(
-        color: Colors.white,
-        padding: const EdgeInsets.all(16.0),
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.all(16.0),
+      child: SingleChildScrollView(
         child: Form(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _buildLogo(),
+              _buildLogo,
               const Gap(16),
-              ..._buildEmailSection(),
+              _buildEmailSection,
               const Gap(16),
-              ..._buildPasswordSection(),
+              _buildPasswordSection,
               const Gap(16),
-              ..._buildLoginSection(),
+              ..._buildLoginSection,
               const Gap(32),
-              ..._buildPartition(),
+              ..._buildPartition,
               const Gap(32),
-              ..._buildSNSSignIn(),
+              ..._buildSNSSignIn,
               const Gap(32),
               const Divider(
                 height: 0.5,
               ),
               const Gap(32),
-              ..._buildSignUp(),
+              ..._buildSignUp,
               const Gap(32),
             ],
           ),
@@ -94,7 +93,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  Widget _buildLogo() {
+  Widget get _buildLogo {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -103,48 +102,48 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  List<Widget> _buildEmailSection() {
-    return [
-      Align(
-        alignment: Alignment.centerLeft,
-        child: Text(
+  Widget get _buildEmailSection {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
           i18n.strings.login.email,
           style: const TextStyle(
             fontWeight: FontWeight.w600,
           ),
         ),
-      ),
-      const Gap(8),
-      CustomTextField(
-        hintText: i18n.strings.login.emailHint,
-        textFieldType: TextFiledType.email,
-        textController: emailTextControl,
-      ),
-    ];
+        const Gap(8),
+        CustomTextField(
+          hintText: i18n.strings.login.emailHint,
+          textFieldType: TextFiledType.email,
+          textController: emailTextControl,
+        ),
+      ],
+    );
   }
 
-  List<Widget> _buildPasswordSection() {
-    return [
-      Align(
-        alignment: Alignment.centerLeft,
-        child: Text(
+  Widget get _buildPasswordSection {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
           i18n.strings.login.password,
           style: const TextStyle(
             fontWeight: FontWeight.w600,
           ),
         ),
-      ),
-      const Gap(8),
-      CustomTextField(
-        hintText: i18n.strings.login.passwordHint,
-        textFieldType: TextFiledType.password,
-        textController: passwordTextControl,
-        obscureText: true,
-      ),
-    ];
+        const Gap(8),
+        CustomTextField(
+          hintText: i18n.strings.login.passwordHint,
+          textFieldType: TextFiledType.password,
+          textController: passwordTextControl,
+          obscureText: true,
+        ),
+      ],
+    );
   }
 
-  List<Widget> _buildLoginSection() {
+  List<Widget> get _buildLoginSection {
     return [
       Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -184,7 +183,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     _onPressedLoginWithEmailAndPassword();
   }
 
-  List<Widget> _buildPartition() {
+  List<Widget> get _buildPartition {
     return [
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -214,7 +213,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     ];
   }
 
-  List<Widget> _buildSNSSignIn() {
+  List<Widget> get _buildSNSSignIn {
     return [
       CustomSnsButton(
         title: i18n.strings.oauth.signIn.apple,
@@ -268,7 +267,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  List<Widget> _buildSignUp() {
+  List<Widget> get _buildSignUp {
     return [
       Text(i18n.strings.login.gotoSignUp),
       const Gap(32),

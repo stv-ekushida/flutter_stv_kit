@@ -32,11 +32,13 @@ class CustomTextField extends StatefulWidget {
     required this.hintText,
     required this.textFieldType,
     required this.textController,
+    this.width,
     this.obscureText = false,
     this.onChanged,
   });
 
   final String hintText;
+  final double? width;
   final TextFiledType textFieldType;
   final TextEditingController textController;
   final bool obscureText;
@@ -59,53 +61,41 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     final hintText = widget.hintText;
 
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 343,
-              color: Colors.white,
-              child: TextFormField(
-                controller: _textController,
-                obscureText: widget.obscureText && showSecureText,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: widget.textFieldType.validator.call,
-                decoration: InputDecoration(
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.grey,
-                    ),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.grey,
-                    ),
-                  ),
-                  alignLabelWithHint: true,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 12,
-                  ),
-                  border: const OutlineInputBorder(),
-                  hintText: hintText,
-                  suffixIcon: !widget.obscureText
-                      ? null
-                      : IconButton(
-                          icon: Icon(showSecureText
-                              ? Icons.visibility
-                              : Icons.visibility_off),
-                          onPressed: () => _onPressedObscureText(),
-                        ),
-                ),
-                onChanged: widget.onChanged,
-              ),
+    return SizedBox(
+      width: widget.width ?? MediaQuery.of(context).size.width * 0.9,
+      child: TextFormField(
+        controller: _textController,
+        obscureText: widget.obscureText && showSecureText,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: widget.textFieldType.validator.call,
+        decoration: InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
             ),
-          ],
+          ),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+          ),
+          alignLabelWithHint: true,
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 12,
+            vertical: 12,
+          ),
+          border: const OutlineInputBorder(),
+          hintText: hintText,
+          suffixIcon: !widget.obscureText
+              ? null
+              : IconButton(
+                  icon: Icon(
+                      showSecureText ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () => _onPressedObscureText(),
+                ),
         ),
-      ],
+        onChanged: widget.onChanged,
+      ),
     );
   }
 

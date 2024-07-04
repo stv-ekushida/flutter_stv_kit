@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 48
+/// Strings: 54
 ///
-/// Built on 2024-07-04 at 02:03 UTC
+/// Built on 2024-07-04 at 05:31 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -166,6 +166,7 @@ class _StringsJaStringsJa {
 	late final _StringsJaStringsMessageJa message = _StringsJaStringsMessageJa._(_root);
 	late final _StringsJaStringsNotificationSettingsJa notificationSettings = _StringsJaStringsNotificationSettingsJa._(_root);
 	late final _StringsJaStringsOauthJa oauth = _StringsJaStringsOauthJa._(_root);
+	late final _StringsJaStringsInfoJa info = _StringsJaStringsInfoJa._(_root);
 	late final _StringsJaStringsErrorJa error = _StringsJaStringsErrorJa._(_root);
 }
 
@@ -183,7 +184,7 @@ class _StringsJaStringsSignUpJa {
 	String get term => '利用規約';
 	String get privacy => 'プライバシーポリシー';
 	String get and => '及び';
-	String get goto => 'に同意の上、登録またはログインへお進みください。';
+	String get goto => 'に同意の上、登録またはログインへお進みください';
 }
 
 // Path: strings.signUpWithEmail
@@ -194,8 +195,10 @@ class _StringsJaStringsSignUpWithEmailJa {
 
 	// Translations
 	String get screen => 'メールアドレスで登録';
+	String get description => 'あなたのメールアドレスとパスワードを入力してください';
 	String get email => 'メールアドレス';
 	String get emailHint => 'メールアドレスを入力してください';
+	String get attention => '　メールアドレスはあとから変更できます';
 	String get password => 'パスワード';
 	String get passwordHint => 'パスワードを入力してください';
 	String get nextBtn => '次へ';
@@ -228,7 +231,7 @@ class _StringsJaStringsPasswordResetJa {
 	// Translations
 	String get screen => 'パスワード再設定';
 	String get subTitle => 'パスワードを忘れた方';
-	String get description => 'ご登録されたメールアドレスにパスワード再設定のご案内メールが送信されます。';
+	String get description => 'ご登録されたメールアドレスにパスワード再設定のご案内メールが送信されます';
 	String get email => 'メールアドレス';
 	String get emailHint => 'メールアドレスを入力してください';
 	String get resetBtn => 'パスワードをリセットする';
@@ -288,6 +291,17 @@ class _StringsJaStringsOauthJa {
 	late final _StringsJaStringsOauthSignInJa signIn = _StringsJaStringsOauthSignInJa._(_root);
 }
 
+// Path: strings.info
+class _StringsJaStringsInfoJa {
+	_StringsJaStringsInfoJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final _StringsJaStringsInfoAuthCodeJa authCode = _StringsJaStringsInfoAuthCodeJa._(_root);
+	late final _StringsJaStringsInfoPasswordResetJa passwordReset = _StringsJaStringsInfoPasswordResetJa._(_root);
+}
+
 // Path: strings.error
 class _StringsJaStringsErrorJa {
 	_StringsJaStringsErrorJa._(this._root);
@@ -337,6 +351,28 @@ class _StringsJaStringsOauthSignInJa {
 	String get line => 'LINEでサインイン';
 }
 
+// Path: strings.info.authCode
+class _StringsJaStringsInfoAuthCodeJa {
+	_StringsJaStringsInfoAuthCodeJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'メールを確認してください';
+	String get message => 'メールに認証コードを送信しました';
+}
+
+// Path: strings.info.passwordReset
+class _StringsJaStringsInfoPasswordResetJa {
+	_StringsJaStringsInfoPasswordResetJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'メールを確認してください';
+	String get message => 'メールにパスワード再設定メールを送信しました';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -350,10 +386,12 @@ extension on Translations {
 			case 'strings.signUp.term': return '利用規約';
 			case 'strings.signUp.privacy': return 'プライバシーポリシー';
 			case 'strings.signUp.and': return '及び';
-			case 'strings.signUp.goto': return 'に同意の上、登録またはログインへお進みください。';
+			case 'strings.signUp.goto': return 'に同意の上、登録またはログインへお進みください';
 			case 'strings.signUpWithEmail.screen': return 'メールアドレスで登録';
+			case 'strings.signUpWithEmail.description': return 'あなたのメールアドレスとパスワードを入力してください';
 			case 'strings.signUpWithEmail.email': return 'メールアドレス';
 			case 'strings.signUpWithEmail.emailHint': return 'メールアドレスを入力してください';
+			case 'strings.signUpWithEmail.attention': return '　メールアドレスはあとから変更できます';
 			case 'strings.signUpWithEmail.password': return 'パスワード';
 			case 'strings.signUpWithEmail.passwordHint': return 'パスワードを入力してください';
 			case 'strings.signUpWithEmail.nextBtn': return '次へ';
@@ -368,7 +406,7 @@ extension on Translations {
 			case 'strings.login.signUp': return '会員登録';
 			case 'strings.passwordReset.screen': return 'パスワード再設定';
 			case 'strings.passwordReset.subTitle': return 'パスワードを忘れた方';
-			case 'strings.passwordReset.description': return 'ご登録されたメールアドレスにパスワード再設定のご案内メールが送信されます。';
+			case 'strings.passwordReset.description': return 'ご登録されたメールアドレスにパスワード再設定のご案内メールが送信されます';
 			case 'strings.passwordReset.email': return 'メールアドレス';
 			case 'strings.passwordReset.emailHint': return 'メールアドレスを入力してください';
 			case 'strings.passwordReset.resetBtn': return 'パスワードをリセットする';
@@ -389,6 +427,10 @@ extension on Translations {
 			case 'strings.oauth.signIn.apple': return 'Appleでサインイン';
 			case 'strings.oauth.signIn.google': return 'Googleでサインイン';
 			case 'strings.oauth.signIn.line': return 'LINEでサインイン';
+			case 'strings.info.authCode.title': return 'メールを確認してください';
+			case 'strings.info.authCode.message': return 'メールに認証コードを送信しました';
+			case 'strings.info.passwordReset.title': return 'メールを確認してください';
+			case 'strings.info.passwordReset.message': return 'メールにパスワード再設定メールを送信しました';
 			case 'strings.error.emailAndPassword': return 'メールアドレス及びパスワードを正しく入力してください';
 			case 'strings.error.email': return 'メールアドレスを正しく入力してください';
 			default: return null;

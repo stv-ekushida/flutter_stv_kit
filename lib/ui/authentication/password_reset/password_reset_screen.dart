@@ -37,14 +37,14 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
       ),
       body: Stack(
         children: [
-          _buildBody(),
+          _buildBody,
           if (state.isLoading) const CustomIndicator(),
         ],
       ),
     );
   }
 
-  Widget _buildBody() {
+  Widget get _buildBody {
     return Container(
       color: Colors.white,
       padding: const EdgeInsets.all(16.0),
@@ -53,18 +53,18 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ..._buildHeader(),
+            ..._buildHeader,
             const Gap(32),
-            ..._buildEmailSection(),
+            _buildEmailSection,
             const Gap(32),
-            ..._buildResetPasswordSection(),
+            ..._buildResetPasswordSection,
           ],
         ),
       ),
     );
   }
 
-  List<Widget> _buildHeader() {
+  List<Widget> get _buildHeader {
     return [
       Text(
         i18n.strings.passwordReset.subTitle,
@@ -81,22 +81,22 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
   }
 
   /// メールアドレス
-  List<Widget> _buildEmailSection() {
-    return [
-      Align(
-        alignment: Alignment.centerLeft,
-        child: Text(i18n.strings.passwordReset.email),
-      ),
-      const Gap(8),
-      CustomTextField(
-        hintText: i18n.strings.passwordReset.emailHint,
-        textFieldType: TextFiledType.email,
-        textController: emailTextController,
-      ),
-    ];
+  Widget get _buildEmailSection {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(i18n.strings.passwordReset.email),
+        const Gap(8),
+        CustomTextField(
+          hintText: i18n.strings.passwordReset.emailHint,
+          textFieldType: TextFiledType.email,
+          textController: emailTextController,
+        ),
+      ],
+    );
   }
 
-  List<Widget> _buildResetPasswordSection() {
+  List<Widget> get _buildResetPasswordSection {
     return [
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -136,8 +136,8 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
     }
 
     context.showInfoDialog(
-      'メールを確認してください',
-      'メールにパスワード再設定メールを送信しました。',
+      i18n.strings.info.passwordReset.title,
+      i18n.strings.info.passwordReset.message,
       () {
         context.pop();
       },
