@@ -7,6 +7,7 @@ import 'package:form_field_validator/form_field_validator.dart';
 enum TextFiledType {
   email,
   password,
+  authCode,
 }
 
 extension TextFiledTypeEx on TextFiledType {
@@ -21,6 +22,13 @@ extension TextFiledTypeEx on TextFiledType {
           MinLengthValidator(8, errorText: 'パスワードは8文字以上入力してください'),
           PatternValidator(r'(?=.*?[#?!@$%^&*-])',
               errorText: '記号は1文字以上入力してください'),
+        ]);
+
+      case TextFiledType.authCode:
+        return MultiValidator([
+          RequiredValidator(errorText: '認証コードを正しく入力してください'),
+          MaxLengthValidator(6, errorText: '認証コードを正しく入力してください'),
+          PatternValidator(r'^[0-9]+$', errorText: '認証コードを正しく入力してください'),
         ]);
     }
   }

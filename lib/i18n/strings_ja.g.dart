@@ -4,16 +4,20 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 54
+/// Strings: 63
 ///
-/// Built on 2024-07-04 at 05:31 UTC
+/// Built on 2024-07-05 at 14:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
 
+// Flutter imports:
 import 'package:flutter/widgets.dart';
+
+// Package imports:
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
+
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.ja;
@@ -159,6 +163,7 @@ class _StringsJaStringsJa {
 	// Translations
 	late final _StringsJaStringsSignUpJa signUp = _StringsJaStringsSignUpJa._(_root);
 	late final _StringsJaStringsSignUpWithEmailJa signUpWithEmail = _StringsJaStringsSignUpWithEmailJa._(_root);
+	late final _StringsJaStringsAuthCodeJa authCode = _StringsJaStringsAuthCodeJa._(_root);
 	late final _StringsJaStringsLoginJa login = _StringsJaStringsLoginJa._(_root);
 	late final _StringsJaStringsPasswordResetJa passwordReset = _StringsJaStringsPasswordResetJa._(_root);
 	late final _StringsJaStringsMyPageJa myPage = _StringsJaStringsMyPageJa._(_root);
@@ -202,6 +207,21 @@ class _StringsJaStringsSignUpWithEmailJa {
 	String get password => 'パスワード';
 	String get passwordHint => 'パスワードを入力してください';
 	String get nextBtn => '次へ';
+}
+
+// Path: strings.authCode
+class _StringsJaStringsAuthCodeJa {
+	_StringsJaStringsAuthCodeJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => '会員登録';
+	String get description => '認証コードを入力してください';
+	String get authCode => '認証コード';
+	String get authCodeHint => '認証コードを入力してください(6桁）';
+	String get resend => '認証コードを再送する';
+	String get sendBtn => '送信する';
 }
 
 // Path: strings.login
@@ -299,6 +319,7 @@ class _StringsJaStringsInfoJa {
 
 	// Translations
 	late final _StringsJaStringsInfoAuthCodeJa authCode = _StringsJaStringsInfoAuthCodeJa._(_root);
+	late final _StringsJaStringsInfoAuthCodeCompletionJa authCodeCompletion = _StringsJaStringsInfoAuthCodeCompletionJa._(_root);
 	late final _StringsJaStringsInfoPasswordResetJa passwordReset = _StringsJaStringsInfoPasswordResetJa._(_root);
 }
 
@@ -362,6 +383,18 @@ class _StringsJaStringsInfoAuthCodeJa {
 	String get message => 'メールに認証コードを送信しました';
 }
 
+// Path: strings.info.authCodeCompletion
+class _StringsJaStringsInfoAuthCodeCompletionJa {
+	_StringsJaStringsInfoAuthCodeCompletionJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'メールを確認してください';
+	String get message => '本人認証が完了しました';
+	String get btnName => '次へ';
+}
+
 // Path: strings.info.passwordReset
 class _StringsJaStringsInfoPasswordResetJa {
 	_StringsJaStringsInfoPasswordResetJa._(this._root);
@@ -369,7 +402,7 @@ class _StringsJaStringsInfoPasswordResetJa {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'メールを確認してください';
+	String get title => '認証コード成功';
 	String get message => 'メールにパスワード再設定メールを送信しました';
 }
 
@@ -395,6 +428,12 @@ extension on Translations {
 			case 'strings.signUpWithEmail.password': return 'パスワード';
 			case 'strings.signUpWithEmail.passwordHint': return 'パスワードを入力してください';
 			case 'strings.signUpWithEmail.nextBtn': return '次へ';
+			case 'strings.authCode.screen': return '会員登録';
+			case 'strings.authCode.description': return '認証コードを入力してください';
+			case 'strings.authCode.authCode': return '認証コード';
+			case 'strings.authCode.authCodeHint': return '認証コードを入力してください(6桁）';
+			case 'strings.authCode.resend': return '認証コードを再送する';
+			case 'strings.authCode.sendBtn': return '送信する';
 			case 'strings.login.screen': return 'ログイン';
 			case 'strings.login.loginBtn': return 'ログイン';
 			case 'strings.login.email': return 'メールアドレス';
@@ -429,7 +468,10 @@ extension on Translations {
 			case 'strings.oauth.signIn.line': return 'LINEでサインイン';
 			case 'strings.info.authCode.title': return 'メールを確認してください';
 			case 'strings.info.authCode.message': return 'メールに認証コードを送信しました';
-			case 'strings.info.passwordReset.title': return 'メールを確認してください';
+			case 'strings.info.authCodeCompletion.title': return 'メールを確認してください';
+			case 'strings.info.authCodeCompletion.message': return '本人認証が完了しました';
+			case 'strings.info.authCodeCompletion.btnName': return '次へ';
+			case 'strings.info.passwordReset.title': return '認証コード成功';
 			case 'strings.info.passwordReset.message': return 'メールにパスワード再設定メールを送信しました';
 			case 'strings.error.emailAndPassword': return 'メールアドレス及びパスワードを正しく入力してください';
 			case 'strings.error.email': return 'メールアドレスを正しく入力してください';

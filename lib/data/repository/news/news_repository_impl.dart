@@ -25,16 +25,14 @@ class NewsRepositoryImpl implements NewsRepository {
   @override
   Future<Result<List<News>>> fetchAll({
     required NewsType type,
-  }) async {
-    return Result.guardFuture(
-      () async => dataSource.fetchAll(type: type),
-    );
-  }
+  }) async =>
+      Result.guardFuture(
+        () async => dataSource.fetchAll(type: type),
+      );
 
   @override
-  Future<Result<bool>> readNews({required String newsId}) async {
-    return Result.guardFuture(
-      () async => dataSource.readNews(newsId: newsId),
-    );
-  }
+  Future<Result<bool>> readNews({required String newsId}) async =>
+      Result.guardFuture(
+        () async => dataSource.readNews(newsId: newsId),
+      );
 }

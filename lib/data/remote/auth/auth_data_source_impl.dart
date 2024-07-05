@@ -28,6 +28,13 @@ class AuthDataSourceImpl implements AuthDataSource {
   }
 
   @override
+  Future<bool> authCodeInput({required String code}) async {
+    await delay(500);
+
+    return Future.value(true);
+  }
+
+  @override
   Future<Auth> signUpWithSns({
     required String idToken,
   }) async {

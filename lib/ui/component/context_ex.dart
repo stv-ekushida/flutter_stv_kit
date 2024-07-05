@@ -5,17 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stv_kit/core/app_color.dart';
 
 extension BuildContextEx on BuildContext {
-  Future<void> showInfoDialog(
-      String title, String message, VoidCallback onPressed) async {
+  Future<void> showInfoDialog({
+    required title,
+    required String message,
+    String? btnName,
+    required VoidCallback onPressed,
+  }) async {
     await showDialog<void>(
       context: this,
       builder: (context) => AlertDialog(
         title: Text(
           title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
         ),
         content: Text(message),
         actions: [
@@ -24,9 +27,9 @@ extension BuildContextEx on BuildContext {
               Navigator.pop(context);
               onPressed();
             },
-            child: const Text(
-              'OK',
-              style: TextStyle(
+            child: Text(
+              btnName ?? 'OK',
+              style: const TextStyle(
                 color: AppColor.primaryColor,
                 fontSize: 14,
               ),

@@ -1,10 +1,14 @@
-// Project imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_stv_kit/data/api_error.dart';
-import 'package:flutter_stv_kit/data/model/auth/auth.dart';
+
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
+// Project imports:
+import 'package:flutter_stv_kit/data/api_error.dart';
+import 'package:flutter_stv_kit/data/model/auth/auth.dart';
 
 part 'sign_up_with_email_screen_state.freezed.dart';
 

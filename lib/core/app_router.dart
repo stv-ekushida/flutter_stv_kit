@@ -3,12 +3,13 @@ import 'package:flutter/cupertino.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen.dart';
 import 'package:flutter_stv_kit/ui/authentication/password_reset/password_reset_screen.dart';
+import 'package:flutter_stv_kit/ui/authentication/sign_up/auth_code/auth_code_screen.dart';
+import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sing_up_screen.dart';
 import 'package:flutter_stv_kit/ui/home/home_screen.dart';
 import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen.dart';
@@ -18,6 +19,7 @@ enum ScreenType {
   login,
   signUp,
   signUpWithEmail,
+  authCode,
   passwordReset,
   home,
   news,
@@ -35,18 +37,19 @@ final appRouterProvider = Provider<GoRouter>(
               const LoginScreen(),
           routes: [
             GoRoute(
-                path: ScreenType.signUp.name,
-                name: ScreenType.signUp.name,
-                builder: (BuildContext context, GoRouterState state) =>
-                    const SignUpScreen(),
-                routes: [
-                  GoRoute(
-                    path: ScreenType.signUpWithEmail.name,
-                    name: ScreenType.signUpWithEmail.name,
-                    builder: (BuildContext context, GoRouterState state) =>
-                        const SignUpWithEmail(),
-                  ),
-                ]),
+              path: ScreenType.signUp.name,
+              name: ScreenType.signUp.name,
+              builder: (BuildContext context, GoRouterState state) =>
+                  const SignUpScreen(),
+              routes: [
+                GoRoute(
+                  path: ScreenType.signUpWithEmail.name,
+                  name: ScreenType.signUpWithEmail.name,
+                  builder: (BuildContext context, GoRouterState state) =>
+                      const SignUpWithEmail(),
+                ),
+              ],
+            ),
             GoRoute(
               path: ScreenType.passwordReset.name,
               name: ScreenType.passwordReset.name,
@@ -54,6 +57,12 @@ final appRouterProvider = Provider<GoRouter>(
                   const PasswordResetScreen(),
             ),
           ],
+        ),
+        GoRoute(
+          path: '/${ScreenType.authCode.name}',
+          name: ScreenType.authCode.name,
+          builder: (BuildContext context, GoRouterState state) =>
+              const AuthCodeScreen(),
         ),
         GoRoute(
           path: '/${ScreenType.home.name}',

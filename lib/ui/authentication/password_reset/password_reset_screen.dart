@@ -143,9 +143,9 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
     }
 
     context.showInfoDialog(
-      i18n.strings.info.passwordReset.title,
-      i18n.strings.info.passwordReset.message,
-      () {
+      title: i18n.strings.info.passwordReset.title,
+      message: i18n.strings.info.passwordReset.message,
+      onPressed: () {
         context.pop();
       },
     );

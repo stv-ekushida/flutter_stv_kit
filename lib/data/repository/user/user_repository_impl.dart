@@ -23,9 +23,7 @@ class UserRepositoryImpl implements UserRepository {
   final UserDataSource dataSource;
 
   @override
-  Future<Result<User>> fetch() async {
-    return Result.guardFuture(
-      () async => dataSource.fetch(),
-    );
-  }
+  Future<Result<User>> fetch() async => Result.guardFuture(
+        () async => dataSource.fetch(),
+      );
 }

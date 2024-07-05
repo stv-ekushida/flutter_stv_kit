@@ -68,7 +68,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         child: Form(
           child: Column(
             children: [
-              _buildLogo,
+              const _LoginLogo(),
               const Gap(16),
               _buildEmailSection,
               const Gap(16),
@@ -76,7 +76,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               const Gap(16),
               ..._buildLoginSection,
               const Gap(32),
-              ..._buildPartition,
+              const _LoginPartition(),
               const Gap(32),
               ..._buildSNSSignIn,
               const Gap(32),
@@ -90,15 +90,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget get _buildLogo {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Logo(),
-      ],
     );
   }
 
@@ -185,39 +176,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     _onPressedLoginWithEmailAndPassword();
   }
 
-  List<Widget> get _buildPartition {
-    return [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-                color: AppColor.neutralVariantColor,
-              ),
-              height: 0.5,
-            ),
-          ),
-          const Gap(32),
-          Text(
-            'または',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          const Gap(32),
-          Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-                color: AppColor.neutralVariantColor,
-              ),
-              height: 0.5,
-            ),
-          ),
-        ],
-      ),
-    ];
-  }
-
   List<Widget> get _buildSNSSignIn {
     return [
       CustomSnsButton(
@@ -286,5 +244,55 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         },
       ),
     ];
+  }
+}
+
+class _LoginLogo extends StatelessWidget {
+  const _LoginLogo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Logo(),
+      ],
+    );
+  }
+}
+
+class _LoginPartition extends StatelessWidget {
+  const _LoginPartition({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Container(
+            decoration: const BoxDecoration(
+              color: AppColor.neutralVariantColor,
+            ),
+            height: 0.5,
+          ),
+        ),
+        const Gap(32),
+        Text(
+          'または',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        const Gap(32),
+        Expanded(
+          child: Container(
+            decoration: const BoxDecoration(
+              color: AppColor.neutralVariantColor,
+            ),
+            height: 0.5,
+          ),
+        ),
+      ],
+    );
   }
 }

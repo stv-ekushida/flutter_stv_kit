@@ -19,6 +19,14 @@
     "passwordHint": "パスワードを入力してください",
     "nextBtn": "次へ"
   },
+  "authCode": {
+    "screen": "会員登録",
+    "description": "認証コードを入力してください",
+    "authCode": "認証コード",
+    "authCodeHint": "認証コードを入力してください(6桁）",
+    "resend": "認証コードを再送する",
+    "sendBtn": "送信する"
+  },
 
   "login": {
     "screen": "ログイン",
@@ -77,8 +85,13 @@
       "title": "メールを確認してください",
       "message": "メールに認証コードを送信しました"
     },
-    "passwordReset": {
+    "authCodeCompletion": {
       "title": "メールを確認してください",
+      "message": "本人認証が完了しました",
+      "btnName": "次へ"
+    },
+    "passwordReset": {
+      "title": "認証コード成功",
       "message": "メールにパスワード再設定メールを送信しました"
     }
   },

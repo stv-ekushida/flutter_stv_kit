@@ -26,46 +26,45 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Result<Auth>> signUpWithEmailAndPassword({
     required String email,
     required String password,
-  }) {
-    return Result.guardFuture(
-      () async => dataSource.signUpWithEmailAndPassword(
-          email: email, password: password),
-    );
-  }
+  }) async =>
+      Result.guardFuture(
+        () async => dataSource.signUpWithEmailAndPassword(
+            email: email, password: password),
+      );
 
+  @override
+  Future<Result<bool>> authCodeInput({required String code}) async =>
+      Result.guardFuture(
+        () async => await dataSource.authCodeInput(code: code),
+      );
   @override
   Future<Result<Auth>> signUpWithSns({
     required String idToken,
-  }) async {
-    return Result.guardFuture(
-      () async => dataSource.signUpWithSns(idToken: idToken),
-    );
-  }
+  }) async =>
+      Result.guardFuture(
+        () async => await dataSource.signUpWithSns(idToken: idToken),
+      );
 
   @override
   Future<Result<Auth>> signInWithEmailAndPassword({
     required String email,
     required String password,
-  }) {
-    return Result.guardFuture(
-      () async => dataSource.signUpWithEmailAndPassword(
-          email: email, password: password),
-    );
-  }
+  }) async =>
+      Result.guardFuture(
+        () async => await dataSource.signUpWithEmailAndPassword(
+            email: email, password: password),
+      );
 
   @override
-  Future<Result<void>> signOut() {
-    return Result.guardFuture(
-      () async => await dataSource.signOut(),
-    );
-  }
+  Future<Result<void>> signOut() => Result.guardFuture(
+        () async => await dataSource.signOut(),
+      );
 
   @override
   Future<Result<bool>> resetPassword({
     required String email,
-  }) async {
-    return Result.guardFuture(
-      () async => await dataSource.resetPassword(email: email),
-    );
-  }
+  }) async =>
+      Result.guardFuture(
+        () async => await dataSource.resetPassword(email: email),
+      );
 }

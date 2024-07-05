@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+
+// Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
+import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
 import 'package:flutter_stv_kit/ui/component/logo.dart';
-import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
-import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 
 class SignUpWithEmail extends ConsumerStatefulWidget {
   const SignUpWithEmail({super.key});
@@ -169,11 +171,11 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
 
     state.whenOrNull(data: (_) {
       context.showInfoDialog(
-        i18n.strings.info.authCode.title,
-        i18n.strings.info.authCode.message,
-        () {
+        title: i18n.strings.info.authCode.title,
+        message: i18n.strings.info.authCode.message,
+        onPressed: () {
           context.pop();
-          context.goNamed(ScreenType.home.name);
+          context.goNamed(ScreenType.authCode.name);
         },
       );
     });

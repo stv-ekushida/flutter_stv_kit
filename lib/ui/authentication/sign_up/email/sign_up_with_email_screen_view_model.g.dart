@@ -7,7 +7,7 @@ part of 'sign_up_with_email_screen_view_model.dart';
 // **************************************************************************
 
 String _$signUpWithEmailScreenViewModelHash() =>
-    r'd567ab96416643bc2c1fd147455e8ca8bce0ff6f';
+    r'd666932b080da8140ad414f390b9b1d331e791dc';
 
 /// Copied from Dart SDK
 class _SystemHash {
