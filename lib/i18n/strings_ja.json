@@ -96,6 +96,10 @@
     "passwordReset": {
       "title": "認証コード成功",
       "message": "メールにパスワード再設定メールを送信しました"
+    },
+    "logout": {
+      "title": "確認",
+      "message": "ログアウトしますか？"
     }
   },
   "error": {

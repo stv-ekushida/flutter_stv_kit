@@ -1,11 +1,11 @@
 // Package imports:
+import 'package:flutter_stv_kit/data/result.dart';
+import 'package:flutter_stv_kit/ui/component/widget_basic/widget_basic_state_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
-import 'package:flutter_stv_kit/data/result.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_state.dart';
-import 'package:flutter_stv_kit/ui/component/loading/loading_container_view_model.dart';
 
 part 'login_screen_view_model.g.dart';
 
@@ -22,7 +22,7 @@ class LoginScreenViewModel extends _$LoginScreenViewModel {
     required String email,
     required String password,
   }) async {
-    final notifier = ref.read(loadingContainerViewModelProvider().notifier);
+    final notifier = ref.read((widgetBasicStateControllerProvider()).notifier);
     notifier.loading();
 
     final result = await ref

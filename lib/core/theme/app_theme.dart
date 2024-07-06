@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/theme/app_color.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 
 class AppTheme {
   static ThemeData get theme {
@@ -10,17 +11,18 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(
           seedColor: AppColor.primaryColor, surface: Colors.white),
       useMaterial3: true,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColor.primaryColor,
         elevation: 0,
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.white),
-        titleTextStyle: TextStyle(
-          fontFamily: 'NotoSansJp',
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-          color: Colors.white,
-        ),
+        iconTheme: const IconThemeData(color: Colors.white),
+        titleTextStyle:
+            appTextTheme.large2.bold().copyWith(color: Colors.white),
+      ),
+      tabBarTheme: TabBarTheme(
+        labelColor: AppColor.primaryColor,
+        indicatorColor: AppColor.primaryColor,
+        unselectedLabelColor: Colors.grey[500],
       ),
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.all(AppColor.primaryColor),

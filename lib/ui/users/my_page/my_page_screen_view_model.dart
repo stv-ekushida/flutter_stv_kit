@@ -26,12 +26,8 @@ class MyPageScreenViewModel extends _$MyPageScreenViewModel {
     final result = await ref.read(userRepositoryProvider).fetch();
 
     result.when(
-      success: (data) {
-        state = state.copyWith(user: data, isLoading: false);
-      },
-      failure: (e) {
-        state = state.copyWith(isLoading: false);
-      },
+      success: (data) => state = state.copyWith(user: data, isLoading: false),
+      failure: (e) => state = state.copyWith(isLoading: false),
     );
   }
 

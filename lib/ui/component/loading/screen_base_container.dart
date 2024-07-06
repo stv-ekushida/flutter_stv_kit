@@ -27,6 +27,7 @@ class ScreenBaseContainer extends ConsumerWidget {
       },
     );
 
+    //ローディング
     final state = ref.watch(widgetBasicStateControllerProvider());
 
     return Stack(

@@ -4,20 +4,16 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 64
+/// Strings: 66
 ///
-/// Built on 2024-07-05 at 14:24 UTC
+/// Built on 2024-07-06 at 12:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
 
-// Flutter imports:
 import 'package:flutter/widgets.dart';
-
-// Package imports:
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
-
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.ja;
@@ -332,6 +328,7 @@ class _StringsJaStringsInfoJa {
 	late final _StringsJaStringsInfoAuthCodeJa authCode = _StringsJaStringsInfoAuthCodeJa._(_root);
 	late final _StringsJaStringsInfoAuthCodeCompletionJa authCodeCompletion = _StringsJaStringsInfoAuthCodeCompletionJa._(_root);
 	late final _StringsJaStringsInfoPasswordResetJa passwordReset = _StringsJaStringsInfoPasswordResetJa._(_root);
+	late final _StringsJaStringsInfoLogoutJa logout = _StringsJaStringsInfoLogoutJa._(_root);
 }
 
 // Path: strings.error
@@ -417,6 +414,17 @@ class _StringsJaStringsInfoPasswordResetJa {
 	String get message => 'メールにパスワード再設定メールを送信しました';
 }
 
+// Path: strings.info.logout
+class _StringsJaStringsInfoLogoutJa {
+	_StringsJaStringsInfoLogoutJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => '確認';
+	String get message => 'ログアウトしますか？';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -485,6 +493,8 @@ extension on Translations {
 			case 'strings.info.authCodeCompletion.btnName': return '次へ';
 			case 'strings.info.passwordReset.title': return '認証コード成功';
 			case 'strings.info.passwordReset.message': return 'メールにパスワード再設定メールを送信しました';
+			case 'strings.info.logout.title': return '確認';
+			case 'strings.info.logout.message': return 'ログアウトしますか？';
 			case 'strings.error.emailAndPassword': return 'メールアドレス及びパスワードを正しく入力してください';
 			case 'strings.error.email': return 'メールアドレスを正しく入力してください';
 			default: return null;

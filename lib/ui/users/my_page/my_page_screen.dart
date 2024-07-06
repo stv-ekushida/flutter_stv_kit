@@ -135,8 +135,8 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
 
   void _onPressedLogout(BuildContext context) {
     context.showConfirmDialog(
-      '確認',
-      'ログアウトしますか？',
+      i18n.strings.info.logout.title,
+      i18n.strings.info.logout.message,
       () => _invokeLogout(),
     );
   }

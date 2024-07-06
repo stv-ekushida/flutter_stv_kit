@@ -3,17 +3,16 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:gap/gap.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/core/theme/app_color.dart';
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/data/model/news/news.dart';
 import 'package:flutter_stv_kit/data/remote/news/news_data_source.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
-import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen_view_model.dart';
 
 class NewsListScreen extends ConsumerStatefulWidget {
@@ -66,40 +65,19 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
     return Column(
       children: [
         TabBar(
-          labelColor: AppColor.primaryColor,
-          indicatorColor: AppColor.primaryColor,
-          unselectedLabelColor: Colors.grey[500],
           controller: _tabController,
           tabs: _tabs,
         ),
         Expanded(
           child: TabBarView(
             controller: _tabController,
-            children: [
-              _buildTabContainer,
-              _buildTabContainer,
+            children: const [
+              _NewsTab(),
+              _NewsTab(),
             ],
           ),
         ),
       ],
-    );
-  }
-
-  Widget get _buildTabContainer {
-    final state = ref.watch(newsListScreenViewModelProvider());
-
-    return state.when(
-      none: () => const SizedBox.shrink(),
-      loading: (_, news) {
-        return Stack(
-          children: [
-            if (news.isNotEmpty) _NewsList(news: news),
-            const CustomIndicator(),
-          ],
-        );
-      },
-      data: (_, news) => _NewsList(news: news),
-      error: (_, __, news) => _NewsList(news: news),
     );
   }
 
@@ -120,11 +98,24 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
   }
 }
 
+class _NewsTab extends ConsumerWidget {
+  const _NewsTab();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(newsListScreenViewModelProvider());
+
+    return ScreenBaseContainer(
+      child: state.when(
+        none: () => const SizedBox.shrink(),
+        data: (news) => _NewsList(news: news),
+      ),
+    );
+  }
+}
+
 class _NewsList extends StatelessWidget {
-  const _NewsList({
-    super.key,
-    required this.news,
-  });
+  const _NewsList({required this.news});
 
   final List<News> news;
 
@@ -136,9 +127,7 @@ class _NewsList extends StatelessWidget {
       );
     }
     return ListView.separated(
-      itemBuilder: (_, index) => _NewsListTile(
-        news: news[index],
-      ),
+      itemBuilder: (_, index) => _NewsListTile(news: news[index]),
       separatorBuilder: (_, __) => const CustomDivider(),
       itemCount: news.length,
     );
@@ -167,9 +156,7 @@ class _NewListEmpty extends StatelessWidget {
 }
 
 class _NewsListTile extends StatelessWidget {
-  const _NewsListTile({
-    required this.news,
-  });
+  const _NewsListTile({required this.news});
 
   final News news;
 

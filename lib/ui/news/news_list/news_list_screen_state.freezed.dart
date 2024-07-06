@@ -19,50 +19,37 @@ mixin _$NewsListScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function(NewsType type, dynamic previous) loading,
-    required TResult Function(NewsType type, AppError error, dynamic previous)
-        error,
-    required TResult Function(NewsType type, List<News> news) data,
+    required TResult Function(List<News> news) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function(NewsType type, dynamic previous)? loading,
-    TResult? Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult? Function(NewsType type, List<News> news)? data,
+    TResult? Function(List<News> news)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function(NewsType type, dynamic previous)? loading,
-    TResult Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult Function(NewsType type, List<News> news)? data,
+    TResult Function(List<News> news)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Data value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Data value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) =>
@@ -125,10 +112,7 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function(NewsType type, dynamic previous) loading,
-    required TResult Function(NewsType type, AppError error, dynamic previous)
-        error,
-    required TResult Function(NewsType type, List<News> news) data,
+    required TResult Function(List<News> news) data,
   }) {
     return none();
   }
@@ -137,9 +121,7 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function(NewsType type, dynamic previous)? loading,
-    TResult? Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult? Function(NewsType type, List<News> news)? data,
+    TResult? Function(List<News> news)? data,
   }) {
     return none?.call();
   }
@@ -148,9 +130,7 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function(NewsType type, dynamic previous)? loading,
-    TResult Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult Function(NewsType type, List<News> news)? data,
+    TResult Function(List<News> news)? data,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -163,8 +143,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Data value) data,
   }) {
     return none(this);
@@ -174,8 +152,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Data value)? data,
   }) {
     return none?.call(this);
@@ -185,8 +161,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) {
@@ -202,331 +176,12 @@ abstract class _None implements NewsListScreenState {
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({NewsType type, dynamic previous});
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$NewsListScreenStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? previous = freezed,
-  }) {
-    return _then(_$LoadingImpl(
-      null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as NewsType,
-      freezed == previous ? _value.previous! : previous,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl(this.type, [this.previous = const []]);
-
-  @override
-  final NewsType type;
-  @override
-  @JsonKey()
-  final dynamic previous;
-
-  @override
-  String toString() {
-    return 'NewsListScreenState.loading(type: $type, previous: $previous)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoadingImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality().equals(other.previous, previous));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, type, const DeepCollectionEquality().hash(previous));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
-      __$$LoadingImplCopyWithImpl<_$LoadingImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(NewsType type, dynamic previous) loading,
-    required TResult Function(NewsType type, AppError error, dynamic previous)
-        error,
-    required TResult Function(NewsType type, List<News> news) data,
-  }) {
-    return loading(type, previous);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(NewsType type, dynamic previous)? loading,
-    TResult? Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult? Function(NewsType type, List<News> news)? data,
-  }) {
-    return loading?.call(type, previous);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(NewsType type, dynamic previous)? loading,
-    TResult Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult Function(NewsType type, List<News> news)? data,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(type, previous);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Data value) data,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Data value)? data,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Data value)? data,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements NewsListScreenState {
-  const factory _Loading(final NewsType type, [final dynamic previous]) =
-      _$LoadingImpl;
-
-  NewsType get type;
-  dynamic get previous;
-  @JsonKey(ignore: true)
-  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({NewsType type, AppError error, dynamic previous});
-}
-
-/// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$NewsListScreenStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? error = null,
-    Object? previous = freezed,
-  }) {
-    return _then(_$ErrorImpl(
-      null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as NewsType,
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as AppError,
-      freezed == previous ? _value.previous! : previous,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.type, this.error, [this.previous = const []]);
-
-  @override
-  final NewsType type;
-  @override
-  final AppError error;
-  @override
-  @JsonKey()
-  final dynamic previous;
-
-  @override
-  String toString() {
-    return 'NewsListScreenState.error(type: $type, error: $error, previous: $previous)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.error, error) || other.error == error) &&
-            const DeepCollectionEquality().equals(other.previous, previous));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, type, error, const DeepCollectionEquality().hash(previous));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(NewsType type, dynamic previous) loading,
-    required TResult Function(NewsType type, AppError error, dynamic previous)
-        error,
-    required TResult Function(NewsType type, List<News> news) data,
-  }) {
-    return error(type, this.error, previous);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(NewsType type, dynamic previous)? loading,
-    TResult? Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult? Function(NewsType type, List<News> news)? data,
-  }) {
-    return error?.call(type, this.error, previous);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(NewsType type, dynamic previous)? loading,
-    TResult Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult Function(NewsType type, List<News> news)? data,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(type, this.error, previous);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Data value) data,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Data value)? data,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Data value)? data,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Error implements NewsListScreenState {
-  const factory _Error(final NewsType type, final AppError error,
-      [final dynamic previous]) = _$ErrorImpl;
-
-  NewsType get type;
-  AppError get error;
-  dynamic get previous;
-  @JsonKey(ignore: true)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 abstract class _$$DataImplCopyWith<$Res> {
   factory _$$DataImplCopyWith(
           _$DataImpl value, $Res Function(_$DataImpl) then) =
       __$$DataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({NewsType type, List<News> news});
+  $Res call({List<News> news});
 }
 
 /// @nodoc
@@ -539,14 +194,9 @@ class __$$DataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? news = null,
   }) {
     return _then(_$DataImpl(
-      null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as NewsType,
       null == news
           ? _value._news
           : news // ignore: cast_nullable_to_non_nullable
@@ -558,10 +208,8 @@ class __$$DataImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DataImpl implements _Data {
-  const _$DataImpl(this.type, final List<News> news) : _news = news;
+  const _$DataImpl(final List<News> news) : _news = news;
 
-  @override
-  final NewsType type;
   final List<News> _news;
   @override
   List<News> get news {
@@ -572,7 +220,7 @@ class _$DataImpl implements _Data {
 
   @override
   String toString() {
-    return 'NewsListScreenState.data(type: $type, news: $news)';
+    return 'NewsListScreenState.data(news: $news)';
   }
 
   @override
@@ -580,13 +228,12 @@ class _$DataImpl implements _Data {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataImpl &&
-            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._news, _news));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, const DeepCollectionEquality().hash(_news));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_news));
 
   @JsonKey(ignore: true)
   @override
@@ -598,36 +245,29 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function(NewsType type, dynamic previous) loading,
-    required TResult Function(NewsType type, AppError error, dynamic previous)
-        error,
-    required TResult Function(NewsType type, List<News> news) data,
+    required TResult Function(List<News> news) data,
   }) {
-    return data(type, news);
+    return data(news);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function(NewsType type, dynamic previous)? loading,
-    TResult? Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult? Function(NewsType type, List<News> news)? data,
+    TResult? Function(List<News> news)? data,
   }) {
-    return data?.call(type, news);
+    return data?.call(news);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function(NewsType type, dynamic previous)? loading,
-    TResult Function(NewsType type, AppError error, dynamic previous)? error,
-    TResult Function(NewsType type, List<News> news)? data,
+    TResult Function(List<News> news)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(type, news);
+      return data(news);
     }
     return orElse();
   }
@@ -636,8 +276,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Data value) data,
   }) {
     return data(this);
@@ -647,8 +285,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Data value)? data,
   }) {
     return data?.call(this);
@@ -658,8 +294,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) {
@@ -671,9 +305,8 @@ class _$DataImpl implements _Data {
 }
 
 abstract class _Data implements NewsListScreenState {
-  const factory _Data(final NewsType type, final List<News> news) = _$DataImpl;
+  const factory _Data(final List<News> news) = _$DataImpl;
 
-  NewsType get type;
   List<News> get news;
   @JsonKey(ignore: true)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
