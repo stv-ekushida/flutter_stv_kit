@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stv_kit/core/theme/app_color.dart';
 
 class CustomIndicator extends StatelessWidget {
-  const CustomIndicator({super.key});
+  const CustomIndicator({super.key, this.backgroundColor});
+
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: CircularProgressIndicator(
-        backgroundColor: AppColor.primaryColor,
+        backgroundColor: backgroundColor ?? AppColor.primaryColor,
       ),
     );
   }

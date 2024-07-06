@@ -19,24 +19,18 @@ mixin _$LoginScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function() loading,
-    required TResult Function(AppError error) error,
     required TResult Function(Auth auth) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function()? loading,
-    TResult? Function(AppError error)? error,
     TResult? Function(Auth auth)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function()? loading,
-    TResult Function(AppError error)? error,
     TResult Function(Auth auth)? data,
     required TResult orElse(),
   }) =>
@@ -44,24 +38,18 @@ mixin _$LoginScreenState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Data value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Data value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) =>
@@ -124,8 +112,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function() loading,
-    required TResult Function(AppError error) error,
     required TResult Function(Auth auth) data,
   }) {
     return none();
@@ -135,8 +121,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function()? loading,
-    TResult? Function(AppError error)? error,
     TResult? Function(Auth auth)? data,
   }) {
     return none?.call();
@@ -146,8 +130,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function()? loading,
-    TResult Function(AppError error)? error,
     TResult Function(Auth auth)? data,
     required TResult orElse(),
   }) {
@@ -161,8 +143,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Data value) data,
   }) {
     return none(this);
@@ -172,8 +152,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Data value)? data,
   }) {
     return none?.call(this);
@@ -183,8 +161,6 @@ class _$NoneImpl implements _None {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) {
@@ -197,265 +173,6 @@ class _$NoneImpl implements _None {
 
 abstract class _None implements LoginScreenState {
   const factory _None() = _$NoneImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$LoginScreenStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl();
-
-  @override
-  String toString() {
-    return 'LoginScreenState.loading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() loading,
-    required TResult Function(AppError error) error,
-    required TResult Function(Auth auth) data,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function()? loading,
-    TResult? Function(AppError error)? error,
-    TResult? Function(Auth auth)? data,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? loading,
-    TResult Function(AppError error)? error,
-    TResult Function(Auth auth)? data,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Data value) data,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Data value)? data,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Data value)? data,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements LoginScreenState {
-  const factory _Loading() = _$LoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AppError error});
-}
-
-/// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$LoginScreenStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as AppError,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.error);
-
-  @override
-  final AppError error;
-
-  @override
-  String toString() {
-    return 'LoginScreenState.error(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() loading,
-    required TResult Function(AppError error) error,
-    required TResult Function(Auth auth) data,
-  }) {
-    return error(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function()? loading,
-    TResult? Function(AppError error)? error,
-    TResult? Function(Auth auth)? data,
-  }) {
-    return error?.call(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? loading,
-    TResult Function(AppError error)? error,
-    TResult Function(Auth auth)? data,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this.error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Data value) data,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Data value)? data,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Data value)? data,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Error implements LoginScreenState {
-  const factory _Error(final AppError error) = _$ErrorImpl;
-
-  AppError get error;
-  @JsonKey(ignore: true)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -532,8 +249,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function() loading,
-    required TResult Function(AppError error) error,
     required TResult Function(Auth auth) data,
   }) {
     return data(auth);
@@ -543,8 +258,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function()? loading,
-    TResult? Function(AppError error)? error,
     TResult? Function(Auth auth)? data,
   }) {
     return data?.call(auth);
@@ -554,8 +267,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function()? loading,
-    TResult Function(AppError error)? error,
     TResult Function(Auth auth)? data,
     required TResult orElse(),
   }) {
@@ -569,8 +280,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Data value) data,
   }) {
     return data(this);
@@ -580,8 +289,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_None value)? none,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Data value)? data,
   }) {
     return data?.call(this);
@@ -591,8 +298,6 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) {

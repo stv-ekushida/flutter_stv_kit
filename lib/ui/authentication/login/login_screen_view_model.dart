@@ -3,7 +3,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
+import 'package:flutter_stv_kit/data/result.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_state.dart';
+import 'package:flutter_stv_kit/ui/component/loading/loading_container_view_model.dart';
 
 part 'login_screen_view_model.g.dart';
 
@@ -16,8 +18,12 @@ class LoginScreenViewModel extends _$LoginScreenViewModel {
     return initialState;
   }
 
-  Future<void> login({required String email, required String password}) async {
-    state = const LoginScreenState.loading();
+  Future<bool> login({
+    required String email,
+    required String password,
+  }) async {
+    final notifier = ref.read(loadingContainerViewModelProvider().notifier);
+    notifier.loading();
 
     final result = await ref
         .read(authRepositoryProvider)
@@ -26,7 +32,10 @@ class LoginScreenViewModel extends _$LoginScreenViewModel {
     result.when(success: (auth) {
       state = LoginScreenState.data(auth);
     }, failure: (error) {
-      state = LoginScreenState.error(error);
+      notifier.error(error);
     });
+    notifier.none();
+
+    return result is Success;
   }
 }

@@ -14,8 +14,8 @@ import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/password_reset/password_reset_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
+import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 
 class PasswordResetScreen extends ConsumerStatefulWidget {
   const PasswordResetScreen({super.key});

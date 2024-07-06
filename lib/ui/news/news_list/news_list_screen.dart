@@ -13,7 +13,7 @@ import 'package:flutter_stv_kit/data/remote/news/news_data_source.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
+import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen_view_model.dart';
 
 class NewsListScreen extends ConsumerStatefulWidget {

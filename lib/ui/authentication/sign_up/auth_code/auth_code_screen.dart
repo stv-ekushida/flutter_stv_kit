@@ -14,8 +14,8 @@ import 'package:flutter_stv_kit/ui/authentication/sign_up/auth_code/auth_code_sc
 import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
+import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 
 class AuthCodeScreen extends ConsumerStatefulWidget {
   const AuthCodeScreen({super.key});

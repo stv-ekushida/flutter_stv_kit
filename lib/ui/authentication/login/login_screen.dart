@@ -14,16 +14,13 @@ import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/core/theme/app_color.dart';
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:flutter_stv_kit/ui/authentication/login/login_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_sns_button.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_text_button.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:flutter_stv_kit/ui/component/logo.dart';
-
-//import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -38,25 +35,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(loginScreenViewModelProvider());
-
-    ref.listen(
-      loginScreenViewModelProvider(),
-      (_, next) {
-        errorStateListener(context, next);
-      },
-    );
-
     return Scaffold(
       appBar: AppBar(
         title: Text(i18n.strings.login.screen),
       ),
-      body: Stack(
-        children: [
-          _buildBody,
-          if (state == const LoginScreenState.loading())
-            const CustomIndicator(),
-        ],
+      body: ScreenBaseContainer(
+        child: _buildBody,
       ),
     );
   }
@@ -209,20 +193,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Future<void> _onPressedLoginWithEmailAndPassword() async {
-    await ref.read(loginScreenViewModelProvider().notifier).login(
-          email: emailTextControl.text,
-          password: passwordTextControl.text,
-        );
+    final result =
+        await ref.read(loginScreenViewModelProvider().notifier).login(
+              email: emailTextControl.text,
+              password: passwordTextControl.text,
+            );
 
     if (!mounted) {
       return;
     }
 
-    final state = ref.watch(loginScreenViewModelProvider());
-
-    state.whenOrNull(
-      data: (_) => context.goNamed(ScreenType.home.name),
-    );
+    if (result) {
+      context.goNamed(ScreenType.home.name);
+    }
   }
 
   List<Widget> get _buildSignUp {

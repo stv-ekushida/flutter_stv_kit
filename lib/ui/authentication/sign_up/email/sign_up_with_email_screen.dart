@@ -14,8 +14,8 @@ import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_ema
 import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
+import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/logo.dart';
 
 class SignUpWithEmail extends ConsumerStatefulWidget {

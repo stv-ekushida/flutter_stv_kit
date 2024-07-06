@@ -15,7 +15,7 @@ import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.d
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_outlined_button.dart';
-import 'package:flutter_stv_kit/ui/component/custom_indicator.dart';
+import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/logo.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
