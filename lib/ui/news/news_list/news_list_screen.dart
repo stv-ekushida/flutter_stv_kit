@@ -6,7 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/core/app_color.dart';
+import 'package:flutter_stv_kit/core/theme/app_color.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/data/model/news/news.dart';
 import 'package:flutter_stv_kit/data/remote/news/news_data_source.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
@@ -155,7 +156,10 @@ class _NewListEmpty extends StatelessWidget {
           child: Image.asset(Assets.images.logo.path),
         ),
         const Gap(32),
-        Text(i18n.strings.newsList.empty),
+        Text(
+          i18n.strings.newsList.empty,
+          style: appTextTheme.medium,
+        ),
         const Spacer(),
       ],
     );
@@ -185,7 +189,7 @@ class _NewsListTile extends StatelessWidget {
       ),
       subtitle: Text(
         news.postText(),
-        style: const TextStyle(fontSize: 14, color: Colors.grey),
+        style: appTextTheme.medium.copyWith(color: Colors.grey),
       ),
       trailing: const Icon(Icons.arrow_forward_ios_sharp),
     );

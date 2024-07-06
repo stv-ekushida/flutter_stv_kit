@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen_view_model.dart';
@@ -65,7 +66,7 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
                 const Gap(16),
                 Text(
                   i18n.strings.signUpWithEmail.description,
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: appTextTheme.small,
                 ),
                 const Gap(32),
                 _buildEmailSection,
@@ -103,10 +104,7 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
       children: [
         Text(
           i18n.strings.signUpWithEmail.email,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(fontWeight: FontWeight.w600),
+          style: appTextTheme.large.bold(),
         ),
         const Gap(8),
         CustomTextField(
@@ -122,7 +120,7 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
         const Gap(8),
         Text(
           i18n.strings.signUpWithEmail.attention,
-          style: Theme.of(context).textTheme.bodySmall,
+          style: appTextTheme.small,
         ),
       ],
     );

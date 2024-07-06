@@ -9,6 +9,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/password_reset/password_reset_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
@@ -68,15 +69,14 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
     return [
       Text(
         i18n.strings.passwordReset.subTitle,
-        style: Theme.of(context)
-            .textTheme
-            .bodyLarge!
-            .copyWith(fontWeight: FontWeight.w600),
+        style: appTextTheme.large.bold(),
       ),
       const Gap(16),
       Flexible(
-        child: Text(i18n.strings.passwordReset.description,
-            style: Theme.of(context).textTheme.bodySmall),
+        child: Text(
+          i18n.strings.passwordReset.description,
+          style: appTextTheme.small,
+        ),
       ),
     ];
   }
@@ -88,10 +88,7 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
       children: [
         Text(
           i18n.strings.passwordReset.email,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(fontWeight: FontWeight.w600),
+          style: appTextTheme.medium.bold(),
         ),
         const Gap(8),
         CustomTextField(

@@ -10,8 +10,9 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/core/app_color.dart';
 import 'package:flutter_stv_kit/core/app_router.dart';
+import 'package:flutter_stv_kit/core/theme/app_color.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/login/login_screen_view_model.dart';
@@ -99,10 +100,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       children: [
         Text(
           i18n.strings.login.email,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(fontWeight: FontWeight.w600),
+          style: appTextTheme.medium.bold(),
         ),
         const Gap(8),
         CustomTextField(
@@ -120,10 +118,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       children: [
         Text(
           i18n.strings.login.password,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(fontWeight: FontWeight.w600),
+          style: appTextTheme.medium.bold(),
         ),
         const Gap(8),
         CustomTextField(
@@ -234,7 +229,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     return [
       Text(
         i18n.strings.login.gotoSignUp,
-        style: Theme.of(context).textTheme.bodyMedium,
+        style: appTextTheme.medium,
       ),
       const Gap(32),
       CustomButton(
@@ -281,7 +276,7 @@ class _LoginPartition extends StatelessWidget {
         const Gap(32),
         Text(
           'または',
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: appTextTheme.medium,
         ),
         const Gap(32),
         Expanded(

@@ -14,6 +14,7 @@ import 'package:flutter_stv_kit/ui/authentication/sign_up/sing_up_screen.dart';
 import 'package:flutter_stv_kit/ui/home/home_screen.dart';
 import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen.dart';
 import 'package:flutter_stv_kit/ui/notification/notificatin_settings_screen.dart';
+import 'package:flutter_stv_kit/ui/users/profile/profile_screen.dart';
 
 enum ScreenType {
   login,
@@ -23,6 +24,7 @@ enum ScreenType {
   passwordReset,
   home,
   news,
+  profile,
   notificationSettings,
 }
 
@@ -75,6 +77,12 @@ final appRouterProvider = Provider<GoRouter>(
               name: ScreenType.news.name,
               builder: (BuildContext context, GoRouterState state) =>
                   const NewsListScreen(),
+            ),
+            GoRoute(
+              path: ScreenType.profile.name,
+              name: ScreenType.profile.name,
+              builder: (BuildContext context, GoRouterState state) =>
+                  const ProfileScreen(),
             ),
             GoRoute(
               path: ScreenType.notificationSettings.name,

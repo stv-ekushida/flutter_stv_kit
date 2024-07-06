@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_view_model.dart';
@@ -86,10 +87,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         children: [
           CustomOutlinedButton(
             title: i18n.strings.signUp.email,
-            textStyle: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-            ),
+            textStyle: appTextTheme.medium,
             onPressed: () => context.goNamed(ScreenType.signUpWithEmail.name),
           ),
         ],

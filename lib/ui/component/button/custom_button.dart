@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/core/app_color.dart';
+import 'package:flutter_stv_kit/core/theme/app_color.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

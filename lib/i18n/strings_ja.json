@@ -65,6 +65,9 @@
   "message": {
     "screen": "メッセージ"
   },
+  "profile": {
+        "screen": "プロフィール"
+  },
   "notificationSettings": {
     "screen": "通知設定"
   },

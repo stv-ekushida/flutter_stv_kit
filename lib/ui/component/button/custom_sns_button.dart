@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/core/app_color.dart';
+import 'package:flutter_stv_kit/core/theme/app_color.dart';
 
 class CustomSnsButton extends StatelessWidget {
   const CustomSnsButton({

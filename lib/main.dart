@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
-import 'package:flutter_stv_kit/core/app_theme.dart';
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 
 void main() {

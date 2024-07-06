@@ -1,13 +1,12 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 
 enum NotificationSettingsCategoryType {
@@ -82,34 +81,44 @@ class _NotificationScreenState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ..._buildSectionTitle(
-                NotificationSettingsCategoryType.pushNotification.title),
+            _NotificationSettingsTitle(
+                title: NotificationSettingsCategoryType.pushNotification.title),
             const Divider(),
-            _buildSection1(),
-            ..._buildSectionTitle(NotificationSettingsCategoryType.email.title),
+            const Gap(16),
+            const _NotificationSettingSection1(),
+            const Gap(16),
+            _NotificationSettingsTitle(
+                title: NotificationSettingsCategoryType.email.title),
             const Divider(),
-            _buildSection2(),
+            const Gap(16),
+            const _NotificationSettingsSection2(),
+            const Gap(16),
           ],
         ),
       ),
     );
   }
+}
 
-  List<Widget> _buildSectionTitle(String title) {
-    return [
-      const Gap(16),
-      Text(
-        title,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      const Gap(16),
-    ];
+class _NotificationSettingsTitle extends StatelessWidget {
+  const _NotificationSettingsTitle({super.key, required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: appTextTheme.medium.bold(),
+    );
   }
+}
 
-  Widget _buildSection1() {
+class _NotificationSettingSection1 extends StatelessWidget {
+  const _NotificationSettingSection1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
       itemBuilder: (_, index) {
@@ -120,7 +129,10 @@ class _NotificationScreenState
         final item = NotificationSettingsCategory1Type.values[index];
 
         return SwitchListTile(
-          title: Text(item.title),
+          title: Text(
+            item.title,
+            style: appTextTheme.medium,
+          ),
           value: true,
           onChanged: (value) {},
         );
@@ -129,8 +141,13 @@ class _NotificationScreenState
       itemCount: NotificationSettingsCategory1Type.values.length + 1,
     );
   }
+}
 
-  Widget _buildSection2() {
+class _NotificationSettingsSection2 extends StatelessWidget {
+  const _NotificationSettingsSection2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
       itemBuilder: (_, index) {
@@ -141,7 +158,10 @@ class _NotificationScreenState
         final item = NotificationSettingsCategory2Type.values[index];
 
         return SwitchListTile(
-          title: Text(item.title),
+          title: Text(
+            item.title,
+            style: appTextTheme.medium,
+          ),
           value: true,
           onChanged: (value) {},
         );

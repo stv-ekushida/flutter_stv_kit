@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/data/model/user/user.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
@@ -35,7 +36,7 @@ extension MyPageMenuType1Ex on MyPageMenuType1 {
   void onTapped(BuildContext context) {
     switch (this) {
       case MyPageMenuType1.profile:
-        context.goNamed(ScreenType.notificationSettings.name);
+        context.goNamed(ScreenType.profile.name);
       case MyPageMenuType1.notificationSettings:
         context.goNamed(ScreenType.notificationSettings.name);
     }
@@ -85,7 +86,10 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(i18n.strings.myPage.screen),
+        title: Text(
+          i18n.strings.myPage.screen,
+          style: appTextTheme.medium,
+        ),
         actions: [
           IconButton(
             onPressed: () => context.goNamed(ScreenType.news.name),
@@ -106,102 +110,27 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
         children: [
           Column(
             children: [
-              ..._buildHeader(state.user),
+              _MyPageHeader(user: state.user),
               const CustomDivider(),
-              _buildMyPageList1(),
-              const CustomDivider(),
-              const Gap(32),
-              const CustomDivider(),
-              _buildMyPageList2(),
+              const _MyPageSection1(),
               const CustomDivider(),
               const Gap(32),
-              ..._buildLogOut(context),
+              const CustomDivider(),
+              const _MyPageSection2(),
+              const CustomDivider(),
+              const Gap(32),
+              const Gap(32),
+              CustomTextButton(
+                title: i18n.strings.myPage.logout,
+                onPressed: () => _onPressedLogout(context),
+              ),
+              const Gap(32),
             ],
           ),
           if (state.isLoading) const CustomIndicator()
         ],
       ),
     );
-  }
-
-  List<Widget> _buildHeader(User? user) {
-    return [
-      Container(
-        color: Colors.grey[100],
-        padding: const EdgeInsets.all(16),
-        width: double.infinity,
-        child: Row(
-          children: [
-            CircleAvatar(
-              child: Image.asset(Assets.images.logo.path),
-            ),
-            const Gap(16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  user == null ? '--' : '${user.userName} 様',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  user == null ? '--' : user.email,
-                  style: const TextStyle(
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ];
-  }
-
-  Widget _buildMyPageList1() {
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (_, index) {
-        final menuType = MyPageMenuType1.values[index];
-
-        return ListTile(
-          title: Text(menuType.title),
-          trailing: const Icon(Icons.arrow_forward_ios_sharp),
-          onTap: () => menuType.onTapped(context),
-        );
-      },
-      separatorBuilder: (_, index) => const CustomDivider(),
-      itemCount: MyPageMenuType1.values.length,
-    );
-  }
-
-  Widget _buildMyPageList2() {
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (_, index) {
-        return ListTile(
-          title: Text(MyPageMenuType2.values[index].title),
-          trailing: const Icon(Icons.arrow_forward_ios_sharp),
-        );
-      },
-      separatorBuilder: (_, index) => const CustomDivider(),
-      itemCount: MyPageMenuType2.values.length,
-    );
-  }
-
-  List<Widget> _buildLogOut(BuildContext context) {
-    return [
-      const Gap(32),
-      CustomTextButton(
-        title: i18n.strings.myPage.logout,
-        onPressed: () => _onPressedLogout(context),
-      ),
-      const Gap(32),
-    ];
   }
 
   void _onPressedLogout(BuildContext context) {
@@ -220,5 +149,88 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
     }
 
     context.goNamed(ScreenType.login.name);
+  }
+}
+
+class _MyPageHeader extends StatelessWidget {
+  const _MyPageHeader({super.key, required this.user});
+
+  final User? user;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.grey[100],
+      padding: const EdgeInsets.all(16),
+      width: double.infinity,
+      child: Row(
+        children: [
+          CircleAvatar(child: Image.asset(Assets.images.logo.path)),
+          const Gap(16),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                user == null ? '--' : '${user?.userName} 様',
+                style: appTextTheme.large.bold(),
+              ),
+              Text(
+                user?.email ?? '-',
+                style: appTextTheme.medium,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MyPageSection1 extends StatelessWidget {
+  const _MyPageSection1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (_, index) {
+        final menuType = MyPageMenuType1.values[index];
+
+        return ListTile(
+          title: Text(
+            menuType.title,
+            style: appTextTheme.medium,
+          ),
+          trailing: const Icon(Icons.arrow_forward_ios_sharp),
+          onTap: () => menuType.onTapped(context),
+        );
+      },
+      separatorBuilder: (_, index) => const CustomDivider(),
+      itemCount: MyPageMenuType1.values.length,
+    );
+  }
+}
+
+class _MyPageSection2 extends StatelessWidget {
+  const _MyPageSection2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (_, index) {
+        return ListTile(
+          title: Text(
+            MyPageMenuType2.values[index].title,
+            style: appTextTheme.medium,
+          ),
+          trailing: const Icon(Icons.arrow_forward_ios_sharp),
+        );
+      },
+      separatorBuilder: (_, index) => const CustomDivider(),
+      itemCount: MyPageMenuType2.values.length,
+    );
   }
 }
