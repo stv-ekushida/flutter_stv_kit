@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
+import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -12,10 +14,8 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 // Project imports:
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:flutter_stv_kit/ui/authentication/password_reset/password_reset_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
-import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 
 class PasswordResetScreen extends ConsumerStatefulWidget {
   const PasswordResetScreen({super.key});
@@ -30,18 +30,14 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(passwordResetScreenViewModelProvider());
     final theme = ref.watch(appThemeProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(i18n.strings.passwordReset.screen),
       ),
-      body: Stack(
-        children: [
-          _buildBody(theme),
-          if (state.isLoading) const CustomIndicator(),
-        ],
+      body: ScreenBaseContainer(
+        child: _buildBody(theme),
       ),
     );
   }
@@ -127,19 +123,13 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
       return;
     }
 
-    final result = await ref
-        .read(passwordResetScreenViewModelProvider().notifier)
-        .resetPassword(
-          email: emailTextController.text,
-        );
+    final result =
+        await ref.read(authControllerProvider().notifier).resetPassword(
+              email: emailTextController.text,
+            );
 
-    if (!result) {
-      return;
-    }
-
-    if (!mounted) {
-      return;
-    }
+    if (!result) return;
+    if (!mounted) return;
 
     context.showInfoDialog(
       title: i18n.strings.info.passwordReset.title,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
+import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -14,7 +15,6 @@ import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/core/theme/app_color.dart';
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:flutter_stv_kit/ui/authentication/login/login_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
 import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:flutter_stv_kit/ui/component/logo.dart';
@@ -189,11 +189,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Future<void> _onPressedLoginWithEmailAndPassword() async {
-    final result =
-        await ref.read(loginScreenViewModelProvider().notifier).login(
-              email: emailTextControl.text,
-              password: passwordTextControl.text,
-            );
+    final result = await ref.read(authControllerProvider().notifier).login(
+          email: emailTextControl.text,
+          password: passwordTextControl.text,
+        );
 
     if (!mounted) {
       return;

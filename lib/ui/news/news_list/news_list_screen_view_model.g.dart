@@ -7,7 +7,7 @@ part of 'news_list_screen_view_model.dart';
 // **************************************************************************
 
 String _$newsListScreenViewModelHash() =>
-    r'd90a7c06fdbb3277a2f4e040e7ed5966e1cebc5b';
+    r'655aec041cce24dac99aabd4d496e00bd93b1299';
 
 /// Copied from Dart SDK
 class _SystemHash {

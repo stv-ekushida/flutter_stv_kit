@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_screen_view_model.dart';
+part of 'auth_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$loginScreenViewModelHash() =>
-    r'e9c52d547815e72328b75c4421fbb27b66fe1fe5';
+String _$authControllerHash() => r'ef6ed7846d11f4d7abffdefa094398eed4597cff';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -30,36 +29,36 @@ class _SystemHash {
   }
 }
 
-abstract class _$LoginScreenViewModel
-    extends BuildlessAutoDisposeNotifier<LoginScreenState> {
-  late final LoginScreenState initialState;
+abstract class _$AuthController
+    extends BuildlessAutoDisposeNotifier<AuthState> {
+  late final AuthState initialState;
 
-  LoginScreenState build({
-    LoginScreenState initialState = const LoginScreenState.none(),
+  AuthState build({
+    AuthState initialState = const AuthState.idle(),
   });
 }
 
-/// See also [LoginScreenViewModel].
-@ProviderFor(LoginScreenViewModel)
-const loginScreenViewModelProvider = LoginScreenViewModelFamily();
+/// See also [AuthController].
+@ProviderFor(AuthController)
+const authControllerProvider = AuthControllerFamily();
 
-/// See also [LoginScreenViewModel].
-class LoginScreenViewModelFamily extends Family<LoginScreenState> {
-  /// See also [LoginScreenViewModel].
-  const LoginScreenViewModelFamily();
+/// See also [AuthController].
+class AuthControllerFamily extends Family<AuthState> {
+  /// See also [AuthController].
+  const AuthControllerFamily();
 
-  /// See also [LoginScreenViewModel].
-  LoginScreenViewModelProvider call({
-    LoginScreenState initialState = const LoginScreenState.none(),
+  /// See also [AuthController].
+  AuthControllerProvider call({
+    AuthState initialState = const AuthState.idle(),
   }) {
-    return LoginScreenViewModelProvider(
+    return AuthControllerProvider(
       initialState: initialState,
     );
   }
 
   @override
-  LoginScreenViewModelProvider getProviderOverride(
-    covariant LoginScreenViewModelProvider provider,
+  AuthControllerProvider getProviderOverride(
+    covariant AuthControllerProvider provider,
   ) {
     return call(
       initialState: provider.initialState,
@@ -84,30 +83,30 @@ class LoginScreenViewModelFamily extends Family<LoginScreenState> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'loginScreenViewModelProvider';
+  String? get name => r'authControllerProvider';
 }
 
-/// See also [LoginScreenViewModel].
-class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
-    LoginScreenViewModel, LoginScreenState> {
-  /// See also [LoginScreenViewModel].
-  LoginScreenViewModelProvider({
-    LoginScreenState initialState = const LoginScreenState.none(),
+/// See also [AuthController].
+class AuthControllerProvider
+    extends AutoDisposeNotifierProviderImpl<AuthController, AuthState> {
+  /// See also [AuthController].
+  AuthControllerProvider({
+    AuthState initialState = const AuthState.idle(),
   }) : this._internal(
-          () => LoginScreenViewModel()..initialState = initialState,
-          from: loginScreenViewModelProvider,
-          name: r'loginScreenViewModelProvider',
+          () => AuthController()..initialState = initialState,
+          from: authControllerProvider,
+          name: r'authControllerProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$loginScreenViewModelHash,
-          dependencies: LoginScreenViewModelFamily._dependencies,
+                  : _$authControllerHash,
+          dependencies: AuthControllerFamily._dependencies,
           allTransitiveDependencies:
-              LoginScreenViewModelFamily._allTransitiveDependencies,
+              AuthControllerFamily._allTransitiveDependencies,
           initialState: initialState,
         );
 
-  LoginScreenViewModelProvider._internal(
+  AuthControllerProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -117,11 +116,11 @@ class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
     required this.initialState,
   }) : super.internal();
 
-  final LoginScreenState initialState;
+  final AuthState initialState;
 
   @override
-  LoginScreenState runNotifierBuild(
-    covariant LoginScreenViewModel notifier,
+  AuthState runNotifierBuild(
+    covariant AuthController notifier,
   ) {
     return notifier.build(
       initialState: initialState,
@@ -129,10 +128,10 @@ class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(LoginScreenViewModel Function() create) {
+  Override overrideWith(AuthController Function() create) {
     return ProviderOverride(
       origin: this,
-      override: LoginScreenViewModelProvider._internal(
+      override: AuthControllerProvider._internal(
         () => create()..initialState = initialState,
         from: from,
         name: null,
@@ -145,14 +144,14 @@ class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeNotifierProviderElement<LoginScreenViewModel, LoginScreenState>
+  AutoDisposeNotifierProviderElement<AuthController, AuthState>
       createElement() {
-    return _LoginScreenViewModelProviderElement(this);
+    return _AuthControllerProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is LoginScreenViewModelProvider &&
+    return other is AuthControllerProvider &&
         other.initialState == initialState;
   }
 
@@ -165,20 +164,18 @@ class LoginScreenViewModelProvider extends AutoDisposeNotifierProviderImpl<
   }
 }
 
-mixin LoginScreenViewModelRef
-    on AutoDisposeNotifierProviderRef<LoginScreenState> {
+mixin AuthControllerRef on AutoDisposeNotifierProviderRef<AuthState> {
   /// The parameter `initialState` of this provider.
-  LoginScreenState get initialState;
+  AuthState get initialState;
 }
 
-class _LoginScreenViewModelProviderElement
-    extends AutoDisposeNotifierProviderElement<LoginScreenViewModel,
-        LoginScreenState> with LoginScreenViewModelRef {
-  _LoginScreenViewModelProviderElement(super.provider);
+class _AuthControllerProviderElement
+    extends AutoDisposeNotifierProviderElement<AuthController, AuthState>
+    with AuthControllerRef {
+  _AuthControllerProviderElement(super.provider);
 
   @override
-  LoginScreenState get initialState =>
-      (origin as LoginScreenViewModelProvider).initialState;
+  AuthState get initialState => (origin as AuthControllerProvider).initialState;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

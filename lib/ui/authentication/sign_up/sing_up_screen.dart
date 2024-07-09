@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
+import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,9 +14,6 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
-import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_view_model.dart';
-import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/logo.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
@@ -27,19 +26,14 @@ class SignUpScreen extends ConsumerStatefulWidget {
 class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(signUpScreenViewModelProvider());
     final theme = ref.watch(appThemeProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(i18n.strings.signUp.screen),
       ),
-      body: Stack(
-        children: [
-          _buildBody(theme.textTheme),
-          if (state == const SignUpScreenState.loading())
-            const CustomIndicator(),
-        ],
+      body: ScreenBaseContainer(
+        child: _buildBody(theme.textTheme),
       ),
     );
   }
@@ -172,12 +166,12 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
       return;
     }
     const idToken = '111111';
-    final notifier = ref.read(signUpScreenViewModelProvider().notifier);
-    await notifier.signUpWithSns(idToken: idToken);
-    final state = ref.watch(signUpScreenViewModelProvider());
+    final notifier = ref.read(authControllerProvider().notifier);
+    final result = await notifier.signUpWithSns(idToken: idToken);
 
-    state.whenOrNull(
-      data: (_) => context.goNamed(ScreenType.home.name),
-    );
+    if (!mounted) return;
+    if (!result) return;
+
+    context.goNamed(ScreenType.home.name);
   }
 }

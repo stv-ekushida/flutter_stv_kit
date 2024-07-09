@@ -5,17 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
+import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:flutter_stv_kit/ui/authentication/sign_up/auth_code/auth_code_screen_state.dart';
-import 'package:flutter_stv_kit/ui/authentication/sign_up/auth_code/auth_code_screen_view_model.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
-import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 
 class AuthCodeScreen extends ConsumerStatefulWidget {
   const AuthCodeScreen({super.key});
@@ -30,19 +29,14 @@ class _AuthCodeScreenState extends ConsumerState<AuthCodeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(authCodeScreenViewModelProvider());
     final theme = ref.watch(appThemeProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(i18n.strings.authCode.screen),
       ),
-      body: Stack(
-        children: [
-          _buildBody(theme.textTheme),
-          if (state == const AuthCodeScreenState.loading())
-            const CustomIndicator()
-        ],
+      body: ScreenBaseContainer(
+        child: _buildBody(theme.textTheme),
       ),
     );
   }
@@ -111,7 +105,7 @@ class _AuthCodeScreenState extends ConsumerState<AuthCodeScreen> {
 
   Future<void> _onPressedSendAuthCode() async {
     final result = await ref
-        .read(authCodeScreenViewModelProvider().notifier)
+        .read(authControllerProvider().notifier)
         .authCodeInput(code: _authCodeTextController.text);
 
     if (!mounted) return;

@@ -28,10 +28,13 @@ class AuthDataSourceImpl implements AuthDataSource {
   }
 
   @override
-  Future<bool> authCodeInput({required String code}) async {
+  Future<Auth> authCodeInput({required String code}) async {
     await delay(500);
 
-    return Future.value(true);
+    return Future.value(
+      const Auth(
+          accessToken: 'abcde', refreshToken: 'fghij', expired: '123456789'),
+    );
   }
 
   @override

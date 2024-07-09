@@ -7,7 +7,7 @@ abstract class AuthDataSource {
     required String password,
   });
 
-  Future<bool> authCodeInput({required String code});
+  Future<Auth> authCodeInput({required String code});
 
   Future<Auth> signUpWithSns({required String idToken});
 

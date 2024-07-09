@@ -7,7 +7,7 @@ part of 'my_page_screen_view_model.dart';
 // **************************************************************************
 
 String _$myPageScreenViewModelHash() =>
-    r'b420d024ebc39e494bfc00a6028a56eccead00bf';
+    r'f1cd45daeb8de765876b602068d0304623c38e48';
 
 /// Copied from Dart SDK
 class _SystemHash {

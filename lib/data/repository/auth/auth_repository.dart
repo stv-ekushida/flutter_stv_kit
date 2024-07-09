@@ -8,7 +8,7 @@ abstract class AuthRepository {
     required String password,
   });
 
-  Future<Result<bool>> authCodeInput({required String code});
+  Future<Result<Auth>> authCodeInput({required String code});
 
   Future<Result<Auth>> signUpWithSns({required String idToken});
 
@@ -18,5 +18,5 @@ abstract class AuthRepository {
   });
   Future<Result<void>> signOut();
 
-  Future<Result<void>> resetPassword({required String email});
+  Future<Result<bool>> resetPassword({required String email});
 }

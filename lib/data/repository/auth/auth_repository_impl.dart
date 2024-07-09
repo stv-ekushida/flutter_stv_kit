@@ -33,7 +33,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
 
   @override
-  Future<Result<bool>> authCodeInput({required String code}) async =>
+  Future<Result<Auth>> authCodeInput({required String code}) async =>
       Result.guardFuture(
         () async => await dataSource.authCodeInput(code: code),
       );
