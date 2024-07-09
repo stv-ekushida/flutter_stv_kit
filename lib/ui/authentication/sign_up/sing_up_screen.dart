@@ -121,7 +121,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
       children: [
         TextSpan(
           text: i18n.strings.signUp.term,
-          style: textTheme.small.copyWith(color: Colors.blue),
+          style: textTheme.small.blue(),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               // タップ時
@@ -133,7 +133,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         ),
         TextSpan(
           text: i18n.strings.signUp.privacy,
-          style: textTheme.small.copyWith(color: Colors.blue),
+          style: textTheme.small.blue(),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               // タップ時

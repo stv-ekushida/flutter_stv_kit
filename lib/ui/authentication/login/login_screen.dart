@@ -157,9 +157,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   List<Widget> _buildSNSSignInSection(AppTextTheme textTheme) {
-    final style = textTheme.medium.bold().copyWith(
-          color: Colors.black,
-        );
+    final style = textTheme.medium
+      ..bold()
+      ..black();
 
     return [
       OutlinedButton(

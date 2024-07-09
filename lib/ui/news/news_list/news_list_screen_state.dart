@@ -8,6 +8,6 @@ part 'news_list_screen_state.freezed.dart';
 
 @freezed
 class NewsListScreenState with _$NewsListScreenState {
-  const factory NewsListScreenState.none() = _None;
+  const factory NewsListScreenState.idle() = _Idle;
   const factory NewsListScreenState.data(List<News> news) = _Data;
 }

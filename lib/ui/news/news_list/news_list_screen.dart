@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:gap/gap.dart';
 
 // Project imports:
@@ -32,7 +33,10 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
 
   @override
   void initState() {
-    _tabController = TabController(length: _tabs.length, vsync: this);
+    _tabController = TabController(
+      length: _tabs.length,
+      vsync: this,
+    );
     _tabController.addListener(
       () => _onChangeTab(),
     );
@@ -106,7 +110,7 @@ class _NewsTab extends ConsumerWidget {
 
     return ScreenBaseContainer(
       child: state.when(
-        none: () => const SizedBox.shrink(),
+        idle: () => const SizedBox.shrink(),
         data: (news) => _NewsList(news: news),
       ),
     );
@@ -179,7 +183,7 @@ class _NewsListTile extends ConsumerWidget {
       ),
       subtitle: Text(
         news.postText(),
-        style: theme.textTheme.medium.copyWith(color: Colors.grey),
+        style: theme.textTheme.medium.grey(),
       ),
       trailing: const Icon(Icons.arrow_forward_ios_sharp),
     );

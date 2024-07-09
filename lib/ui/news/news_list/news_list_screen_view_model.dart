@@ -13,7 +13,7 @@ part 'news_list_screen_view_model.g.dart';
 class NewsListScreenViewModel extends _$NewsListScreenViewModel {
   @override
   NewsListScreenState build({
-    NewsListScreenState initialState = const NewsListScreenState.none(),
+    NewsListScreenState initialState = const NewsListScreenState.idle(),
   }) {
     return initialState;
   }

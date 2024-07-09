@@ -31,4 +31,9 @@ class AppTextTheme {
 
 extension AppTextThemeEx on TextStyle {
   TextStyle bold() => copyWith(fontWeight: FontWeight.w600);
+
+  TextStyle black() => copyWith(color: Colors.black);
+  TextStyle white() => copyWith(color: Colors.white);
+  TextStyle blue() => copyWith(color: Colors.blue);
+  TextStyle grey() => copyWith(color: Colors.grey);
 }

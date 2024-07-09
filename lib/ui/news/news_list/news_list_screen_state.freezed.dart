@@ -18,38 +18,38 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$NewsListScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function() idle,
     required TResult Function(List<News> news) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
+    TResult? Function()? idle,
     TResult? Function(List<News> news)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function()? idle,
     TResult Function(List<News> news)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
+    required TResult Function(_Idle value) idle,
     required TResult Function(_Data value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
+    TResult? Function(_Idle value)? idle,
     TResult? Function(_Data value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
+    TResult Function(_Idle value)? idle,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) =>
@@ -75,34 +75,34 @@ class _$NewsListScreenStateCopyWithImpl<$Res, $Val extends NewsListScreenState>
 }
 
 /// @nodoc
-abstract class _$$NoneImplCopyWith<$Res> {
-  factory _$$NoneImplCopyWith(
-          _$NoneImpl value, $Res Function(_$NoneImpl) then) =
-      __$$NoneImplCopyWithImpl<$Res>;
+abstract class _$$IdleImplCopyWith<$Res> {
+  factory _$$IdleImplCopyWith(
+          _$IdleImpl value, $Res Function(_$IdleImpl) then) =
+      __$$IdleImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NoneImplCopyWithImpl<$Res>
-    extends _$NewsListScreenStateCopyWithImpl<$Res, _$NoneImpl>
-    implements _$$NoneImplCopyWith<$Res> {
-  __$$NoneImplCopyWithImpl(_$NoneImpl _value, $Res Function(_$NoneImpl) _then)
+class __$$IdleImplCopyWithImpl<$Res>
+    extends _$NewsListScreenStateCopyWithImpl<$Res, _$IdleImpl>
+    implements _$$IdleImplCopyWith<$Res> {
+  __$$IdleImplCopyWithImpl(_$IdleImpl _value, $Res Function(_$IdleImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NoneImpl implements _None {
-  const _$NoneImpl();
+class _$IdleImpl implements _Idle {
+  const _$IdleImpl();
 
   @override
   String toString() {
-    return 'NewsListScreenState.none()';
+    return 'NewsListScreenState.idle()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NoneImpl);
+        (other.runtimeType == runtimeType && other is _$IdleImpl);
   }
 
   @override
@@ -111,30 +111,30 @@ class _$NoneImpl implements _None {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function() idle,
     required TResult Function(List<News> news) data,
   }) {
-    return none();
+    return idle();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
+    TResult? Function()? idle,
     TResult? Function(List<News> news)? data,
   }) {
-    return none?.call();
+    return idle?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function()? idle,
     TResult Function(List<News> news)? data,
     required TResult orElse(),
   }) {
-    if (none != null) {
-      return none();
+    if (idle != null) {
+      return idle();
     }
     return orElse();
   }
@@ -142,37 +142,37 @@ class _$NoneImpl implements _None {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
+    required TResult Function(_Idle value) idle,
     required TResult Function(_Data value) data,
   }) {
-    return none(this);
+    return idle(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
+    TResult? Function(_Idle value)? idle,
     TResult? Function(_Data value)? data,
   }) {
-    return none?.call(this);
+    return idle?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
+    TResult Function(_Idle value)? idle,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) {
-    if (none != null) {
-      return none(this);
+    if (idle != null) {
+      return idle(this);
     }
     return orElse();
   }
 }
 
-abstract class _None implements NewsListScreenState {
-  const factory _None() = _$NoneImpl;
+abstract class _Idle implements NewsListScreenState {
+  const factory _Idle() = _$IdleImpl;
 }
 
 /// @nodoc
@@ -244,7 +244,7 @@ class _$DataImpl implements _Data {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function() idle,
     required TResult Function(List<News> news) data,
   }) {
     return data(news);
@@ -253,7 +253,7 @@ class _$DataImpl implements _Data {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
+    TResult? Function()? idle,
     TResult? Function(List<News> news)? data,
   }) {
     return data?.call(news);
@@ -262,7 +262,7 @@ class _$DataImpl implements _Data {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function()? idle,
     TResult Function(List<News> news)? data,
     required TResult orElse(),
   }) {
@@ -275,7 +275,7 @@ class _$DataImpl implements _Data {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
+    required TResult Function(_Idle value) idle,
     required TResult Function(_Data value) data,
   }) {
     return data(this);
@@ -284,7 +284,7 @@ class _$DataImpl implements _Data {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
+    TResult? Function(_Idle value)? idle,
     TResult? Function(_Data value)? data,
   }) {
     return data?.call(this);
@@ -293,7 +293,7 @@ class _$DataImpl implements _Data {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
+    TResult Function(_Idle value)? idle,
     TResult Function(_Data value)? data,
     required TResult orElse(),
   }) {
