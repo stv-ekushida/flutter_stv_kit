@@ -13,4 +13,22 @@ class AppColor {
   static const neutralColor = Color(0xFF919094);
 
   static const neutralVariantColor = Color(0xFF90909A);
+
+  const AppColor({
+    required this.background,
+  });
+
+  factory AppColor.light() {
+    return const AppColor(
+      background: Colors.white,
+    );
+  }
+
+  factory AppColor.dark() {
+    return const AppColor(
+      background: Color(0xFF121212),
+    );
+  }
+
+  final Color background;
 }

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:gap/gap.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/data/model/news/news.dart';
 import 'package:flutter_stv_kit/data/remote/news/news_data_source.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
@@ -134,9 +134,11 @@ class _NewsList extends StatelessWidget {
   }
 }
 
-class _NewListEmpty extends StatelessWidget {
+class _NewListEmpty extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return Column(
       children: [
         const Spacer(),
@@ -147,7 +149,7 @@ class _NewListEmpty extends StatelessWidget {
         const Gap(32),
         Text(
           i18n.strings.newsList.empty,
-          style: appTextTheme.medium,
+          style: theme.textTheme.medium,
         ),
         const Spacer(),
       ],
@@ -155,13 +157,15 @@ class _NewListEmpty extends StatelessWidget {
   }
 }
 
-class _NewsListTile extends StatelessWidget {
+class _NewsListTile extends ConsumerWidget {
   const _NewsListTile({required this.news});
 
   final News news;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return ListTile(
       title: Row(
         children: [
@@ -176,7 +180,7 @@ class _NewsListTile extends StatelessWidget {
       ),
       subtitle: Text(
         news.postText(),
-        style: appTextTheme.medium.copyWith(color: Colors.grey),
+        style: theme.textTheme.medium.copyWith(color: Colors.grey),
       ),
       trailing: const Icon(Icons.arrow_forward_ios_sharp),
     );

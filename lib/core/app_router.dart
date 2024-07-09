@@ -13,7 +13,7 @@ import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_ema
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sing_up_screen.dart';
 import 'package:flutter_stv_kit/ui/home/home_screen.dart';
 import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen.dart';
-import 'package:flutter_stv_kit/ui/notification/notificatin_settings_screen.dart';
+import 'package:flutter_stv_kit/ui/notification/notification_settings_screen.dart';
 import 'package:flutter_stv_kit/ui/users/profile/profile_screen.dart';
 
 enum ScreenType {

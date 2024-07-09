@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,7 +13,6 @@ import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/email/sign_up_with_email_screen_view_model.dart';
-import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
 import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
@@ -37,6 +37,7 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(signUpWithEmailScreenViewModelProvider());
+    final theme = ref.watch(appThemeProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -44,7 +45,7 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
       ),
       body: Stack(
         children: [
-          _buildBody,
+          _buildBody(theme.textTheme),
           if (state == const SignUpWithEmailScreenState.loading())
             const CustomIndicator(),
         ],
@@ -52,7 +53,7 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
     );
   }
 
-  Widget get _buildBody {
+  Widget _buildBody(AppTextTheme textTheme) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Padding(
@@ -66,18 +67,21 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
                 const Gap(16),
                 Text(
                   i18n.strings.signUpWithEmail.description,
-                  style: appTextTheme.small,
+                  style: textTheme.small,
                 ),
                 const Gap(32),
-                _buildEmailSection,
+                _buildEmailSection(textTheme),
                 const Gap(16),
-                _buildPasswordSection,
+                _buildPasswordSection(textTheme),
                 const Gap(32),
                 Align(
                   alignment: Alignment.center,
-                  child: CustomButton(
-                    title: i18n.strings.signUpWithEmail.nextBtn,
+                  child: ElevatedButton(
                     onPressed: isEmpty ? null : () => _onPressedSignUp(),
+                    child: Text(
+                      i18n.strings.signUpWithEmail.nextBtn,
+                      style: textTheme.medium,
+                    ),
                   ),
                 ),
                 const Gap(32),
@@ -98,13 +102,13 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
     );
   }
 
-  Widget get _buildEmailSection {
+  Widget _buildEmailSection(AppTextTheme textTheme) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           i18n.strings.signUpWithEmail.email,
-          style: appTextTheme.large.bold(),
+          style: textTheme.large.bold(),
         ),
         const Gap(8),
         CustomTextField(
@@ -120,22 +124,19 @@ class _SignUpWithEmailState extends ConsumerState<SignUpWithEmail> {
         const Gap(8),
         Text(
           i18n.strings.signUpWithEmail.attention,
-          style: appTextTheme.small,
+          style: textTheme.small,
         ),
       ],
     );
   }
 
-  Widget get _buildPasswordSection {
+  Widget _buildPasswordSection(AppTextTheme textTheme) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           i18n.strings.signUpWithEmail.password,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(fontWeight: FontWeight.w600),
+          style: textTheme.large.bold(),
         ),
         const Gap(8),
         CustomTextField(

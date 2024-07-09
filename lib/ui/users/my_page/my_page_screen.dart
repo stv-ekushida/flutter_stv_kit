@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
-import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/data/model/user/user.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
-import 'package:flutter_stv_kit/ui/component/button/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
 import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
@@ -84,11 +84,13 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = ref.watch(appThemeProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
           i18n.strings.myPage.screen,
-          style: appTextTheme.medium,
+          style: theme.textTheme.medium,
         ),
         actions: [
           IconButton(
@@ -120,9 +122,9 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
               const CustomDivider(),
               const Gap(32),
               const Gap(32),
-              CustomTextButton(
-                title: i18n.strings.myPage.logout,
+              TextButton(
                 onPressed: () => _onPressedLogout(context),
+                child: Text(i18n.strings.myPage.logout),
               ),
               const Gap(32),
             ],
@@ -152,13 +154,15 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
   }
 }
 
-class _MyPageHeader extends StatelessWidget {
-  const _MyPageHeader({super.key, required this.user});
+class _MyPageHeader extends ConsumerWidget {
+  const _MyPageHeader({required this.user});
 
   final User? user;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return Container(
       color: Colors.grey[100],
       padding: const EdgeInsets.all(16),
@@ -172,11 +176,11 @@ class _MyPageHeader extends StatelessWidget {
             children: [
               Text(
                 user == null ? '--' : '${user?.userName} 様',
-                style: appTextTheme.large.bold(),
+                style: theme.textTheme.large.bold(),
               ),
               Text(
                 user?.email ?? '-',
-                style: appTextTheme.medium,
+                style: theme.textTheme.medium,
               ),
             ],
           ),
@@ -186,11 +190,13 @@ class _MyPageHeader extends StatelessWidget {
   }
 }
 
-class _MyPageSection1 extends StatelessWidget {
-  const _MyPageSection1({super.key});
+class _MyPageSection1 extends ConsumerWidget {
+  const _MyPageSection1();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -200,7 +206,7 @@ class _MyPageSection1 extends StatelessWidget {
         return ListTile(
           title: Text(
             menuType.title,
-            style: appTextTheme.medium,
+            style: theme.textTheme.medium,
           ),
           trailing: const Icon(Icons.arrow_forward_ios_sharp),
           onTap: () => menuType.onTapped(context),
@@ -212,11 +218,13 @@ class _MyPageSection1 extends StatelessWidget {
   }
 }
 
-class _MyPageSection2 extends StatelessWidget {
-  const _MyPageSection2({super.key});
+class _MyPageSection2 extends ConsumerWidget {
+  const _MyPageSection2();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -224,7 +232,7 @@ class _MyPageSection2 extends StatelessWidget {
         return ListTile(
           title: Text(
             MyPageMenuType2.values[index].title,
-            style: appTextTheme.medium,
+            style: theme.textTheme.medium,
           ),
           trailing: const Icon(Icons.arrow_forward_ios_sharp),
         );

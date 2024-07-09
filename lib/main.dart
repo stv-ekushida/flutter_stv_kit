@@ -37,6 +37,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final goRouter = ref.watch(appRouterProvider);
+    final theme = ref.watch(appThemeProvider);
     const jpLocale = Locale('ja', 'JP');
 
     return MaterialApp.router(
@@ -49,7 +50,7 @@ class MyApp extends ConsumerWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.theme,
+      theme: theme.themeData,
       routerConfig: goRouter,
     );
   }

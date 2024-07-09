@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,8 +14,6 @@ import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/sign_up_screen_view_model.dart';
-import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
-import 'package:flutter_stv_kit/ui/component/button/custom_outlined_button.dart';
 import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/logo.dart';
 
@@ -29,6 +28,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(signUpScreenViewModelProvider());
+    final theme = ref.watch(appThemeProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -36,7 +36,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
       ),
       body: Stack(
         children: [
-          _buildBody,
+          _buildBody(theme.textTheme),
           if (state == const SignUpScreenState.loading())
             const CustomIndicator(),
         ],
@@ -44,7 +44,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     );
   }
 
-  Widget get _buildBody {
+  Widget _buildBody(AppTextTheme textTheme) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
@@ -54,15 +54,15 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
             children: [
               _buildLogo,
               const Gap(16),
-              ..._buildSignUpSection,
+              ..._buildSignUpSection(textTheme),
               const Gap(32),
-              _buildTermLink,
+              _buildTermLink(textTheme),
               const Gap(32),
               const Divider(
                 height: 0.5,
               ),
               const Gap(32),
-              ..._buildLogin,
+              ..._buildLogin(textTheme),
             ],
           ),
         ),
@@ -79,61 +79,55 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     );
   }
 
-  List<Widget> get _buildSignUpSection {
+  List<Widget> _buildSignUpSection(AppTextTheme textTheme) {
     return [
       const Gap(16),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomOutlinedButton(
-            title: i18n.strings.signUp.email,
-            textStyle: appTextTheme.medium,
+          OutlinedButton(
             onPressed: () => context.goNamed(ScreenType.signUpWithEmail.name),
+            child: Text(
+              i18n.strings.signUp.email,
+              style: textTheme.medium.bold(),
+            ),
           ),
         ],
       ),
       const Gap(16),
-      CustomOutlinedButton(
-        title: i18n.strings.oauth.signUp.apple,
-        backgroundColor: Colors.white,
-        textStyle: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.w600,
+      OutlinedButton(
+        onPressed: () async => _onPressedSignUpWithSns(),
+        child: Text(
+          i18n.strings.oauth.signUp.apple,
+          style: textTheme.medium.bold(),
+        ),
+      ),
+      const Gap(16),
+      OutlinedButton(
+        child: Text(
+          i18n.strings.oauth.signUp.google,
+          style: textTheme.medium.bold(),
         ),
         onPressed: () async => _onPressedSignUpWithSns(),
       ),
       const Gap(16),
-      CustomOutlinedButton(
-        title: i18n.strings.oauth.signUp.google,
-        backgroundColor: Colors.white,
-        textStyle: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.w600,
-        ),
-        onPressed: () async => _onPressedSignUpWithSns(),
-      ),
-      const Gap(16),
-      CustomOutlinedButton(
-        title: i18n.strings.oauth.signUp.line,
-        backgroundColor: Colors.white,
-        textStyle: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.w600,
+      OutlinedButton(
+        child: Text(
+          i18n.strings.oauth.signUp.line,
+          style: textTheme.medium.bold(),
         ),
         onPressed: () async => _onPressedSignUpWithSns(),
       ),
     ];
   }
 
-  Widget get _buildTermLink {
+  Widget _buildTermLink(AppTextTheme textTheme) {
     return RichText(
         text: TextSpan(
       children: [
         TextSpan(
           text: i18n.strings.signUp.term,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: Colors.blue,
-              ),
+          style: textTheme.small.copyWith(color: Colors.blue),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               // タップ時
@@ -141,13 +135,11 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         ),
         TextSpan(
           text: i18n.strings.signUp.and,
-          style: Theme.of(context).textTheme.bodySmall,
+          style: textTheme.small,
         ),
         TextSpan(
           text: i18n.strings.signUp.privacy,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: Colors.blue,
-              ),
+          style: textTheme.small.copyWith(color: Colors.blue),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               // タップ時
@@ -155,19 +147,22 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         ),
         TextSpan(
           text: i18n.strings.signUp.goto,
-          style: Theme.of(context).textTheme.bodySmall,
+          style: textTheme.small,
         ),
       ],
     ));
   }
 
-  List<Widget> get _buildLogin {
+  List<Widget> _buildLogin(AppTextTheme textTheme) {
     return [
       Text(i18n.strings.signUp.gotoSignIn),
       const Gap(32),
-      CustomButton(
-        title: i18n.strings.signUp.signIn,
+      ElevatedButton(
         onPressed: () => context.goNamed(ScreenType.login.name),
+        child: Text(
+          i18n.strings.signUp.signIn,
+          style: textTheme.medium,
+        ),
       ),
     ];
   }

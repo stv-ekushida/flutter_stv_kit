@@ -32,5 +32,3 @@ class AppTextTheme {
 extension AppTextThemeEx on TextStyle {
   TextStyle bold() => copyWith(fontWeight: FontWeight.w600);
 }
-
-final appTextTheme = AppTextTheme();

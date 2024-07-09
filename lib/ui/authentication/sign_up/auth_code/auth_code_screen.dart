@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,8 +13,6 @@ import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/auth_code/auth_code_screen_state.dart';
 import 'package:flutter_stv_kit/ui/authentication/sign_up/auth_code/auth_code_screen_view_model.dart';
-import 'package:flutter_stv_kit/ui/component/button/custom_button.dart';
-import 'package:flutter_stv_kit/ui/component/button/custom_text_button.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_text_field.dart';
 import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
@@ -31,6 +31,7 @@ class _AuthCodeScreenState extends ConsumerState<AuthCodeScreen> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(authCodeScreenViewModelProvider());
+    final theme = ref.watch(appThemeProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -38,7 +39,7 @@ class _AuthCodeScreenState extends ConsumerState<AuthCodeScreen> {
       ),
       body: Stack(
         children: [
-          _buildBody,
+          _buildBody(theme.textTheme),
           if (state == const AuthCodeScreenState.loading())
             const CustomIndicator()
         ],
@@ -46,7 +47,7 @@ class _AuthCodeScreenState extends ConsumerState<AuthCodeScreen> {
     );
   }
 
-  Widget get _buildBody {
+  Widget _buildBody(AppTextTheme textTheme) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
@@ -56,24 +57,21 @@ class _AuthCodeScreenState extends ConsumerState<AuthCodeScreen> {
           const Gap(16),
           const _AuthCodeSubTitle(),
           const Gap(32),
-          _buildCodeSection,
+          _buildCodeSection(textTheme),
           const Gap(32),
-          _buildSendAuthCode,
+          _buildSendAuthCode(textTheme),
         ],
       ),
     );
   }
 
-  Widget get _buildCodeSection {
+  Widget _buildCodeSection(AppTextTheme textTheme) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           i18n.strings.authCode.authCode,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(fontWeight: FontWeight.w600),
+          style: textTheme.large.bold(),
         ),
         const Gap(8),
         CustomTextField(
@@ -89,19 +87,25 @@ class _AuthCodeScreenState extends ConsumerState<AuthCodeScreen> {
         const Gap(8),
         Align(
           alignment: Alignment.center,
-          child: CustomTextButton(
-            title: i18n.strings.authCode.resend,
+          child: TextButton(
             onPressed: () {},
+            child: Text(
+              i18n.strings.authCode.resend,
+              style: textTheme.medium,
+            ),
           ),
         ),
       ],
     );
   }
 
-  Widget get _buildSendAuthCode {
-    return CustomButton(
-      title: i18n.strings.authCode.sendBtn,
+  Widget _buildSendAuthCode(AppTextTheme textTheme) {
+    return ElevatedButton(
       onPressed: isAuthCodeValid ? () => _onPressedSendAuthCode() : null,
+      child: Text(
+        i18n.strings.authCode.sendBtn,
+        style: textTheme.medium,
+      ),
     );
   }
 
@@ -122,16 +126,16 @@ class _AuthCodeScreenState extends ConsumerState<AuthCodeScreen> {
   }
 }
 
-class _AuthCodeSubTitle extends StatelessWidget {
-  const _AuthCodeSubTitle({super.key});
+class _AuthCodeSubTitle extends ConsumerWidget {
+  const _AuthCodeSubTitle();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return Text(
       i18n.strings.authCode.description,
-      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-            fontWeight: FontWeight.w600,
-          ),
+      style: theme.textTheme.large.bold(),
     );
   }
 }

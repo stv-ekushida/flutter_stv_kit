@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:gap/gap.dart';
 
 // Project imports:
@@ -100,25 +101,29 @@ class _NotificationScreenState
   }
 }
 
-class _NotificationSettingsTitle extends StatelessWidget {
-  const _NotificationSettingsTitle({super.key, required this.title});
+class _NotificationSettingsTitle extends ConsumerWidget {
+  const _NotificationSettingsTitle({required this.title});
 
   final String title;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return Text(
       title,
-      style: appTextTheme.medium.bold(),
+      style: theme.textTheme.medium.bold(),
     );
   }
 }
 
-class _NotificationSettingSection1 extends StatelessWidget {
-  const _NotificationSettingSection1({super.key});
+class _NotificationSettingSection1 extends ConsumerWidget {
+  const _NotificationSettingSection1();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return ListView.separated(
       shrinkWrap: true,
       itemBuilder: (_, index) {
@@ -131,7 +136,7 @@ class _NotificationSettingSection1 extends StatelessWidget {
         return SwitchListTile(
           title: Text(
             item.title,
-            style: appTextTheme.medium,
+            style: theme.textTheme.medium,
           ),
           value: true,
           onChanged: (value) {},
@@ -143,11 +148,13 @@ class _NotificationSettingSection1 extends StatelessWidget {
   }
 }
 
-class _NotificationSettingsSection2 extends StatelessWidget {
-  const _NotificationSettingsSection2({super.key});
+class _NotificationSettingsSection2 extends ConsumerWidget {
+  const _NotificationSettingsSection2();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
     return ListView.separated(
       shrinkWrap: true,
       itemBuilder: (_, index) {
@@ -160,7 +167,7 @@ class _NotificationSettingsSection2 extends StatelessWidget {
         return SwitchListTile(
           title: Text(
             item.title,
-            style: appTextTheme.medium,
+            style: theme.textTheme.medium,
           ),
           value: true,
           onChanged: (value) {},
