@@ -72,22 +72,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: widget.textFieldType.validator.call,
         decoration: InputDecoration(
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-          ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-          ),
-          alignLabelWithHint: true,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 12,
-            vertical: 12,
-          ),
-          border: const OutlineInputBorder(),
           hintText: hintText,
           suffixIcon: !widget.obscureText
               ? null

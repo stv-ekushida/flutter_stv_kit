@@ -51,7 +51,7 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ..._buildHeader(theme.textTheme),
+            const PasswordResetHeader(),
             const Gap(32),
             _buildEmailSection(theme.textTheme),
             const Gap(32),
@@ -60,22 +60,6 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
         ),
       ),
     );
-  }
-
-  List<Widget> _buildHeader(AppTextTheme textTheme) {
-    return [
-      Text(
-        i18n.strings.passwordReset.subTitle,
-        style: textTheme.large.bold(),
-      ),
-      const Gap(16),
-      Flexible(
-        child: Text(
-          i18n.strings.passwordReset.description,
-          style: textTheme.small,
-        ),
-      ),
-    ];
   }
 
   /// メールアドレス
@@ -137,6 +121,30 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
       onPressed: () {
         context.pop();
       },
+    );
+  }
+}
+
+class PasswordResetHeader extends ConsumerWidget {
+  const PasswordResetHeader({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(
+          i18n.strings.passwordReset.subTitle,
+          style: theme.textTheme.large.bold(),
+        ),
+        const Gap(16),
+        Text(
+          i18n.strings.passwordReset.description,
+          style: theme.textTheme.small,
+        ),
+      ],
     );
   }
 }

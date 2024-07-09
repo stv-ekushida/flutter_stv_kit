@@ -64,6 +64,24 @@ class AppTheme {
         indicatorColor: AppColor.primaryColor,
         unselectedLabelColor: Colors.grey[500],
       ),
+      inputDecorationTheme: const InputDecorationTheme(
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.grey,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.grey,
+          ),
+        ),
+        alignLabelWithHint: true,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 12,
+        ),
+        border: OutlineInputBorder(),
+      ),
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.all(AppColor.primaryColor),
         trackColor: WidgetStateProperty.all(Colors.grey[200]),
