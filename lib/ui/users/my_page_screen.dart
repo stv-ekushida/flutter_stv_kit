@@ -84,13 +84,10 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = ref.watch(appThemeProvider);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
           i18n.strings.myPage.screen,
-          style: theme.textTheme.medium,
         ),
         actions: [
           IconButton(
@@ -165,7 +162,7 @@ class _MyPageHeader extends ConsumerWidget {
     final theme = ref.watch(appThemeProvider);
 
     return Container(
-      color: Colors.grey[100],
+      color: theme.themeData.secondaryHeaderColor,
       padding: const EdgeInsets.all(16),
       width: double.infinity,
       child: Row(

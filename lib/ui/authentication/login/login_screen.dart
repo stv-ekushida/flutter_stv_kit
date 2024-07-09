@@ -251,7 +251,7 @@ class _LoginPartition extends ConsumerWidget {
         Expanded(
           child: Container(
             decoration: const BoxDecoration(
-              color: AppColor.neutralVariantColor,
+              color: AppColor.secondaryColor,
             ),
             height: 0.5,
           ),
@@ -265,7 +265,7 @@ class _LoginPartition extends ConsumerWidget {
         Expanded(
           child: Container(
             decoration: const BoxDecoration(
-              color: AppColor.neutralVariantColor,
+              color: AppColor.secondaryColor,
             ),
             height: 0.5,
           ),

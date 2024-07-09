@@ -44,7 +44,6 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
 
   Widget _buildBody(AppTheme theme) {
     return Container(
-      color: theme.themeData.scaffoldBackgroundColor,
       padding: const EdgeInsets.all(16.0),
       width: double.infinity,
       child: Form(

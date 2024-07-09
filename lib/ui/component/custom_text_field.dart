@@ -58,7 +58,7 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late final TextEditingController _textController = widget.textController;
-  bool showSecureText = false;
+  bool showSecureText = true;
 
   @override
   Widget build(BuildContext context) {

@@ -151,7 +151,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     return [
       Text(i18n.strings.signUp.gotoSignIn),
       const Gap(32),
-      ElevatedButton(
+      OutlinedButton(
         onPressed: () => context.goNamed(ScreenType.login.name),
         child: Text(
           i18n.strings.signUp.signIn,
