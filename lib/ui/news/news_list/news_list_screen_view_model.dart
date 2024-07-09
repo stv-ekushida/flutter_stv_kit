@@ -1,10 +1,10 @@
 // Package imports:
-import 'package:flutter_stv_kit/ui/component/widget_basic/widget_basic_state_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/data/remote/news/news_data_source.dart';
 import 'package:flutter_stv_kit/data/repository/news/news_repository_impl.dart';
+import 'package:flutter_stv_kit/ui/component/widget_basic/widget_basic_state_controller.dart';
 import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen_state.dart';
 
 part 'news_list_screen_view_model.g.dart';

@@ -3,20 +3,21 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
-import 'package:flutter_stv_kit/core/theme/app_theme.dart';
+import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
+import 'package:flutter_stv_kit/data/controller/user/user_controller.dart';
 import 'package:flutter_stv_kit/data/model/user/user.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
-import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
-import 'package:flutter_stv_kit/ui/users/my_page/my_page_screen_view_model.dart';
 
 enum MyPageMenuType1 {
   profile,
@@ -74,7 +75,7 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
-        final notifier = ref.read(myPageScreenViewModelProvider().notifier);
+        final notifier = ref.read(userControllerProvider().notifier);
         notifier.fetch();
       },
     );
@@ -99,38 +100,37 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
           )
         ],
       ),
-      body: _buildBody(context),
+      body: ScreenBaseContainer(
+        child: _buildBody(context),
+      ),
     );
   }
 
   Widget _buildBody(BuildContext context) {
-    final state = ref.watch(myPageScreenViewModelProvider());
+    final state = ref.watch(userControllerProvider());
 
-    return SingleChildScrollView(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Column(
-            children: [
-              _MyPageHeader(user: state.user),
-              const CustomDivider(),
-              const _MyPageSection1(),
-              const CustomDivider(),
-              const Gap(32),
-              const CustomDivider(),
-              const _MyPageSection2(),
-              const CustomDivider(),
-              const Gap(32),
-              const Gap(32),
-              TextButton(
-                onPressed: () => _onPressedLogout(context),
-                child: Text(i18n.strings.myPage.logout),
-              ),
-              const Gap(32),
-            ],
-          ),
-          if (state.isLoading) const CustomIndicator()
-        ],
+    return state.when(
+      idle: SizedBox.shrink,
+      data: (user) => SingleChildScrollView(
+        child: Column(
+          children: [
+            _MyPageHeader(user: user),
+            const CustomDivider(),
+            const _MyPageSection1(),
+            const CustomDivider(),
+            const Gap(32),
+            const CustomDivider(),
+            const _MyPageSection2(),
+            const CustomDivider(),
+            const Gap(32),
+            const Gap(32),
+            TextButton(
+              onPressed: () => _onPressedLogout(context),
+              child: Text(i18n.strings.myPage.logout),
+            ),
+            const Gap(32),
+          ],
+        ),
       ),
     );
   }
@@ -144,11 +144,13 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
   }
 
   Future<void> _invokeLogout() async {
-    await ref.read(myPageScreenViewModelProvider().notifier).signOut();
+    final result = await ref.read(authControllerProvider().notifier).signOut();
 
-    if (!mounted) {
-      return;
-    }
+    if (!result) return;
+
+    await ref.read(userControllerProvider().notifier).clearUser();
+
+    if (!mounted) return;
 
     context.goNamed(ScreenType.login.name);
   }

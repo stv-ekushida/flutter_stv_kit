@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'auth_controller.dart';
+part of 'user_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authControllerHash() => r'a34636612bf45609184d93d4c5eab08cf3462c8d';
+String _$userControllerHash() => r'725ae8afa0c7b2b8f87d011d3a6b08179f6d2a70';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,36 +29,36 @@ class _SystemHash {
   }
 }
 
-abstract class _$AuthController
-    extends BuildlessAutoDisposeNotifier<AuthState> {
-  late final AuthState initialState;
+abstract class _$UserController
+    extends BuildlessAutoDisposeNotifier<UserState> {
+  late final UserState initialState;
 
-  AuthState build({
-    AuthState initialState = const AuthState.idle(),
+  UserState build({
+    UserState initialState = const UserState.idle(),
   });
 }
 
-/// See also [AuthController].
-@ProviderFor(AuthController)
-const authControllerProvider = AuthControllerFamily();
+/// See also [UserController].
+@ProviderFor(UserController)
+const userControllerProvider = UserControllerFamily();
 
-/// See also [AuthController].
-class AuthControllerFamily extends Family<AuthState> {
-  /// See also [AuthController].
-  const AuthControllerFamily();
+/// See also [UserController].
+class UserControllerFamily extends Family<UserState> {
+  /// See also [UserController].
+  const UserControllerFamily();
 
-  /// See also [AuthController].
-  AuthControllerProvider call({
-    AuthState initialState = const AuthState.idle(),
+  /// See also [UserController].
+  UserControllerProvider call({
+    UserState initialState = const UserState.idle(),
   }) {
-    return AuthControllerProvider(
+    return UserControllerProvider(
       initialState: initialState,
     );
   }
 
   @override
-  AuthControllerProvider getProviderOverride(
-    covariant AuthControllerProvider provider,
+  UserControllerProvider getProviderOverride(
+    covariant UserControllerProvider provider,
   ) {
     return call(
       initialState: provider.initialState,
@@ -66,7 +66,7 @@ class AuthControllerFamily extends Family<AuthState> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    authRepositoryProvider
+    userRepositoryProvider
   ];
 
   @override
@@ -74,8 +74,8 @@ class AuthControllerFamily extends Family<AuthState> {
 
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
-    authRepositoryProvider,
-    ...?authRepositoryProvider.allTransitiveDependencies
+    userRepositoryProvider,
+    ...?userRepositoryProvider.allTransitiveDependencies
   };
 
   @override
@@ -83,30 +83,30 @@ class AuthControllerFamily extends Family<AuthState> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'authControllerProvider';
+  String? get name => r'userControllerProvider';
 }
 
-/// See also [AuthController].
-class AuthControllerProvider
-    extends AutoDisposeNotifierProviderImpl<AuthController, AuthState> {
-  /// See also [AuthController].
-  AuthControllerProvider({
-    AuthState initialState = const AuthState.idle(),
+/// See also [UserController].
+class UserControllerProvider
+    extends AutoDisposeNotifierProviderImpl<UserController, UserState> {
+  /// See also [UserController].
+  UserControllerProvider({
+    UserState initialState = const UserState.idle(),
   }) : this._internal(
-          () => AuthController()..initialState = initialState,
-          from: authControllerProvider,
-          name: r'authControllerProvider',
+          () => UserController()..initialState = initialState,
+          from: userControllerProvider,
+          name: r'userControllerProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$authControllerHash,
-          dependencies: AuthControllerFamily._dependencies,
+                  : _$userControllerHash,
+          dependencies: UserControllerFamily._dependencies,
           allTransitiveDependencies:
-              AuthControllerFamily._allTransitiveDependencies,
+              UserControllerFamily._allTransitiveDependencies,
           initialState: initialState,
         );
 
-  AuthControllerProvider._internal(
+  UserControllerProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -116,11 +116,11 @@ class AuthControllerProvider
     required this.initialState,
   }) : super.internal();
 
-  final AuthState initialState;
+  final UserState initialState;
 
   @override
-  AuthState runNotifierBuild(
-    covariant AuthController notifier,
+  UserState runNotifierBuild(
+    covariant UserController notifier,
   ) {
     return notifier.build(
       initialState: initialState,
@@ -128,10 +128,10 @@ class AuthControllerProvider
   }
 
   @override
-  Override overrideWith(AuthController Function() create) {
+  Override overrideWith(UserController Function() create) {
     return ProviderOverride(
       origin: this,
-      override: AuthControllerProvider._internal(
+      override: UserControllerProvider._internal(
         () => create()..initialState = initialState,
         from: from,
         name: null,
@@ -144,14 +144,14 @@ class AuthControllerProvider
   }
 
   @override
-  AutoDisposeNotifierProviderElement<AuthController, AuthState>
+  AutoDisposeNotifierProviderElement<UserController, UserState>
       createElement() {
-    return _AuthControllerProviderElement(this);
+    return _UserControllerProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is AuthControllerProvider &&
+    return other is UserControllerProvider &&
         other.initialState == initialState;
   }
 
@@ -164,18 +164,18 @@ class AuthControllerProvider
   }
 }
 
-mixin AuthControllerRef on AutoDisposeNotifierProviderRef<AuthState> {
+mixin UserControllerRef on AutoDisposeNotifierProviderRef<UserState> {
   /// The parameter `initialState` of this provider.
-  AuthState get initialState;
+  UserState get initialState;
 }
 
-class _AuthControllerProviderElement
-    extends AutoDisposeNotifierProviderElement<AuthController, AuthState>
-    with AuthControllerRef {
-  _AuthControllerProviderElement(super.provider);
+class _UserControllerProviderElement
+    extends AutoDisposeNotifierProviderElement<UserController, UserState>
+    with UserControllerRef {
+  _UserControllerProviderElement(super.provider);
 
   @override
-  AuthState get initialState => (origin as AuthControllerProvider).initialState;
+  UserState get initialState => (origin as UserControllerProvider).initialState;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

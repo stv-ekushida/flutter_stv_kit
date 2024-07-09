@@ -1,11 +1,11 @@
 // Package imports:
-import 'package:flutter_stv_kit/data/controller/auth/auth_state.dart';
-import 'package:flutter_stv_kit/data/result.dart';
-import 'package:flutter_stv_kit/ui/component/widget_basic/widget_basic_state_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/data/controller/auth/auth_state.dart';
 import 'package:flutter_stv_kit/data/repository/auth/auth_repository_impl.dart';
+import 'package:flutter_stv_kit/data/result.dart';
+import 'package:flutter_stv_kit/ui/component/widget_basic/widget_basic_state_controller.dart';
 
 part 'auth_controller.g.dart';
 
@@ -92,6 +92,7 @@ class AuthController extends _$AuthController {
     }, failure: (error) {
       notifier.error(error);
     });
+
     notifier.none();
 
     return result is Success;
@@ -103,6 +104,23 @@ class AuthController extends _$AuthController {
 
     final result =
         await ref.read(authRepositoryProvider).resetPassword(email: email);
+
+    result.whenOrNull(
+      failure: (error) {
+        notifier.error(error);
+      },
+    );
+
+    notifier.none();
+
+    return result is Success;
+  }
+
+  Future<bool> signOut() async {
+    final notifier = ref.read((widgetBasicStateControllerProvider()).notifier);
+    notifier.loading();
+
+    final result = await ref.read(authRepositoryProvider).signOut();
 
     result.whenOrNull(
       failure: (error) {

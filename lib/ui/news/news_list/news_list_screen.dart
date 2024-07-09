@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/core/theme/app_theme.dart';
-import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:gap/gap.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:flutter_stv_kit/data/model/news/news.dart';
 import 'package:flutter_stv_kit/data/remote/news/news_data_source.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen_view_model.dart';
 
 class NewsListScreen extends ConsumerStatefulWidget {
