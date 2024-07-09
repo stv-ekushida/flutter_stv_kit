@@ -147,7 +147,7 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
 
     if (!result) return;
 
-    await ref.read(userControllerProvider().notifier).clearUser();
+    await ref.read(userControllerProvider().notifier).restore();
 
     if (!mounted) return;
 

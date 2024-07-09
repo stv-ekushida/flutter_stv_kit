@@ -85,6 +85,7 @@ class AppTheme {
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.all(AppColor.primaryColor),
         trackColor: WidgetStateProperty.all(Colors.grey[200]),
+        trackOutlineColor: WidgetStateProperty.all(Colors.grey[200]),
       ),
       dividerTheme: DividerThemeData(
         color: Colors.grey[300],

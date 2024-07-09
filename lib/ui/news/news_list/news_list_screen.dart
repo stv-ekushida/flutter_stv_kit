@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:gap/gap.dart';
 
 // Project imports:
+import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:flutter_stv_kit/data/model/news/news.dart';
 import 'package:flutter_stv_kit/data/remote/news/news_data_source.dart';

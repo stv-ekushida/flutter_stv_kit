@@ -8,7 +8,9 @@ import 'package:gap/gap.dart';
 // Project imports:
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
+import 'package:flutter_stv_kit/data/controller/user/user_notification_settings_controller.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 
 enum NotificationSettingsCategoryType {
   pushNotification,
@@ -72,26 +74,43 @@ class NotificationSettingsScreen extends ConsumerStatefulWidget {
 class _NotificationScreenState
     extends ConsumerState<NotificationSettingsScreen> {
   @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        final notifier =
+            ref.read(userNotificationSettingsControllerProvider().notifier);
+        notifier.fetch();
+      },
+    );
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(i18n.strings.notificationSettings.screen),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: _buildBody,
+    );
+  }
+
+  Widget get _buildBody {
+    return ScreenBaseContainer(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _NotificationSettingsTitle(
                 title: NotificationSettingsCategoryType.pushNotification.title),
             const Divider(),
-            const Gap(16),
             const _NotificationSettingSection1(),
             const Gap(16),
             _NotificationSettingsTitle(
                 title: NotificationSettingsCategoryType.email.title),
             const Divider(),
-            const Gap(16),
             const _NotificationSettingsSection2(),
             const Gap(16),
           ],
@@ -132,14 +151,31 @@ class _NotificationSettingSection1 extends ConsumerWidget {
         }
 
         final item = NotificationSettingsCategory1Type.values[index];
+        final state = ref.watch(userNotificationSettingsControllerProvider());
 
-        return SwitchListTile(
-          title: Text(
-            item.title,
-            style: theme.textTheme.medium,
+        return state.when(
+          idle: () => UserNotificationSettingEmptySwitchListTile(
+            title: item.title,
           ),
-          value: true,
-          onChanged: (value) {},
+          data: (settings) {
+            bool canNotification = false;
+
+            switch (item) {
+              case NotificationSettingsCategory1Type.message:
+                canNotification = settings?.canReceiveMessagePush ?? false;
+              case NotificationSettingsCategory1Type.news:
+                canNotification = settings?.canReceiveNewsPush ?? false;
+            }
+
+            return SwitchListTile(
+              title: Text(
+                item.title,
+                style: theme.textTheme.medium,
+              ),
+              value: canNotification,
+              onChanged: (value) {},
+            );
+          },
         );
       },
       separatorBuilder: (_, __) => const Divider(),
@@ -163,18 +199,53 @@ class _NotificationSettingsSection2 extends ConsumerWidget {
         }
 
         final item = NotificationSettingsCategory2Type.values[index];
+        final state = ref.watch(userNotificationSettingsControllerProvider());
 
-        return SwitchListTile(
-          title: Text(
-            item.title,
-            style: theme.textTheme.medium,
+        return state.when(
+          idle: () => UserNotificationSettingEmptySwitchListTile(
+            title: item.title,
           ),
-          value: true,
-          onChanged: (value) {},
+          data: (settings) {
+            bool canNotification = false;
+
+            switch (item) {
+              case NotificationSettingsCategory2Type.message:
+                canNotification = settings?.canReceiveMessageEmail ?? false;
+              case NotificationSettingsCategory2Type.news:
+                canNotification = settings?.canReceiveNewsEmail ?? false;
+            }
+
+            return SwitchListTile(
+              title: Text(
+                item.title,
+                style: theme.textTheme.medium,
+              ),
+              value: canNotification,
+              onChanged: (value) {},
+            );
+          },
         );
       },
       separatorBuilder: (_, __) => const Divider(),
       itemCount: NotificationSettingsCategory2Type.values.length + 1,
+    );
+  }
+}
+
+class UserNotificationSettingEmptySwitchListTile extends StatelessWidget {
+  const UserNotificationSettingEmptySwitchListTile({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return SwitchListTile(
+      title: Text(title),
+      value: false,
+      onChanged: null,
     );
   }
 }

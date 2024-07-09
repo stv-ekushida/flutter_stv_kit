@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/data/model/user/user.dart';
+import 'package:flutter_stv_kit/data/model/user/user_notification_settings.dart';
 import 'package:flutter_stv_kit/data/remote/user/user_data_source.dart';
 import 'package:flutter_stv_kit/data/remote/user/user_data_source_impl.dart';
 import 'package:flutter_stv_kit/data/repository/user/user_repository.dart';

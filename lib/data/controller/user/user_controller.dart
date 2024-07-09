@@ -34,7 +34,7 @@ class UserController extends _$UserController {
     return result is Success;
   }
 
-  Future<void> clearUser() async {
+  Future<void> restore() async {
     state = const UserState.idle();
   }
 }
