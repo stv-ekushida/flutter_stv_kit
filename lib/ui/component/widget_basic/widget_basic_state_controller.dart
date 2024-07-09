@@ -11,12 +11,12 @@ part 'widget_basic_state_controller.g.dart';
 class WidgetBasicStateController extends _$WidgetBasicStateController {
   @override
   WidgetBasicState build({
-    WidgetBasicState initialState = const WidgetBasicState.none(),
+    WidgetBasicState initialState = const WidgetBasicState.idle(),
   }) {
     return initialState;
   }
 
-  Future<void> none() async => state = const WidgetBasicState.none();
+  Future<void> idle() async => state = const WidgetBasicState.idle();
 
   Future<void> loading() async => state = const WidgetBasicState.loading();
 

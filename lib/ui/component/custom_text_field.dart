@@ -61,11 +61,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
   bool showSecureText = false;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final hintText = widget.hintText;
 

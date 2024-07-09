@@ -8,7 +8,26 @@ import 'package:go_router/go_router.dart';
 // Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/ui/message/message_screen.dart';
-import 'package:flutter_stv_kit/ui/users/my_page/my_page_screen.dart';
+import 'package:flutter_stv_kit/ui/users/my_page_screen.dart';
+
+enum GlobalNavigationType {
+  home,
+  message,
+  myPage,
+}
+
+extension GlobalNavigationTypeEx on GlobalNavigationType {
+  String get label {
+    switch (this) {
+      case GlobalNavigationType.home:
+        return 'ホーム';
+      case GlobalNavigationType.message:
+        return 'メッセージ';
+      case GlobalNavigationType.myPage:
+        return 'マイページ';
+    }
+  }
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,12 +50,12 @@ class _HomeScreenState extends State<HomeScreen> {
   List<BartMenuRoute> subRoutes() {
     return [
       BartMenuRoute.bottomBar(
-        label: "ホーム",
+        label: GlobalNavigationType.home.label,
         icon: Icons.home,
         path: '/home',
         pageBuilder: (_, __, ___) => Scaffold(
           appBar: AppBar(
-            title: const Text('ホーム'),
+            title: Text(GlobalNavigationType.home.label),
             actions: [
               IconButton(
                 onPressed: () => context.goNamed(ScreenType.news.name),
@@ -48,13 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       BartMenuRoute.bottomBar(
-        label: "メッセージ",
+        label: GlobalNavigationType.message.label,
         icon: Icons.chat_bubble,
         path: '/message',
         pageBuilder: (_, __, ___) => const MessageScreen(),
       ),
       BartMenuRoute.bottomBar(
-        label: "マイページ",
+        label: GlobalNavigationType.myPage.label,
         icon: Icons.person,
         path: '/myPage',
         pageBuilder: (_, __, ___) => const MyPageScreen(),

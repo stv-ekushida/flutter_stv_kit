@@ -68,9 +68,19 @@ class AppTheme {
         thumbColor: WidgetStateProperty.all(AppColor.primaryColor),
         trackColor: WidgetStateProperty.all(Colors.grey[200]),
       ),
+      dividerTheme: DividerThemeData(
+        color: Colors.grey[300],
+        thickness: 1.0,
+      ),
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: AppColor.primaryColor,
+      ),
     );
 
     return AppTheme(
-        mode: ThemeMode.light, themeData: themeData, textTheme: AppTextTheme());
+      mode: ThemeMode.light,
+      themeData: themeData,
+      textTheme: AppTextTheme(),
+    );
   }
 }

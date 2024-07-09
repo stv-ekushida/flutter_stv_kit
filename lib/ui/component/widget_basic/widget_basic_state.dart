@@ -13,7 +13,7 @@ part 'widget_basic_state.freezed.dart';
 
 @freezed
 abstract class WidgetBasicState with _$WidgetBasicState {
-  const factory WidgetBasicState.none() = _None;
+  const factory WidgetBasicState.idle() = _Idle;
   const factory WidgetBasicState.error(AppError error) = _Error;
   const factory WidgetBasicState.loading() = _Loading;
 }

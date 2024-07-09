@@ -29,7 +29,7 @@ class UserController extends _$UserController {
       failure: (e) => notifier.error(e),
     );
 
-    notifier.none();
+    notifier.idle();
 
     return result is Success;
   }

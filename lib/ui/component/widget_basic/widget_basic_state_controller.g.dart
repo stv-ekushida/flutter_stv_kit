@@ -7,7 +7,7 @@ part of 'widget_basic_state_controller.dart';
 // **************************************************************************
 
 String _$widgetBasicStateControllerHash() =>
-    r'223b090de38e716738513e94413c77f71ab6b42d';
+    r'cc961c864d21d7b7acc2525b879610504ad42b21';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -35,7 +35,7 @@ abstract class _$WidgetBasicStateController
   late final WidgetBasicState initialState;
 
   WidgetBasicState build({
-    WidgetBasicState initialState = const WidgetBasicState.none(),
+    WidgetBasicState initialState = const WidgetBasicState.idle(),
   });
 }
 
@@ -50,7 +50,7 @@ class WidgetBasicStateControllerFamily extends Family<WidgetBasicState> {
 
   /// See also [WidgetBasicStateController].
   WidgetBasicStateControllerProvider call({
-    WidgetBasicState initialState = const WidgetBasicState.none(),
+    WidgetBasicState initialState = const WidgetBasicState.idle(),
   }) {
     return WidgetBasicStateControllerProvider(
       initialState: initialState,
@@ -89,7 +89,7 @@ class WidgetBasicStateControllerProvider
         WidgetBasicState> {
   /// See also [WidgetBasicStateController].
   WidgetBasicStateControllerProvider({
-    WidgetBasicState initialState = const WidgetBasicState.none(),
+    WidgetBasicState initialState = const WidgetBasicState.idle(),
   }) : this._internal(
           () => WidgetBasicStateController()..initialState = initialState,
           from: widgetBasicStateControllerProvider,

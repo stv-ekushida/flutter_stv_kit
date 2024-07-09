@@ -30,7 +30,7 @@ class NewsListScreenViewModel extends _$NewsListScreenViewModel {
       notifier.error(error);
     });
 
-    notifier.none();
+    notifier.idle();
   }
 
   void selected(int index) {

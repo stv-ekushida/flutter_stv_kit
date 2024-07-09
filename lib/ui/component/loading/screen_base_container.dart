@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:flutter_stv_kit/ui/component/loading/custom_indicator.dart';
 import 'package:flutter_stv_kit/ui/component/widget_basic/widget_basic_state.dart';
 import 'package:flutter_stv_kit/ui/component/widget_basic/widget_basic_state_controller.dart';
 
@@ -33,7 +32,10 @@ class ScreenBaseContainer extends ConsumerWidget {
     return Stack(
       children: [
         child,
-        if (state == const WidgetBasicState.loading()) const CustomIndicator(),
+        if (state == const WidgetBasicState.loading())
+          const Center(
+            child: CircularProgressIndicator(),
+          ),
       ],
     );
   }

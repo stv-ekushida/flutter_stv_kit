@@ -36,7 +36,7 @@ class AuthController extends _$AuthController {
       },
     );
 
-    notifier.none();
+    notifier.idle();
 
     return result is Success;
   }
@@ -54,7 +54,7 @@ class AuthController extends _$AuthController {
       notifier.error(error);
     });
 
-    notifier.none();
+    notifier.idle();
 
     return result is Success;
   }
@@ -71,7 +71,7 @@ class AuthController extends _$AuthController {
       notifier.error(error);
     });
 
-    notifier.none();
+    notifier.idle();
 
     return result is Success;
   }
@@ -93,7 +93,7 @@ class AuthController extends _$AuthController {
       notifier.error(error);
     });
 
-    notifier.none();
+    notifier.idle();
 
     return result is Success;
   }
@@ -111,7 +111,7 @@ class AuthController extends _$AuthController {
       },
     );
 
-    notifier.none();
+    notifier.idle();
 
     return result is Success;
   }
@@ -128,7 +128,7 @@ class AuthController extends _$AuthController {
       },
     );
 
-    notifier.none();
+    notifier.idle();
 
     return result is Success;
   }

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
-import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,12 +10,13 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
+import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
 import 'package:flutter_stv_kit/data/controller/user/user_controller.dart';
 import 'package:flutter_stv_kit/data/model/user/user.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
-import 'package:flutter_stv_kit/ui/component/custom_divider.dart';
+import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
 
 enum MyPageMenuType1 {
   profile,
@@ -115,13 +114,13 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
         child: Column(
           children: [
             _MyPageHeader(user: user),
-            const CustomDivider(),
+            const Divider(),
             const _MyPageSection1(),
-            const CustomDivider(),
+            const Divider(),
             const Gap(32),
-            const CustomDivider(),
+            const Divider(),
             const _MyPageSection2(),
-            const CustomDivider(),
+            const Divider(),
             const Gap(32),
             const Gap(32),
             TextButton(
@@ -214,7 +213,7 @@ class _MyPageSection1 extends ConsumerWidget {
           onTap: () => menuType.onTapped(context),
         );
       },
-      separatorBuilder: (_, index) => const CustomDivider(),
+      separatorBuilder: (_, index) => const Divider(),
       itemCount: MyPageMenuType1.values.length,
     );
   }
@@ -239,7 +238,7 @@ class _MyPageSection2 extends ConsumerWidget {
           trailing: const Icon(Icons.arrow_forward_ios_sharp),
         );
       },
-      separatorBuilder: (_, index) => const CustomDivider(),
+      separatorBuilder: (_, index) => const Divider(),
       itemCount: MyPageMenuType2.values.length,
     );
   }
