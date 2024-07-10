@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 
 class LicenseScreen extends ConsumerStatefulWidget {

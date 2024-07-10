@@ -26,7 +26,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
   }) async =>
       Result.guardFuture(
-        () async => dataSource.signUpWithEmailAndPassword(
+        () async => await dataSource.signUpWithEmailAndPassword(
             email: email, password: password),
       );
 

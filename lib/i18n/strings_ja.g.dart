@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 75
+/// Strings: 76
 ///
-/// Built on 2024-07-10 at 04:38 UTC
+/// Built on 2024-07-10 at 12:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -267,6 +267,7 @@ class _StringsJaStringsMyPageJa {
 	// Translations
 	String get screen => 'マイページ';
 	late final _StringsJaStringsMyPageMenuJa menu = _StringsJaStringsMyPageMenuJa._(_root);
+	String get version => 'バージョン';
 	String get logout => 'ログアウト';
 }
 
@@ -533,6 +534,7 @@ extension on Translations {
 			case 'strings.myPage.menu.term': return '利用規約';
 			case 'strings.myPage.menu.privacy': return 'プライバシーポリシー';
 			case 'strings.myPage.menu.about': return 'アプリについて';
+			case 'strings.myPage.version': return 'バージョン';
 			case 'strings.myPage.logout': return 'ログアウト';
 			case 'strings.newsList.screen': return 'お知らせ';
 			case 'strings.newsList.empty': return '現在、配信されているニュースはありません';

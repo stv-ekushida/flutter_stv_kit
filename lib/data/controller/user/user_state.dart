@@ -9,5 +9,5 @@ part 'user_state.freezed.dart';
 @freezed
 abstract class UserState with _$UserState {
   const factory UserState.idle() = _Idle;
-  const factory UserState.data(User? user) = _Data;
+  const factory UserState.data(User? user) = UserData;
 }

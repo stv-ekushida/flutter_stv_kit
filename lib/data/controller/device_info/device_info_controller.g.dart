@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'auth_controller.dart';
+part of 'device_info_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authControllerHash() => r'ecd6044118832dbf153850094af9b3db9d9a6335';
+String _$deviceInfoControllerHash() =>
+    r'aa2a655c6b58a7ad078acdb6d7e3083526f90857';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,36 +30,36 @@ class _SystemHash {
   }
 }
 
-abstract class _$AuthController
-    extends BuildlessAutoDisposeNotifier<AuthState> {
-  late final AuthState initialState;
+abstract class _$DeviceInfoController
+    extends BuildlessAutoDisposeNotifier<DeviceInfoState> {
+  late final DeviceInfoState initialState;
 
-  AuthState build({
-    AuthState initialState = const AuthState.idle(),
+  DeviceInfoState build({
+    DeviceInfoState initialState = const DeviceInfoState.idle(),
   });
 }
 
-/// See also [AuthController].
-@ProviderFor(AuthController)
-const authControllerProvider = AuthControllerFamily();
+/// See also [DeviceInfoController].
+@ProviderFor(DeviceInfoController)
+const deviceInfoControllerProvider = DeviceInfoControllerFamily();
 
-/// See also [AuthController].
-class AuthControllerFamily extends Family<AuthState> {
-  /// See also [AuthController].
-  const AuthControllerFamily();
+/// See also [DeviceInfoController].
+class DeviceInfoControllerFamily extends Family<DeviceInfoState> {
+  /// See also [DeviceInfoController].
+  const DeviceInfoControllerFamily();
 
-  /// See also [AuthController].
-  AuthControllerProvider call({
-    AuthState initialState = const AuthState.idle(),
+  /// See also [DeviceInfoController].
+  DeviceInfoControllerProvider call({
+    DeviceInfoState initialState = const DeviceInfoState.idle(),
   }) {
-    return AuthControllerProvider(
+    return DeviceInfoControllerProvider(
       initialState: initialState,
     );
   }
 
   @override
-  AuthControllerProvider getProviderOverride(
-    covariant AuthControllerProvider provider,
+  DeviceInfoControllerProvider getProviderOverride(
+    covariant DeviceInfoControllerProvider provider,
   ) {
     return call(
       initialState: provider.initialState,
@@ -66,7 +67,7 @@ class AuthControllerFamily extends Family<AuthState> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    authRepositoryProvider
+    deviceInfoRepositoryProvider
   ];
 
   @override
@@ -74,8 +75,8 @@ class AuthControllerFamily extends Family<AuthState> {
 
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
-    authRepositoryProvider,
-    ...?authRepositoryProvider.allTransitiveDependencies
+    deviceInfoRepositoryProvider,
+    ...?deviceInfoRepositoryProvider.allTransitiveDependencies
   };
 
   @override
@@ -83,30 +84,30 @@ class AuthControllerFamily extends Family<AuthState> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'authControllerProvider';
+  String? get name => r'deviceInfoControllerProvider';
 }
 
-/// See also [AuthController].
-class AuthControllerProvider
-    extends AutoDisposeNotifierProviderImpl<AuthController, AuthState> {
-  /// See also [AuthController].
-  AuthControllerProvider({
-    AuthState initialState = const AuthState.idle(),
+/// See also [DeviceInfoController].
+class DeviceInfoControllerProvider extends AutoDisposeNotifierProviderImpl<
+    DeviceInfoController, DeviceInfoState> {
+  /// See also [DeviceInfoController].
+  DeviceInfoControllerProvider({
+    DeviceInfoState initialState = const DeviceInfoState.idle(),
   }) : this._internal(
-          () => AuthController()..initialState = initialState,
-          from: authControllerProvider,
-          name: r'authControllerProvider',
+          () => DeviceInfoController()..initialState = initialState,
+          from: deviceInfoControllerProvider,
+          name: r'deviceInfoControllerProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$authControllerHash,
-          dependencies: AuthControllerFamily._dependencies,
+                  : _$deviceInfoControllerHash,
+          dependencies: DeviceInfoControllerFamily._dependencies,
           allTransitiveDependencies:
-              AuthControllerFamily._allTransitiveDependencies,
+              DeviceInfoControllerFamily._allTransitiveDependencies,
           initialState: initialState,
         );
 
-  AuthControllerProvider._internal(
+  DeviceInfoControllerProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -116,11 +117,11 @@ class AuthControllerProvider
     required this.initialState,
   }) : super.internal();
 
-  final AuthState initialState;
+  final DeviceInfoState initialState;
 
   @override
-  AuthState runNotifierBuild(
-    covariant AuthController notifier,
+  DeviceInfoState runNotifierBuild(
+    covariant DeviceInfoController notifier,
   ) {
     return notifier.build(
       initialState: initialState,
@@ -128,10 +129,10 @@ class AuthControllerProvider
   }
 
   @override
-  Override overrideWith(AuthController Function() create) {
+  Override overrideWith(DeviceInfoController Function() create) {
     return ProviderOverride(
       origin: this,
-      override: AuthControllerProvider._internal(
+      override: DeviceInfoControllerProvider._internal(
         () => create()..initialState = initialState,
         from: from,
         name: null,
@@ -144,14 +145,14 @@ class AuthControllerProvider
   }
 
   @override
-  AutoDisposeNotifierProviderElement<AuthController, AuthState>
+  AutoDisposeNotifierProviderElement<DeviceInfoController, DeviceInfoState>
       createElement() {
-    return _AuthControllerProviderElement(this);
+    return _DeviceInfoControllerProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is AuthControllerProvider &&
+    return other is DeviceInfoControllerProvider &&
         other.initialState == initialState;
   }
 
@@ -164,18 +165,20 @@ class AuthControllerProvider
   }
 }
 
-mixin AuthControllerRef on AutoDisposeNotifierProviderRef<AuthState> {
+mixin DeviceInfoControllerRef
+    on AutoDisposeNotifierProviderRef<DeviceInfoState> {
   /// The parameter `initialState` of this provider.
-  AuthState get initialState;
+  DeviceInfoState get initialState;
 }
 
-class _AuthControllerProviderElement
-    extends AutoDisposeNotifierProviderElement<AuthController, AuthState>
-    with AuthControllerRef {
-  _AuthControllerProviderElement(super.provider);
+class _DeviceInfoControllerProviderElement
+    extends AutoDisposeNotifierProviderElement<DeviceInfoController,
+        DeviceInfoState> with DeviceInfoControllerRef {
+  _DeviceInfoControllerProviderElement(super.provider);
 
   @override
-  AuthState get initialState => (origin as AuthControllerProvider).initialState;
+  DeviceInfoState get initialState =>
+      (origin as DeviceInfoControllerProvider).initialState;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

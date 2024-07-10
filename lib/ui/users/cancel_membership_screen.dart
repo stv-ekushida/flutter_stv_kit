@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+
+// Project imports:
 import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
@@ -10,8 +14,6 @@ import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
-import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 
 class CancelMembershipScreen extends StatelessWidget {
   const CancelMembershipScreen({super.key});

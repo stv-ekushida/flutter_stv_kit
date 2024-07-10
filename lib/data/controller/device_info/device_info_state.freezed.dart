@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user_state.dart';
+part of 'device_info_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,57 +15,58 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UserState {
+mixin _$DeviceInfoState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(User? user) data,
+    required TResult Function(String appVersion) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
-    TResult? Function(User? user)? data,
+    TResult? Function(String appVersion)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(User? user)? data,
+    TResult Function(String appVersion)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Idle value) idle,
-    required TResult Function(UserData value) data,
+    required TResult Function(AppVersionData value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Idle value)? idle,
-    TResult? Function(UserData value)? data,
+    TResult? Function(AppVersionData value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Idle value)? idle,
-    TResult Function(UserData value)? data,
+    TResult Function(AppVersionData value)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserStateCopyWith<$Res> {
-  factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
-      _$UserStateCopyWithImpl<$Res, UserState>;
+abstract class $DeviceInfoStateCopyWith<$Res> {
+  factory $DeviceInfoStateCopyWith(
+          DeviceInfoState value, $Res Function(DeviceInfoState) then) =
+      _$DeviceInfoStateCopyWithImpl<$Res, DeviceInfoState>;
 }
 
 /// @nodoc
-class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
-    implements $UserStateCopyWith<$Res> {
-  _$UserStateCopyWithImpl(this._value, this._then);
+class _$DeviceInfoStateCopyWithImpl<$Res, $Val extends DeviceInfoState>
+    implements $DeviceInfoStateCopyWith<$Res> {
+  _$DeviceInfoStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -82,7 +83,7 @@ abstract class _$$IdleImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$IdleImplCopyWithImpl<$Res>
-    extends _$UserStateCopyWithImpl<$Res, _$IdleImpl>
+    extends _$DeviceInfoStateCopyWithImpl<$Res, _$IdleImpl>
     implements _$$IdleImplCopyWith<$Res> {
   __$$IdleImplCopyWithImpl(_$IdleImpl _value, $Res Function(_$IdleImpl) _then)
       : super(_value, _then);
@@ -95,7 +96,7 @@ class _$IdleImpl implements _Idle {
 
   @override
   String toString() {
-    return 'UserState.idle()';
+    return 'DeviceInfoState.idle()';
   }
 
   @override
@@ -111,7 +112,7 @@ class _$IdleImpl implements _Idle {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(User? user) data,
+    required TResult Function(String appVersion) data,
   }) {
     return idle();
   }
@@ -120,7 +121,7 @@ class _$IdleImpl implements _Idle {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
-    TResult? Function(User? user)? data,
+    TResult? Function(String appVersion)? data,
   }) {
     return idle?.call();
   }
@@ -129,7 +130,7 @@ class _$IdleImpl implements _Idle {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(User? user)? data,
+    TResult Function(String appVersion)? data,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -142,7 +143,7 @@ class _$IdleImpl implements _Idle {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Idle value) idle,
-    required TResult Function(UserData value) data,
+    required TResult Function(AppVersionData value) data,
   }) {
     return idle(this);
   }
@@ -151,7 +152,7 @@ class _$IdleImpl implements _Idle {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Idle value)? idle,
-    TResult? Function(UserData value)? data,
+    TResult? Function(AppVersionData value)? data,
   }) {
     return idle?.call(this);
   }
@@ -160,7 +161,7 @@ class _$IdleImpl implements _Idle {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Idle value)? idle,
-    TResult Function(UserData value)? data,
+    TResult Function(AppVersionData value)? data,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -170,112 +171,100 @@ class _$IdleImpl implements _Idle {
   }
 }
 
-abstract class _Idle implements UserState {
+abstract class _Idle implements DeviceInfoState {
   const factory _Idle() = _$IdleImpl;
 }
 
 /// @nodoc
-abstract class _$$UserDataImplCopyWith<$Res> {
-  factory _$$UserDataImplCopyWith(
-          _$UserDataImpl value, $Res Function(_$UserDataImpl) then) =
-      __$$UserDataImplCopyWithImpl<$Res>;
+abstract class _$$AppVersionDataImplCopyWith<$Res> {
+  factory _$$AppVersionDataImplCopyWith(_$AppVersionDataImpl value,
+          $Res Function(_$AppVersionDataImpl) then) =
+      __$$AppVersionDataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({User? user});
-
-  $UserCopyWith<$Res>? get user;
+  $Res call({String appVersion});
 }
 
 /// @nodoc
-class __$$UserDataImplCopyWithImpl<$Res>
-    extends _$UserStateCopyWithImpl<$Res, _$UserDataImpl>
-    implements _$$UserDataImplCopyWith<$Res> {
-  __$$UserDataImplCopyWithImpl(
-      _$UserDataImpl _value, $Res Function(_$UserDataImpl) _then)
+class __$$AppVersionDataImplCopyWithImpl<$Res>
+    extends _$DeviceInfoStateCopyWithImpl<$Res, _$AppVersionDataImpl>
+    implements _$$AppVersionDataImplCopyWith<$Res> {
+  __$$AppVersionDataImplCopyWithImpl(
+      _$AppVersionDataImpl _value, $Res Function(_$AppVersionDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = freezed,
+    Object? appVersion = null,
   }) {
-    return _then(_$UserDataImpl(
-      freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+    return _then(_$AppVersionDataImpl(
+      null == appVersion
+          ? _value.appVersion
+          : appVersion // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get user {
-    if (_value.user == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.user!, (value) {
-      return _then(_value.copyWith(user: value));
-    });
   }
 }
 
 /// @nodoc
 
-class _$UserDataImpl implements UserData {
-  const _$UserDataImpl(this.user);
+class _$AppVersionDataImpl implements AppVersionData {
+  const _$AppVersionDataImpl(this.appVersion);
 
   @override
-  final User? user;
+  final String appVersion;
 
   @override
   String toString() {
-    return 'UserState.data(user: $user)';
+    return 'DeviceInfoState.data(appVersion: $appVersion)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserDataImpl &&
-            (identical(other.user, user) || other.user == user));
+            other is _$AppVersionDataImpl &&
+            (identical(other.appVersion, appVersion) ||
+                other.appVersion == appVersion));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, appVersion);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserDataImplCopyWith<_$UserDataImpl> get copyWith =>
-      __$$UserDataImplCopyWithImpl<_$UserDataImpl>(this, _$identity);
+  _$$AppVersionDataImplCopyWith<_$AppVersionDataImpl> get copyWith =>
+      __$$AppVersionDataImplCopyWithImpl<_$AppVersionDataImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function(User? user) data,
+    required TResult Function(String appVersion) data,
   }) {
-    return data(user);
+    return data(appVersion);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
-    TResult? Function(User? user)? data,
+    TResult? Function(String appVersion)? data,
   }) {
-    return data?.call(user);
+    return data?.call(appVersion);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function(User? user)? data,
+    TResult Function(String appVersion)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(user);
+      return data(appVersion);
     }
     return orElse();
   }
@@ -284,7 +273,7 @@ class _$UserDataImpl implements UserData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Idle value) idle,
-    required TResult Function(UserData value) data,
+    required TResult Function(AppVersionData value) data,
   }) {
     return data(this);
   }
@@ -293,7 +282,7 @@ class _$UserDataImpl implements UserData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Idle value)? idle,
-    TResult? Function(UserData value)? data,
+    TResult? Function(AppVersionData value)? data,
   }) {
     return data?.call(this);
   }
@@ -302,7 +291,7 @@ class _$UserDataImpl implements UserData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Idle value)? idle,
-    TResult Function(UserData value)? data,
+    TResult Function(AppVersionData value)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -312,11 +301,11 @@ class _$UserDataImpl implements UserData {
   }
 }
 
-abstract class UserData implements UserState {
-  const factory UserData(final User? user) = _$UserDataImpl;
+abstract class AppVersionData implements DeviceInfoState {
+  const factory AppVersionData(final String appVersion) = _$AppVersionDataImpl;
 
-  User? get user;
+  String get appVersion;
   @JsonKey(ignore: true)
-  _$$UserDataImplCopyWith<_$UserDataImpl> get copyWith =>
+  _$$AppVersionDataImplCopyWith<_$AppVersionDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

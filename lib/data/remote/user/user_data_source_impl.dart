@@ -16,7 +16,7 @@ class UserDataSourceImpl implements UserDataSource {
   Future<User> fetch() async {
     await delay(500);
 
-    return Future.value(
+    return await Future.value(
       const User(
         userId: '12345678',
         userName: 'STV 太郎',
