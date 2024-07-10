@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_stv_kit/data/controller/device_info/device_info_controller.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,12 +11,13 @@ import 'package:flutter_stv_kit/core/app_router.dart';
 import 'package:flutter_stv_kit/core/theme/app_text_theme.dart';
 import 'package:flutter_stv_kit/core/theme/app_theme.dart';
 import 'package:flutter_stv_kit/data/controller/auth/auth_controller.dart';
+import 'package:flutter_stv_kit/data/controller/device_info/device_info_controller.dart';
 import 'package:flutter_stv_kit/data/controller/user/user_controller.dart';
+import 'package:flutter_stv_kit/data/model/user/user.dart';
 import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_stv_kit/i18n/strings_ja.g.dart';
 import 'package:flutter_stv_kit/ui/component/context_ex.dart';
 import 'package:flutter_stv_kit/ui/component/loading/screen_base_container.dart';
-import 'package:flutter_stv_kit/data/model/user/user.dart';
 
 enum MyPageMenuType1 {
   profile,
@@ -95,9 +95,7 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          i18n.strings.myPage.screen,
-        ),
+        title: Text(i18n.strings.myPage.screen),
         actions: [
           IconButton(
             onPressed: () => context.goNamed(ScreenType.news.name),
@@ -126,30 +124,32 @@ class _MyPageBody extends ConsumerStatefulWidget {
 
 class _MyPageBodyState extends ConsumerState<_MyPageBody> {
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const _MyPageHeader(),
-        const Divider(),
-        const _MyPageSection1(),
-        const Divider(),
-        const Gap(16),
-        const Divider(),
-        const _MyPageSection2(),
-        const Divider(),
-        const Gap(32),
-        const Gap(32),
-        TextButton(
-          onPressed: () => _onPressedLogout(context),
-          child: Text(i18n.strings.myPage.logout),
-        ),
-        const Gap(32),
-        const Spacer(),
-        const _MyPageAppVersion(),
-        const Gap(32),
-      ],
-    );
-  }
+  Widget build(BuildContext context) => Column(
+        children: [
+          const _MyPageHeader(),
+          const Divider(),
+          const Divider(),
+          const _MyPageTitle(title: '設定'),
+          const Divider(),
+          const _MyPageSection1(),
+          const Divider(),
+          const Gap(16),
+          const _MyPageTitle(title: '規約・ポリシー等'),
+          const Divider(),
+          const _MyPageSection2(),
+          const Divider(),
+          const Gap(32),
+          const Gap(32),
+          TextButton(
+            onPressed: () => _onPressedLogout(context),
+            child: Text(i18n.strings.myPage.logout),
+          ),
+          const Gap(32),
+          const Spacer(),
+          const _MyPageAppVersion(),
+          const Gap(32),
+        ],
+      );
 
   void _onPressedLogout(BuildContext context) {
     context.showConfirmDialog(
@@ -208,6 +208,28 @@ class _MyPageHeader extends ConsumerWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _MyPageTitle extends ConsumerWidget {
+  const _MyPageTitle({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          title,
+          style: theme.textTheme.large2.bold(),
+        ),
       ),
     );
   }

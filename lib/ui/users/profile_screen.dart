@@ -18,9 +18,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(i18n.strings.profile.screen),
-      ),
+      appBar: AppBar(title: Text(i18n.strings.profile.screen)),
     );
   }
 }

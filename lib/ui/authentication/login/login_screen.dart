@@ -121,8 +121,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         children: [
           TextButton(
             onPressed: () => context.goNamed(ScreenType.passwordReset.name),
-            child:
-                Text(i18n.strings.login.resetPassword, style: textTheme.medium),
+            child: Text(
+              i18n.strings.login.resetPassword,
+              style: textTheme.medium,
+            ),
           )
         ],
       ),
@@ -131,8 +133,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
-            child: Text(i18n.strings.login.loginBtn,
-                style: textTheme.medium.bold()),
+            child: Text(
+              i18n.strings.login.loginBtn,
+              style: textTheme.medium.bold(),
+            ),
             onPressed: () => _onPressedLogin(),
           ),
         ],
@@ -194,13 +198,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           password: passwordTextControl.text,
         );
 
-    if (!mounted) {
-      return;
-    }
+    if (!mounted) return;
+    if (!result) return;
 
-    if (result) {
-      context.goNamed(ScreenType.home.name);
-    }
+    context.goNamed(ScreenType.home.name);
   }
 
   List<Widget> _buildSignUp(AppTextTheme textTheme) {
@@ -211,9 +212,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ),
       const Gap(32),
       ElevatedButton(
-        onPressed: () {
-          context.goNamed(ScreenType.signUp.name);
-        },
+        onPressed: () => context.goNamed(ScreenType.signUp.name),
         child: Text(
           i18n.strings.login.signUp,
           style: textTheme.medium.bold(),

@@ -21,9 +21,7 @@ class CancelMembershipScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(i18n.strings.cancelMemberShip.screen),
-      ),
+      appBar: AppBar(title: Text(i18n.strings.cancelMemberShip.screen)),
       body: const ScreenBaseContainer(
         child: _CancelMembershipContainer(),
       ),

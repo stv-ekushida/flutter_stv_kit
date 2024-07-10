@@ -41,7 +41,7 @@ class MyApp extends ConsumerWidget {
     const jpLocale = Locale('ja', 'JP');
 
     return MaterialApp.router(
-      title: 'STV Flutter Components',
+      title: 'STV Flutter BootStrap',
       locale: jpLocale,
       supportedLocales: const [jpLocale],
       localizationsDelegates: const [

@@ -50,7 +50,7 @@
   "myPage": {
     "screen": "マイページ",
     "menu": {
-      "profile": "登録情報",
+      "profile": "プロフィール設定",
       "notificationSettings": "通知情報",
       "term": "利用規約",
       "privacy": "プライバシーポリシー",
@@ -67,7 +67,7 @@
     "screen": "メッセージ"
   },
   "profile": {
-    "screen": "プロフィール"
+    "screen": "プロフィール設定"
   },
   "notificationSettings": {
     "screen": "通知設定"

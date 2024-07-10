@@ -41,9 +41,7 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(i18n.strings.about.screen),
-      ),
+      appBar: AppBar(title: Text(i18n.strings.about.screen)),
       body: const _AboutPageMenu(),
     );
   }

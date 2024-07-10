@@ -89,32 +89,40 @@ class _NotificationScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(i18n.strings.notificationSettings.screen),
-      ),
-      body: _buildBody,
+      appBar: AppBar(title: Text(i18n.strings.notificationSettings.screen)),
+      body: const ScreenBaseContainer(child: _NotificationSettingsBody()),
     );
   }
+}
 
-  Widget get _buildBody {
-    return ScreenBaseContainer(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _NotificationSettingsTitle(
-                title: NotificationSettingsCategoryType.pushNotification.title),
-            const Divider(),
-            const _NotificationSettingSection1(),
-            const Gap(16),
-            _NotificationSettingsTitle(
-                title: NotificationSettingsCategoryType.email.title),
-            const Divider(),
-            const _NotificationSettingsSection2(),
-            const Gap(16),
-          ],
-        ),
+class _NotificationSettingsBody extends ConsumerStatefulWidget {
+  const _NotificationSettingsBody({super.key});
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _NotificationSettingsBodyState();
+}
+
+class _NotificationSettingsBodyState
+    extends ConsumerState<_NotificationSettingsBody> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _NotificationSettingsTitle(
+              title: NotificationSettingsCategoryType.pushNotification.title),
+          const Divider(),
+          const _NotificationSettingSection1(),
+          const Gap(16),
+          _NotificationSettingsTitle(
+              title: NotificationSettingsCategoryType.email.title),
+          const Divider(),
+          const _NotificationSettingsSection2(),
+          const Gap(16),
+        ],
       ),
     );
   }
@@ -154,9 +162,8 @@ class _NotificationSettingSection1 extends ConsumerWidget {
         final state = ref.watch(userNotificationSettingsControllerProvider());
 
         return state.when(
-          idle: () => UserNotificationSettingEmptySwitchListTile(
-            title: item.title,
-          ),
+          idle: () =>
+              UserNotificationSettingEmptySwitchListTile(title: item.title),
           data: (settings) {
             bool canNotification = false;
 
@@ -202,9 +209,8 @@ class _NotificationSettingsSection2 extends ConsumerWidget {
         final state = ref.watch(userNotificationSettingsControllerProvider());
 
         return state.when(
-          idle: () => UserNotificationSettingEmptySwitchListTile(
-            title: item.title,
-          ),
+          idle: () =>
+              UserNotificationSettingEmptySwitchListTile(title: item.title),
           data: (settings) {
             bool canNotification = false;
 

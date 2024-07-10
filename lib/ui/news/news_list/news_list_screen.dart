@@ -57,9 +57,7 @@ class _NewsListScreenState extends ConsumerState<NewsListScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(i18n.strings.newsList.screen),
-      ),
+      appBar: AppBar(title: Text(i18n.strings.newsList.screen)),
       body: _buildBody,
     );
   }
@@ -125,9 +123,7 @@ class _NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (news.isEmpty) {
-      return Center(
-        child: _NewListEmpty(),
-      );
+      return Center(child: _NewListEmpty());
     }
     return ListView.separated(
       itemBuilder: (_, index) => _NewsListTile(news: news[index]),

@@ -99,17 +99,14 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
     if (emailTextController.text.isEmpty) {
       showTopSnackBar(
         Overlay.of(context),
-        CustomSnackBar.error(
-          message: i18n.strings.error.email,
-        ),
+        CustomSnackBar.error(message: i18n.strings.error.email),
       );
       return;
     }
 
-    final result =
-        await ref.read(authControllerProvider().notifier).resetPassword(
-              email: emailTextController.text,
-            );
+    final result = await ref
+        .read(authControllerProvider().notifier)
+        .resetPassword(email: emailTextController.text);
 
     if (!result) return;
     if (!mounted) return;
@@ -117,9 +114,7 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
     context.showInfoDialog(
       title: i18n.strings.info.passwordReset.title,
       message: i18n.strings.info.passwordReset.message,
-      onPressed: () {
-        context.pop();
-      },
+      onPressed: () => context.pop(),
     );
   }
 }

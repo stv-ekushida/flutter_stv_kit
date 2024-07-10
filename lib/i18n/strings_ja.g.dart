@@ -6,14 +6,18 @@
 /// Locales: 1
 /// Strings: 76
 ///
-/// Built on 2024-07-10 at 12:42 UTC
+/// Built on 2024-07-10 at 12:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
 
+// Flutter imports:
 import 'package:flutter/widgets.dart';
+
+// Package imports:
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
+
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.ja;
@@ -299,7 +303,7 @@ class _StringsJaStringsProfileJa {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get screen => 'プロフィール';
+	String get screen => 'プロフィール設定';
 }
 
 // Path: strings.notificationSettings
@@ -398,7 +402,7 @@ class _StringsJaStringsMyPageMenuJa {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get profile => '登録情報';
+	String get profile => 'プロフィール設定';
 	String get notificationSettings => '通知情報';
 	String get term => '利用規約';
 	String get privacy => 'プライバシーポリシー';
@@ -529,7 +533,7 @@ extension on Translations {
 			case 'strings.passwordReset.emailHint': return 'メールアドレスを入力してください';
 			case 'strings.passwordReset.resetBtn': return 'パスワードをリセットする';
 			case 'strings.myPage.screen': return 'マイページ';
-			case 'strings.myPage.menu.profile': return '登録情報';
+			case 'strings.myPage.menu.profile': return 'プロフィール設定';
 			case 'strings.myPage.menu.notificationSettings': return '通知情報';
 			case 'strings.myPage.menu.term': return '利用規約';
 			case 'strings.myPage.menu.privacy': return 'プライバシーポリシー';
@@ -539,7 +543,7 @@ extension on Translations {
 			case 'strings.newsList.screen': return 'お知らせ';
 			case 'strings.newsList.empty': return '現在、配信されているニュースはありません';
 			case 'strings.message.screen': return 'メッセージ';
-			case 'strings.profile.screen': return 'プロフィール';
+			case 'strings.profile.screen': return 'プロフィール設定';
 			case 'strings.notificationSettings.screen': return '通知設定';
 			case 'strings.about.screen': return 'このアプリについて';
 			case 'strings.about.menuLicense': return 'ライセンス';
