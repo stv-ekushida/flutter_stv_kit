@@ -34,6 +34,7 @@ class AppTheme {
         iconTheme: const IconThemeData(color: Colors.white),
         titleTextStyle: textTheme.large2.bold().copyWith(color: Colors.white),
       ),
+      scaffoldBackgroundColor: Colors.white,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
@@ -81,6 +82,9 @@ class AppTheme {
           vertical: 12,
         ),
         border: OutlineInputBorder(),
+        errorStyle: TextStyle(
+          color: AppColor.errorColor,
+        ),
       ),
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.all(AppColor.primaryColor),
@@ -90,6 +94,7 @@ class AppTheme {
       dividerTheme: DividerThemeData(
         color: Colors.grey[300],
         thickness: 1.0,
+        space: 0,
       ),
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: AppColor.primaryColor,

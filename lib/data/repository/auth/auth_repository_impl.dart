@@ -11,11 +11,9 @@ import 'package:flutter_stv_kit/data/result.dart';
 part 'auth_repository_impl.g.dart';
 
 @Riverpod(dependencies: [authDataSource])
-AuthRepository authRepository(AuthRepositoryRef ref) {
-  return AuthRepositoryImpl(
-    ref.watch(authDataSourceProvider),
-  );
-}
+AuthRepository authRepository(AuthRepositoryRef ref) => AuthRepositoryImpl(
+      ref.watch(authDataSourceProvider),
+    );
 
 class AuthRepositoryImpl implements AuthRepository {
   const AuthRepositoryImpl(this.dataSource);
@@ -67,4 +65,8 @@ class AuthRepositoryImpl implements AuthRepository {
       Result.guardFuture(
         () async => await dataSource.resetPassword(email: email),
       );
+
+  @override
+  Future<Result<bool>> cancel() async =>
+      await Result.guardFuture(() => dataSource.cancel());
 }

@@ -1,9 +1,9 @@
 // Package imports:
-import 'package:flutter_stv_kit/data/repository/user/user_notification_settings_repository_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
 import 'package:flutter_stv_kit/data/controller/user/user_notification_settings_state.dart';
+import 'package:flutter_stv_kit/data/repository/user/user_notification_settings_repository_impl.dart';
 import 'package:flutter_stv_kit/data/result.dart';
 import 'package:flutter_stv_kit/ui/component/widget_basic/widget_basic_state_controller.dart';
 

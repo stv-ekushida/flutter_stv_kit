@@ -4,20 +4,16 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 66
+/// Strings: 75
 ///
-/// Built on 2024-07-06 at 12:47 UTC
+/// Built on 2024-07-10 at 04:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
 
-// Flutter imports:
 import 'package:flutter/widgets.dart';
-
-// Package imports:
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
-
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.ja;
@@ -171,8 +167,12 @@ class _StringsJaStringsJa {
 	late final _StringsJaStringsMessageJa message = _StringsJaStringsMessageJa._(_root);
 	late final _StringsJaStringsProfileJa profile = _StringsJaStringsProfileJa._(_root);
 	late final _StringsJaStringsNotificationSettingsJa notificationSettings = _StringsJaStringsNotificationSettingsJa._(_root);
+	late final _StringsJaStringsAboutJa about = _StringsJaStringsAboutJa._(_root);
+	late final _StringsJaStringsLicenseJa license = _StringsJaStringsLicenseJa._(_root);
+	late final _StringsJaStringsCancelMemberShipJa cancelMemberShip = _StringsJaStringsCancelMemberShipJa._(_root);
 	late final _StringsJaStringsOauthJa oauth = _StringsJaStringsOauthJa._(_root);
 	late final _StringsJaStringsInfoJa info = _StringsJaStringsInfoJa._(_root);
+	late final _StringsJaStringsConfirmJa confirm = _StringsJaStringsConfirmJa._(_root);
 	late final _StringsJaStringsErrorJa error = _StringsJaStringsErrorJa._(_root);
 }
 
@@ -311,6 +311,40 @@ class _StringsJaStringsNotificationSettingsJa {
 	String get screen => '通知設定';
 }
 
+// Path: strings.about
+class _StringsJaStringsAboutJa {
+	_StringsJaStringsAboutJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => 'このアプリについて';
+	String get menuLicense => 'ライセンス';
+	String get menuCancelMemberShip => '退会';
+}
+
+// Path: strings.license
+class _StringsJaStringsLicenseJa {
+	_StringsJaStringsLicenseJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => 'ライセンス';
+}
+
+// Path: strings.cancelMemberShip
+class _StringsJaStringsCancelMemberShipJa {
+	_StringsJaStringsCancelMemberShipJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get screen => '退会';
+	String get description => '一度退会されますと、すべての会員サービスがご利用できなくなります。\n再度会員登録されても元の状態にお戻しすることはできかねますのでご注意ください。';
+	String get btn => '退会する';
+}
+
 // Path: strings.oauth
 class _StringsJaStringsOauthJa {
 	_StringsJaStringsOauthJa._(this._root);
@@ -332,7 +366,17 @@ class _StringsJaStringsInfoJa {
 	late final _StringsJaStringsInfoAuthCodeJa authCode = _StringsJaStringsInfoAuthCodeJa._(_root);
 	late final _StringsJaStringsInfoAuthCodeCompletionJa authCodeCompletion = _StringsJaStringsInfoAuthCodeCompletionJa._(_root);
 	late final _StringsJaStringsInfoPasswordResetJa passwordReset = _StringsJaStringsInfoPasswordResetJa._(_root);
-	late final _StringsJaStringsInfoLogoutJa logout = _StringsJaStringsInfoLogoutJa._(_root);
+}
+
+// Path: strings.confirm
+class _StringsJaStringsConfirmJa {
+	_StringsJaStringsConfirmJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final _StringsJaStringsConfirmLogoutJa logout = _StringsJaStringsConfirmLogoutJa._(_root);
+	late final _StringsJaStringsConfirmCancelMemberShipJa cancelMemberShip = _StringsJaStringsConfirmCancelMemberShipJa._(_root);
 }
 
 // Path: strings.error
@@ -418,15 +462,26 @@ class _StringsJaStringsInfoPasswordResetJa {
 	String get message => 'メールにパスワード再設定メールを送信しました';
 }
 
-// Path: strings.info.logout
-class _StringsJaStringsInfoLogoutJa {
-	_StringsJaStringsInfoLogoutJa._(this._root);
+// Path: strings.confirm.logout
+class _StringsJaStringsConfirmLogoutJa {
+	_StringsJaStringsConfirmLogoutJa._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get title => '確認';
 	String get message => 'ログアウトしますか？';
+}
+
+// Path: strings.confirm.cancelMemberShip
+class _StringsJaStringsConfirmCancelMemberShipJa {
+	_StringsJaStringsConfirmCancelMemberShipJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => '確認';
+	String get message => '退会しますか？';
 }
 
 /// Flat map(s) containing all translations.
@@ -484,6 +539,13 @@ extension on Translations {
 			case 'strings.message.screen': return 'メッセージ';
 			case 'strings.profile.screen': return 'プロフィール';
 			case 'strings.notificationSettings.screen': return '通知設定';
+			case 'strings.about.screen': return 'このアプリについて';
+			case 'strings.about.menuLicense': return 'ライセンス';
+			case 'strings.about.menuCancelMemberShip': return '退会';
+			case 'strings.license.screen': return 'ライセンス';
+			case 'strings.cancelMemberShip.screen': return '退会';
+			case 'strings.cancelMemberShip.description': return '一度退会されますと、すべての会員サービスがご利用できなくなります。\n再度会員登録されても元の状態にお戻しすることはできかねますのでご注意ください。';
+			case 'strings.cancelMemberShip.btn': return '退会する';
 			case 'strings.oauth.signUp.apple': return 'Appleでサインアップ';
 			case 'strings.oauth.signUp.google': return 'Googleでサインアップ';
 			case 'strings.oauth.signUp.line': return 'LINEでサインアップ';
@@ -497,8 +559,10 @@ extension on Translations {
 			case 'strings.info.authCodeCompletion.btnName': return '次へ';
 			case 'strings.info.passwordReset.title': return '認証コード成功';
 			case 'strings.info.passwordReset.message': return 'メールにパスワード再設定メールを送信しました';
-			case 'strings.info.logout.title': return '確認';
-			case 'strings.info.logout.message': return 'ログアウトしますか？';
+			case 'strings.confirm.logout.title': return '確認';
+			case 'strings.confirm.logout.message': return 'ログアウトしますか？';
+			case 'strings.confirm.cancelMemberShip.title': return '確認';
+			case 'strings.confirm.cancelMemberShip.message': return '退会しますか？';
 			case 'strings.error.emailAndPassword': return 'メールアドレス及びパスワードを正しく入力してください';
 			case 'strings.error.email': return 'メールアドレスを正しく入力してください';
 			default: return null;

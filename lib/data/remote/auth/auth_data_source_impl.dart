@@ -72,4 +72,11 @@ class AuthDataSourceImpl implements AuthDataSource {
 
     return Future.value(true);
   }
+
+  @override
+  Future<bool> cancel() async {
+    await delay(500);
+
+    return Future.value(true);
+  }
 }

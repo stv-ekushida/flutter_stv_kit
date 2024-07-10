@@ -19,4 +19,6 @@ abstract class AuthDataSource {
   Future<void> signOut();
 
   Future<bool> resetPassword({required String email});
+
+  Future<bool> cancel();
 }

@@ -60,6 +60,17 @@ extension MyPageMenuType2Ex on MyPageMenuType2 {
         return i18n.strings.myPage.menu.about;
     }
   }
+
+  void onTapped(BuildContext context) {
+    switch (this) {
+      case MyPageMenuType2.term:
+        context.goNamed(ScreenType.profile.name);
+      case MyPageMenuType2.privacy:
+        context.goNamed(ScreenType.notificationSettings.name);
+      case MyPageMenuType2.about:
+        context.goNamed(ScreenType.about.name);
+    }
+  }
 }
 
 class MyPageScreen extends ConsumerStatefulWidget {
@@ -114,7 +125,7 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
             const Divider(),
             const _MyPageSection1(),
             const Divider(),
-            const Gap(32),
+            const Gap(16),
             const Divider(),
             const _MyPageSection2(),
             const Divider(),
@@ -133,9 +144,9 @@ class _MyPageScreenState extends ConsumerState<MyPageScreen> {
 
   void _onPressedLogout(BuildContext context) {
     context.showConfirmDialog(
-      i18n.strings.info.logout.title,
-      i18n.strings.info.logout.message,
-      () => _invokeLogout(),
+      title: i18n.strings.confirm.logout.title,
+      message: i18n.strings.confirm.logout.message,
+      onPressed: () => _invokeLogout(),
     );
   }
 
@@ -162,7 +173,7 @@ class _MyPageHeader extends ConsumerWidget {
     final theme = ref.watch(appThemeProvider);
 
     return Container(
-      color: theme.themeData.secondaryHeaderColor,
+      color: theme.themeData.highlightColor,
       padding: const EdgeInsets.all(16),
       width: double.infinity,
       child: Row(
@@ -227,12 +238,15 @@ class _MyPageSection2 extends ConsumerWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (_, index) {
+        final menuType = MyPageMenuType2.values[index];
+
         return ListTile(
           title: Text(
-            MyPageMenuType2.values[index].title,
+            menuType.title,
             style: theme.textTheme.medium,
           ),
           trailing: const Icon(Icons.arrow_forward_ios_sharp),
+          onTap: () => menuType.onTapped(context),
         );
       },
       separatorBuilder: (_, index) => const Divider(),

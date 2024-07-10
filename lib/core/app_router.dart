@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_kit/ui/other/license_screen.dart';
+import 'package:flutter_stv_kit/ui/users/cancel_membership_screen.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
@@ -14,6 +16,7 @@ import 'package:flutter_stv_kit/ui/authentication/sign_up/sing_up_screen.dart';
 import 'package:flutter_stv_kit/ui/home/home_screen.dart';
 import 'package:flutter_stv_kit/ui/news/news_list/news_list_screen.dart';
 import 'package:flutter_stv_kit/ui/notification/notification_settings_screen.dart';
+import 'package:flutter_stv_kit/ui/users/about_screen.dart';
 import 'package:flutter_stv_kit/ui/users/profile_screen.dart';
 
 enum ScreenType {
@@ -26,6 +29,9 @@ enum ScreenType {
   news,
   profile,
   notificationSettings,
+  about,
+  license,
+  cancelMemberShip,
 }
 
 final appRouterProvider = Provider<GoRouter>(
@@ -89,6 +95,26 @@ final appRouterProvider = Provider<GoRouter>(
               name: ScreenType.notificationSettings.name,
               builder: (BuildContext context, GoRouterState state) =>
                   const NotificationSettingsScreen(),
+            ),
+            GoRoute(
+              path: ScreenType.about.name,
+              name: ScreenType.about.name,
+              builder: (BuildContext context, GoRouterState state) =>
+                  const AboutScreen(),
+              routes: [
+                GoRoute(
+                  path: ScreenType.license.name,
+                  name: ScreenType.license.name,
+                  builder: (BuildContext context, GoRouterState state) =>
+                      const LicenseScreen(),
+                ),
+                GoRoute(
+                  path: ScreenType.cancelMemberShip.name,
+                  name: ScreenType.cancelMemberShip.name,
+                  builder: (BuildContext context, GoRouterState state) =>
+                      const CancelMembershipScreen(),
+                ),
+              ],
             ),
           ],
         ),

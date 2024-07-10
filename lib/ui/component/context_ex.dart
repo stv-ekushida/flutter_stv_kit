@@ -40,8 +40,12 @@ extension BuildContextEx on BuildContext {
     );
   }
 
-  Future<void> showConfirmDialog(
-      String title, String message, VoidCallback onPressed) async {
+  Future<void> showConfirmDialog({
+    required title,
+    required String message,
+    String? btnName,
+    required VoidCallback onPressed,
+  }) async {
     await showDialog<void>(
       context: this,
       builder: (context) => AlertDialog(

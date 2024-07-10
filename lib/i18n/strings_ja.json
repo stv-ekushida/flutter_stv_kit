@@ -66,10 +66,23 @@
     "screen": "メッセージ"
   },
   "profile": {
-        "screen": "プロフィール"
+    "screen": "プロフィール"
   },
   "notificationSettings": {
     "screen": "通知設定"
+  },
+  "about": {
+    "screen": "このアプリについて",
+    "menuLicense": "ライセンス",
+    "menuCancelMemberShip": "退会" 
+  },
+  "license": {
+    "screen": "ライセンス"
+  },
+  "cancelMemberShip": {
+    "screen": "退会",
+    "description": "一度退会されますと、すべての会員サービスがご利用できなくなります。\n再度会員登録されても元の状態にお戻しすることはできかねますのでご注意ください。",
+    "btn": "退会する"
   },
   "oauth": {
     "signUp": {
@@ -96,10 +109,16 @@
     "passwordReset": {
       "title": "認証コード成功",
       "message": "メールにパスワード再設定メールを送信しました"
-    },
+    }
+  },
+  "confirm": {
     "logout": {
       "title": "確認",
       "message": "ログアウトしますか？"
+    },
+    "cancelMemberShip": {
+      "title": "確認",
+      "message": "退会しますか？"
     }
   },
   "error": {

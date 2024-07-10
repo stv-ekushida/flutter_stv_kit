@@ -132,4 +132,21 @@ class AuthController extends _$AuthController {
 
     return result is Success;
   }
+
+  Future<bool> cancel() async {
+    final notifier = ref.read((widgetBasicStateControllerProvider()).notifier);
+    notifier.loading();
+
+    final result = await ref.read(authRepositoryProvider).cancel();
+
+    result.whenOrNull(
+      failure: (error) {
+        notifier.error(error);
+      },
+    );
+
+    notifier.idle();
+
+    return result is Success;
+  }
 }
