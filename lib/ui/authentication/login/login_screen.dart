@@ -87,6 +87,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         ),
         const Gap(8),
         CustomTextField(
+          key: const ValueKey('login_screen_email'),
           hintText: i18n.strings.login.emailHint,
           textFieldType: TextFiledType.email,
           textController: emailTextControl,
@@ -105,6 +106,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         ),
         const Gap(8),
         CustomTextField(
+          key: const ValueKey('login_screen_password'),
           hintText: i18n.strings.login.passwordHint,
           textFieldType: TextFiledType.password,
           textController: passwordTextControl,
@@ -120,6 +122,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           TextButton(
+            key: const ValueKey('login_screen_reset_password_btn'),
             onPressed: () => context.goNamed(ScreenType.passwordReset.name),
             child: Text(
               i18n.strings.login.resetPassword,
@@ -134,6 +137,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         children: [
           ElevatedButton(
             child: Text(
+              key: const ValueKey('login_screen_login_btn'),
               i18n.strings.login.loginBtn,
               style: textTheme.medium.bold(),
             ),
@@ -152,6 +156,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       showTopSnackBar(
         Overlay.of(context),
         CustomSnackBar.error(
+          key: const ValueKey('login_screen_valid_error_empty'),
           message: i18n.strings.error.emailAndPassword,
         ),
       );
