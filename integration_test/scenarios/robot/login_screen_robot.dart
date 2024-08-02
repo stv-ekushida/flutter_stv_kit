@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stv_kit/gen/assets.gen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 
-class LoginRobot {
-  LoginRobot(this.tester);
+class LoginScreenRobot {
+  LoginScreenRobot(this.tester);
 
   WidgetTester tester;
 
@@ -39,9 +40,16 @@ class LoginRobot {
     expect(find.widgetWithText(CustomSnackBar, 'メールアドレス及びパスワードを正しく入力してください'),
         findsOneWidget);
   }
+
+  void checkLoginScreenShown() {
+    expect(find.widgetWithText(AppBar, 'ログイン'), findsOneWidget);
+  }
 }
 
 class _LoginScreenFindable {
+  Finder get logoImage =>
+      find.widgetWithImage(Image, Image.asset(Assets.images.logo.path).image);
+
   Finder get emailTextField => find.byKey(const ValueKey('login_screen_email'));
 
   Finder get passwordTextField =>

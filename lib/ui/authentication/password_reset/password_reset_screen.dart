@@ -72,6 +72,7 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
         ),
         const Gap(8),
         CustomTextField(
+          key: const ValueKey('password_reset_screen_email'),
           hintText: i18n.strings.passwordReset.emailHint,
           textFieldType: TextFiledType.email,
           textController: emailTextController,
@@ -85,6 +86,7 @@ class _PasswordResetScreenState extends ConsumerState<PasswordResetScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ElevatedButton(
+          key: const ValueKey('password_reset_screen_reset_btn'),
           child: Text(
             i18n.strings.passwordReset.resetBtn,
             style: textTheme.medium,

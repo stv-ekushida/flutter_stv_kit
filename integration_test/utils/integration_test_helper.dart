@@ -14,7 +14,9 @@ void guardTestWidgets(
         await test(tester);
       } catch (e) {
         //TODO:
-        print(e);
+        print('☆☆☆☆☆☆☆☆☆☆☆☆☆　${e.toString()}　☆☆☆☆☆☆☆☆☆☆☆');
+
+        rethrow;
       }
     });
   }

@@ -28,6 +28,7 @@ extension BuildContextEx on BuildContext {
               onPressed();
             },
             child: Text(
+              key: const ValueKey('info_dialog_ok_btn'),
               btnName ?? 'OK',
               style: const TextStyle(
                 color: AppColor.primaryColor,
